@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Reservas de Oficinas</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+        th { background-color: #007BFF; color: white; }
+        .libre { background-color: #d4edda; cursor: pointer; }
+        .ocupado { background-color: #f8d7da; cursor: pointer; }
+        #resumen { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Calendario de Reservas de Oficinas</h1>
+    <label for="fecha">Seleccionar fecha: </label>
+    <input type="date" id="fecha">
+    <table id="calendario">
+        <tr>
+            <th>Hora</th>
+            <th>Oficina 1</th>
+            <th>Oficina 2</th>
+            <th>Oficina 3</th>
+        </tr>
+    </table>
+    <div id="resumen">
+        <h3>Resumen de Reservas</h3>
+        <p id="totalReservas">Total de reservas activas: 0</p>
+        <button id="descargarHistorial">Descargar Historial</button>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, deleteDoc, doc, query, where, onSnapshot, getDocs } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDoTNjnjkkgUBDaVI2To5ScA83_q6ZMy-s",
+            authDomain: "gamers-a1763.firebaseapp.com",
+            projectId: "gamers-a1763",
+            storageBucket: "gamers-a1763.appspot.com",
+            messagingSenderId: "279036766390",
+            appId: "1:279036766390:web:e67ce235630f444d0f5e17"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        const horarios = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"];
+        const calendario = document.getElementById('calendario');
+        const fechaInput = document.getElementById('fecha');
+        const totalReservas = document.getElementById('totalReservas');
+        const descargarHistorial = document.getElementById('descargarHistorial');
+
+        function actualizarCalendario() {
+            calendario.innerHTML = `<tr><th>Hora</th><th>Oficina 1</th><th>Oficina 2</th><th>Oficina 3</th></tr>`;
+            horarios.forEach(hora => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `<td>${hora}</td>`;
+                for (let i = 1; i <= 3; i++) {
+                    const celda = document.createElement('td');
+                    celda.className = 'libre';
+                    celda.textContent = 'Libre';
+                    celda.dataset.hora = hora;
+                    celda.dataset.oficina = `oficina${i}`;
+                    fila.appendChild(celda);
+                }
+                calendario.appendChild(fila);
+            });
+            escucharReservas();
+        }
+
+        async function gestionarReserva(event) {
+            const celda = event.target;
+            if (!celda.dataset.hora) return;
+            
+            const password = prompt('Ingrese la contraseña para modificar:');
+            if (password !== 'a') {
+                alert('Contraseña incorrecta');
+                return;
+            }
+            
+            const fecha = fechaInput.value;
+            const hora = celda.dataset.hora;
+            const oficina = celda.dataset.oficina;
+            
+            if (celda.classList.contains('libre')) {
+                const cliente = prompt('Ingrese el nombre del cliente:');
+                if (cliente) {
+                    try {
+                        await addDoc(collection(db, "reservas"), { fecha, hora, oficina, cliente });
+                    } catch (error) {
+                        alert("Error al reservar: " + error.message);
+                    }
+                }
+            } else {
+                if (confirm('¿Desea liberar esta reserva?')) {
+                    const reservaId = celda.dataset.id;
+                    if (reservaId) {
+                        try {
+                            await deleteDoc(doc(db, "reservas", reservaId));
+                        } catch (error) {
+                            alert("Error al eliminar la reserva: " + error.message);
+                        }
+                    }
+                }
+            }
+        }
+
+        async function descargarHistorialExcel() {
+            const snapshot = await getDocs(collection(db, "reservas"));
+            let csvContent = "Fecha,Hora,Oficina,Cliente\n";
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                csvContent += `${data.fecha},${data.hora},${data.oficina},${data.cliente}\n`;
+            });
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'historial_reservas.csv';
+            a.click();
+        }
+
+        fechaInput.addEventListener('change', actualizarCalendario);
+        calendario.addEventListener('click', gestionarReserva);
+        descargarHistorial.addEventListener('click', descargarHistorialExcel);
+        
+        actualizarCalendario();
+    </script>
+</body>
+</html>

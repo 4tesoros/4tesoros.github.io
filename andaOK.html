@@ -24,6 +24,7 @@
             <th>Oficina 1</th>
             <th>Oficina 2</th>
             <th>Oficina 3</th>
+            <th>Oficina 4</th>
         </tr>
     </table>
     <div id="resumen">
@@ -33,81 +34,95 @@
     
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, deleteDoc, doc, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
         const firebaseConfig = {
-    apiKey: "AIzaSyDoTNjnjkkgUBDaVI2To5ScA83_q6ZMy-s",
-    authDomain: "gamers-a1763.firebaseapp.com",
-    databaseURL: "https://gamers-a1763.firebaseio.com",
-    projectId: "gamers-a1763",
-    storageBucket: "gamers-a1763.firebasestorage.app",
-    messagingSenderId: "279036766390",
-    appId: "1:279036766390:web:e67ce235630f444d0f5e17",
-    measurementId: "G-CPQXKNE5MJ"
-  };
+            apiKey: "AIzaSyDoTNjnjkkgUBDaVI2To5ScA83_q6ZMy-s",
+            authDomain: "gamers-a1763.firebaseapp.com",
+            projectId: "gamers-a1763",
+            storageBucket: "gamers-a1763.appspot.com",
+            messagingSenderId: "279036766390",
+            appId: "1:279036766390:web:e67ce235630f444d0f5e17"
+        };
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-
+        
         const horarios = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"];
         const calendario = document.getElementById('calendario');
         const fechaInput = document.getElementById('fecha');
         const totalReservas = document.getElementById('totalReservas');
 
         function actualizarCalendario() {
-            calendario.innerHTML = `<tr><th>Hora</th><th>Oficina 1</th><th>Oficina 2</th><th>Oficina 3</th></tr>`;
+            calendario.innerHTML = `<tr><th>Hora</th><th>Oficina 1</th><th>Oficina 2</th><th>Oficina 3</th><th>Ofiina 4</th></tr>`;
             horarios.forEach(hora => {
                 const fila = document.createElement('tr');
                 fila.innerHTML = `<td>${hora}</td>`;
-                for (let i = 1; i <= 3; i++) {
+                for (let i = 1; i <= 4; i++) {
                     const celda = document.createElement('td');
                     celda.className = 'libre';
                     celda.textContent = 'Libre';
-                    celda.addEventListener('click', async function() {
-                        if (celda.classList.contains('libre')) {
-                            const cliente = prompt('Ingrese el nombre del cliente:');
-                            if (cliente) {
-                                await addDoc(collection(db, "reservas"), {
-                                    fecha: fechaInput.value,
-                                    hora: hora,
-                                    oficina: `oficina${i}`,
-                                    cliente: cliente
-                                });
-                            }
-                        } else {
-                            if (confirm('¿Desea liberar esta reserva?')) {
-                                const reservaId = celda.getAttribute('data-id');
-                                if (reservaId) {
-                                    await deleteDoc(doc(db, "reservas", reservaId));
-                                }
-                            }
-                        }
-                    });
+                    celda.dataset.hora = hora;
+                    celda.dataset.oficina = `oficina${i}`;
                     fila.appendChild(celda);
                 }
                 calendario.appendChild(fila);
             });
+            escucharReservas();
+        }
+
+        async function gestionarReserva(event) {
+            const celda = event.target;
+            if (!celda.dataset.hora) return;
+            
+            const fecha = fechaInput.value;
+            const hora = celda.dataset.hora;
+            const oficina = celda.dataset.oficina;
+            
+            if (celda.classList.contains('libre')) {
+                const cliente = prompt('Ingrese el nombre del cliente:');
+                if (cliente) {
+                    try {
+                        await addDoc(collection(db, "reservas"), { fecha, hora, oficina, cliente });
+                    } catch (error) {
+                        alert("Error al reservar: " + error.message);
+                    }
+                }
+            } else {
+                if (confirm('¿Desea liberar esta reserva?')) {
+                    const reservaId = celda.dataset.id;
+                    if (reservaId) {
+                        try {
+                            await deleteDoc(doc(db, "reservas", reservaId));
+                        } catch (error) {
+                            alert("Error al eliminar la reserva: " + error.message);
+                        }
+                    }
+                }
+            }
         }
 
         function escucharReservas() {
-            onSnapshot(collection(db, "reservas"), (snapshot) => {
+            if (!fechaInput.value) return;
+            const reservasQuery = query(collection(db, "reservas"), where("fecha", "==", fechaInput.value));
+            onSnapshot(reservasQuery, (snapshot) => {
                 const reservas = {};
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    const key = `${data.fecha}-${data.hora}-${data.oficina}`;
+                    const key = `${data.hora}-${data.oficina}`;
                     reservas[key] = { cliente: data.cliente, id: doc.id };
                 });
                 
                 document.querySelectorAll('td.libre, td.ocupado').forEach(celda => {
-                    const key = `${fechaInput.value}-${celda.parentNode.firstChild.textContent}-${celda.cellIndex === 1 ? 'oficina1' : celda.cellIndex === 2 ? 'oficina2' : 'oficina3'}`;
+                    const key = `${celda.dataset.hora}-${celda.dataset.oficina}`;
                     if (reservas[key]) {
                         celda.className = 'ocupado';
                         celda.textContent = `Ocupado por ${reservas[key].cliente}`;
-                        celda.setAttribute('data-id', reservas[key].id);
+                        celda.dataset.id = reservas[key].id;
                     } else {
                         celda.className = 'libre';
                         celda.textContent = 'Libre';
-                        celda.removeAttribute('data-id');
+                        delete celda.dataset.id;
                     }
                 });
                 totalReservas.textContent = `Total de reservas activas: ${snapshot.size}`;
@@ -115,7 +130,9 @@
         }
 
         fechaInput.addEventListener('change', actualizarCalendario);
-        escucharReservas();
+        calendario.addEventListener('click', gestionarReserva);
+        
+        actualizarCalendario();
     </script>
 </body>
 </html>

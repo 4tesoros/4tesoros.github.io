@@ -1,0 +1,947 @@
+[
+    {
+        "fecha":"2025-02-03",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-03",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-03",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-03",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-03",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-03",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-03",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-10",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-17",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-24",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-04",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-11",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-18",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-25",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-05",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-12",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-19",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"17:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"18:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"19:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-26",
+        "hora":"20:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-06",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-13",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-20",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-27",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-07",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-14",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-21",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"09:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"10:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"11:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"12:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"13:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"14:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"15:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+    {
+        "fecha":"2025-02-28",
+        "hora":"16:00",
+        "oficina":"oficina4",
+        "cliente":"Lic Mario"
+    },
+        {"fecha":"2025-02-03","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-03","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-03","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-03","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-04","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-04","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-04","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-04","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-10","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-10","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-10","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-10","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-11","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-11","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-11","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-11","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-17","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-17","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-17","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-17","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-18","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-18","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-18","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-18","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-24","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-24","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-24","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-24","hora":"19:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-25","hora":"16:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-25","hora":"17:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-25","hora":"18:00","oficina":"oficina2","cliente":"Daiana"},
+        {"fecha":"2025-02-25","hora":"19:00","oficina":"oficina2","cliente":"Daiana"}
+    ]
+    

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ... (mantener todo el head igual) ... -->
+</head>
+<body>
+  <!-- ... (mantener todo el body igual hasta el modal) ... -->
+
+  <div id="modalReserva">
+    <div id="modalContenido">
+      <span id="cerrarModal">&times;</span>
+      <h3>Detalles de la Reserva</h3>
+      <p id="modalCliente"></p>
+      <p id="modalTelefono"></p>
+      <p id="modalEmail"></p>
+      <p id="modalObs"></p>
+      <p id="modalHorasMes"></p>
+      <button id="liberarReserva">Liberar este horario</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { 
+      initializeApp 
+    } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { 
+      getFirestore, 
+      collection, 
+      addDoc, 
+      deleteDoc, 
+      doc, 
+      query, 
+      where, 
+      onSnapshot, 
+      getDoc,
+      getDocs  // Añadido este import que faltaba
+    } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      // ... (configuración de Firebase igual)
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const horarios = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"];
+    const calendario = document.getElementById('calendario');
+    const fechaInput = document.getElementById('fecha');
+    const totalReservas = document.getElementById('totalReservas');
+    const modal = document.getElementById('modalReserva');
+    const cerrarModal = document.getElementById('cerrarModal');
+
+    // Mover la referencia al botón dentro de la función gestionarReserva
+    // Eliminar: const liberarBtn = document.getElementById('liberarReserva');
+
+    cerrarModal.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { 
+      if (e.target == modal) modal.style.display = "none"; 
+    };
+
+    function actualizarCalendario() {
+      // ... (mantener función igual)
+    }
+
+    async function gestionarReserva(event) {
+      const celda = event.target;
+      if (!celda.dataset.hora) return;
+
+      const fecha = fechaInput.value;
+      const hora = celda.dataset.hora;
+      const oficina = celda.dataset.oficina;
+
+      if (celda.classList.contains('libre')) {
+        // ... (mantener código para reservar igual)
+      } else {
+        const reservaId = celda.dataset.id;
+        if (!reservaId) return;
+        
+        try {
+          const docRef = doc(db, "reservas", reservaId);
+          const docSnap = await getDoc(docRef);
+          
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            
+            // Mostrar datos en el modal
+            document.getElementById("modalCliente").textContent = "Cliente: " + data.cliente;
+            document.getElementById("modalTelefono").textContent = "Teléfono: " + (data.telefono || "No registrado");
+            document.getElementById("modalEmail").textContent = "Email: " + (data.email || "No registrado");
+            document.getElementById("modalObs").textContent = "Observaciones: " + (data.observaciones || "Ninguna");
+            
+            // Calcular horas del mes
+            const horasMes = await calcularHorasMes(data.cliente, fecha);
+            document.getElementById("modalHorasMes").textContent = `Horas reservadas este mes: ${horasMes}`;
+            
+            // Configurar botón de liberar (ahora se obtiene aquí)
+            const liberarBtn = document.getElementById("liberarReserva");
+            liberarBtn.onclick = async () => {
+              if (confirm("¿Estás seguro de que deseas liberar este horario?")) {
+                await deleteDoc(doc(db, "reservas", reservaId));
+                modal.style.display = "none";
+              }
+            };
+            
+            // Mostrar el modal
+            modal.style.display = "block";
+          }
+        } catch (error) {
+          console.error("Error al obtener reserva:", error);
+          alert("Error al cargar los datos de la reserva");
+        }
+      }
+    }
+
+    async function calcularHorasMes(cliente, fechaActual) {
+      try {
+        const fecha = new Date(fechaActual);
+        const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+        const ultimoDiaMes = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+        
+        const fechaInicio = primerDiaMes.toISOString().split('T')[0];
+        const fechaFin = ultimoDiaMes.toISOString().split('T')[0];
+        
+        const q = query(
+          collection(db, "reservas"),
+          where("cliente", "==", cliente),
+          where("fecha", ">=", fechaInicio),
+          where("fecha", "<=", fechaFin)
+        );
+        
+        const querySnapshot = await getDocs(q);
+        return querySnapshot.size;
+      } catch (error) {
+        console.error("Error al calcular horas:", error);
+        return "Error al calcular";
+      }
+    }
+
+    // ... (mantener el resto de funciones igual)
+
+    // Inicializar calendario con fecha actual
+    window.addEventListener('DOMContentLoaded', () => {
+      fechaInput.valueAsDate = new Date();
+      actualizarCalendario();
+    });
+  </script>
+</body>
+</html>

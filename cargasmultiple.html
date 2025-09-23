@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Reservas de Oficinas</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; min-width: 100px; }
+        th { background-color: #007BFF; color: white; }
+        .libre { background-color: #d4edda; cursor: pointer; }
+        .ocupado { background-color: #f8d7da; cursor: pointer; position: relative; }
+        .eliminar { position: absolute; top: 2px; right: 2px; background: red; color: white; border: none; cursor: pointer; font-size: 12px; }
+        #resumen { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Calendario de Reservas de Oficinas</h1>
+    <label for="fecha">Seleccionar fecha: </label>
+    <input type="date" id="fecha">
+    <label for="mes">Cargar reservas mensuales:</label>
+    <input type="month" id="mes">
+    <label for="horaInicio">Hora inicio:</label>
+    <input type="time" id="horaInicio">
+    <label for="horaFin">Hora fin:</label>
+    <input type="time" id="horaFin">
+    <button id="cargarReservasMes">Cargar Reservas del Mes</button>
+    <button id="eliminarReservasMes">Eliminar Reservas del Mes</button>
+    
+    <table id="calendario">
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Oficina 1</th>
+                <th>Oficina 2</th>
+                <th>Oficina 3</th>
+                <th>Oficina 4</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="resumen">
+        <h3>Resumen de Reservas</h3>
+        <p id="totalReservas">Total de reservas activas: 0</p>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, deleteDoc, doc, query, where, onSnapshot, getDocs } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDoTNjnjkkgUBDaVI2To5ScA83_q6ZMy-s",
+            authDomain: "gamers-a1763.firebaseapp.com",
+            projectId: "gamers-a1763",
+            storageBucket: "gamers-a1763.appspot.com",
+            messagingSenderId: "279036766390",
+            appId: "1:279036766390:web:e67ce235630f444d0f5e17"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        const horarios = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"];
+        const calendario = document.getElementById('calendario').querySelector('tbody');
+        const fechaInput = document.getElementById('fecha');
+        const mesInput = document.getElementById('mes');
+        const horaInicioInput = document.getElementById('horaInicio');
+        const horaFinInput = document.getElementById('horaFin');
+        const totalReservas = document.getElementById('totalReservas');
+        const cargarReservasMesBtn = document.getElementById('cargarReservasMes');
+        const eliminarReservasMesBtn = document.getElementById('eliminarReservasMes');
+
+        function actualizarCalendario() {
+            calendario.innerHTML = "";
+            horarios.forEach(hora => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `<td>${hora}</td>`;
+                for (let i = 1; i <= 4; i++) {
+                    const celda = document.createElement('td');
+                    celda.className = 'libre';
+                    celda.textContent = 'Libre';
+                    celda.dataset.hora = hora;
+                    celda.dataset.oficina = `oficina${i}`;
+                    fila.appendChild(celda);
+                }
+                calendario.appendChild(fila);
+            });
+        }
+        
+        fechaInput.addEventListener('change', () => cargarReservas(fechaInput.value));
+        actualizarCalendario();
+    </script>
+</body>
+</html>

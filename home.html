@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler de Oficinas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+        }
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+        }
+        .oficina {
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+        }
+        .contacto {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ddd;
+        }
+        button {
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <video autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+        <div class="header-content">
+            <h1>Alquiler de Oficinas</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2>Nuestros Espacios</h2>
+        
+        <div class="oficina">
+            <h3>Oficina 1</h3>
+            <p>Precio: $6500/hora, adicional $5000/hora</p>
+        </div>
+        
+        <div class="oficina">
+            <h3>Oficina 2</h3>
+            <p>Precio: $5000/hora, adicional $4000/hora</p>
+        </div>
+        
+        <div class="oficina">
+            <h3>Oficina 3</h3>
+            <p>Precio: $4500/hora, adicional $3500/hora</p>
+            <p>Disponible: Martes a viernes de 12 a 17 hs, viernes desde las 12 en adelante.</p>
+        </div>
+        
+        <div class="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <input type="text" placeholder="Nombre" required><br><br>
+                <input type="email" placeholder="Correo Electrónico" required><br><br>
+                <textarea placeholder="Mensaje" required></textarea><br><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <a href="#">Home</a>
+        <a href="#">Oficinas</a>
+        <a href="#">Contacto</a>
+    </footer>
+</body>
+</html>
