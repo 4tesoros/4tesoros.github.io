@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>New-ELECTRION</title>
+  <link rel="icon" href="icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <style>
+    /* Estilos para el diseÃ±o de la pÃ¡gina */
+    html, body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: url("fondo.jpg");
+      background-size: cover;
+    }
+
+    /* Estilos para los botones */
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #bfc4cf48;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 80%; /* Ancho del botÃ³n */
+      max-width: 300px; /* Ancho mÃ¡ximo si el nombre es muy largo */
+      display: block;
+    }
+
+    button:hover {
+      background-color: #030e03;
+    }
+
+    /* Estilo para el campo de entrada */
+    #commandsPath {
+      font-size: 18px;
+      padding: 5px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Estilos para la cabecera */
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      padding: 5px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    /* Estilos para los nuevos botones */
+    .header-buttons a {
+      text-decoration: none;
+      color: white;
+      margin-right: 2px;
+      font-size: 20px;
+      background-color: #06420600;
+      padding: 10px 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .header-buttons a:hover {
+      background-color: #45a049;
+    }
+
+    /* Ajuste de margen superior para el contenido principal */
+    .main-content {
+      margin-top: 60px; /* Ajusta este valor segÃºn tus necesidades */
+    }
+
+  </style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007BFF">
+</head>
+
+<body>
+   
+      
+  
+  <!-- Campo de entrada para ingresar la ruta -->
+  <label for="commandsPath">Ruta:</label>
+  <br>
+  <input type="text" id="commandsPath" placeholder="Ingresa la ruta...">
+  <br><br>
+
+  <!-- Botones para enviar los valores -->
+  <button onclick="sendValue('56')">abrir</button>
+  <button onclick="sendValue('57')">cerrar</button>
+  <button onclick="sendValue('58')">luz"ON"</button>
+  <button onclick="sendValue('59')">luz"OFF"</button>
+  <button onclick="sendValue('60')">Aux"ON"</button>
+  <button onclick="sendValue('61')">Aux"OFF"</button>
+
+  <!-- Div para mostrar los mensajes recibidos -->
+  <div id="messages"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+  <script>
+// Initialize Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyAnvN90wYizXGSHC2QvyccZ-wCesELTVUI",
+  authDomain: "ionizadores-787e2.firebaseapp.com",
+  databaseURL: "https://ionizadores-787e2.firebaseio.com",
+  projectId: "ionizadores-787e2",
+  storageBucket: "ionizadores-787e2.appspot.com",
+  messagingSenderId: "403247710969",
+  appId: "1:403247710969:web:e6e943694e0ec56f195828",
+  measurementId: "G-QS0C8YLGWG"
+});
+
+    // Get a reference to the database
+    var database = firebase.database();
+
+    // FunciÃ³n para enviar el valor a la subraÃ­z "on1" con el valor del botÃ³n
+    function sendValue(value) {
+      var commandsPath = document.getElementById("commandsPath").value;
+      localStorage.setItem("ruta", commandsPath); // Guardar ruta en localStorage
+      // Agregar "/on1" al final de la ruta
+      var on1Path = commandsPath + "/hora1";
+
+      // Enviar el valor a la base de datos
+      database.ref(on1Path).set(value);
+    }
+
+    // Recuperar la ruta guardada en localStorage al cargar la pÃ¡gina
+    document.addEventListener("DOMContentLoaded", function() {
+      var rutaGuardada = localStorage.getItem("ruta");
+      if (rutaGuardada) {
+        document.getElementById("commandsPath").value = rutaGuardada;
+      }
+    });
+  </script>
+
+<script>
+  // FunciÃ³n para obtener el contador de visitas almacenado en localStorage
+  function getVisitas() {
+    const visitas = localStorage.getItem('contador-visitas');
+    return visitas ? parseInt(visitas) : 0;
+  }
+
+  // FunciÃ³n para aumentar el contador de visitas
+  function aumentarVisitas() {
+    const contador = getVisitas();
+    localStorage.setItem('contador-visitas', contador + 1);
+    document.getElementById('contador').textContent = contador + 1;
+  }
+
+  // Ejecuta la funciÃ³n al cargar la pÃ¡gina
+  window.onload = aumentarVisitas;
+</script>
+<p>Contador de visitas: <span id="contador">0</span></p>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('Service Worker registrado', reg))
+      .catch(err => console.error('Error registrando el Service Worker:', err));
+  }
+</script>
+
+</body>
+</html>

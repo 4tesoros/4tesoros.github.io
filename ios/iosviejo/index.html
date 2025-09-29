@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New-ELECTRION</title>
+  <link rel="icon" href="icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    html, body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: #f2f2f2;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("fondoold.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* CABECERA */
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header-buttons a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #555;
+  transition: background-color 0.3s;
+}
+
+.header-buttons a:hover {
+  background-color: #4c53af;
+}
+
+/* CONTENIDO */
+.main-content {
+  margin-top: 100px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* CAMPO DE RUTA */
+#commandsPath {
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* BOTONES */
+button {
+  font-size: 22px;
+  padding: 14px 24px;
+  margin: 10px auto;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 90%;
+  max-width: 300px;
+  transition: background-color 0.3s, transform 0.1s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: #2e2e2e;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* BOTÓN DE INSTALACIÓN */
+#installBtn {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+#installBtn:hover {
+  background-color: #218838;
+}
+
+/* CONTADOR DE VISITAS */
+#contador {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="header-buttons">
+      <a href="index.html">Inicio</a>
+      <a href="timer.html">Timers</a>
+      <a href="tips.html">Tips</a>
+      <a href="settings.html">Settings</a>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <label for="commandsPath">Ruta:</label><br>
+    <input type="text" id="commandsPath" placeholder="Ingresa la ruta..."><br>
+
+    <button id="btnBomba">Bomba sin data</button>
+    <button id="btnLuz">Luz sin data</button>
+    <button id="btnAux">Auxiliar sin data</button>
+    <button onclick="sendValue('61')">ELECTRION publicidad</button>
+    <div id="messages"></div>
+    <button id="installBtn" style="display:none;">Instalar App</button>
+    <p>Contador de visitas: <span id="contador">0</span></p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyAnvN90wYizXGSHC2QvyccZ-wCesELTVUI",
+      authDomain: "ionizadores-787e2.firebaseapp.com",
+      databaseURL: "https://ionizadores-787e2.firebaseio.com",
+      projectId: "ionizadores-787e2",
+      storageBucket: "ionizadores-787e2.appspot.com",
+      messagingSenderId: "403247710969",
+      appId: "1:403247710969:web:e6e943694e0ec56f195828",
+      measurementId: "G-QS0C8YLGWG"
+    });
+
+    var database = firebase.database();
+
+    function sendValue(value) {
+      var commandsPath = document.getElementById("commandsPath").value;
+      localStorage.setItem("ruta", commandsPath);
+      var on1Path = commandsPath + "/hora1";
+      database.ref(on1Path).set(value);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var rutaGuardada = localStorage.getItem("ruta");
+      if (rutaGuardada) {
+        document.getElementById("commandsPath").value = rutaGuardada;
+      }
+    });
+
+    const btnBomba = document.getElementById('btnBomba');
+    let estadoBomba = "bf";
+    btnBomba.addEventListener('click', () => {
+      const commandsPath = document.getElementById("commandsPath").value;
+      const on1Path = commandsPath + "/hora1";
+      const valor = estadoBomba === "bt" ? "57" : "56";
+      database.ref(on1Path).set(valor);
+    });
+
+    function escucharEstadoBomba() {
+      const commandsPath = localStorage.getItem("ruta") || "";
+      const refEstado3 = database.ref(commandsPath + "/estado3");
+      refEstado3.on('value', snapshot => {
+        estadoBomba = snapshot.val();
+        if (estadoBomba === "bt") {
+          btnBomba.style.backgroundColor = "green";
+          btnBomba.textContent = "Bomba ON";
+        } else {
+          btnBomba.style.backgroundColor = "#001f3f";
+          btnBomba.textContent = "Bomba OFF";
+        }
+      });
+    }
+
+    const btnLuz = document.getElementById('btnLuz');
+    let estadoLuz = "bf";
+    btnLuz.addEventListener('click', () => {
+      const commandsPath = document.getElementById("commandsPath").value;
+      const on1Path = commandsPath + "/hora1";
+      const valor = estadoLuz === "bt" ? "59" : "58";
+      database.ref(on1Path).set(valor);
+    });
+
+    function escucharEstadoLuz() {
+      const commandsPath = localStorage.getItem("ruta") || "";
+      const refEstado4 = database.ref(commandsPath + "/estado4");
+      refEstado4.on('value', snapshot => {
+        estadoLuz = snapshot.val();
+        if (estadoLuz === "lt") {
+          btnLuz.style.backgroundColor = "green";
+          btnLuz.textContent = "Luz ON";
+        } else {
+          btnLuz.style.backgroundColor = "#001f3f";
+          btnLuz.textContent = "Luz OFF";
+        }
+      });
+    }
+
+    const btnAux = document.getElementById('btnAux');
+    let estadoAux = "bf";
+    btnAux.addEventListener('click', () => {
+      const commandsPath = document.getElementById("commandsPath").value;
+      const on1Path = commandsPath + "/hora1";
+      const valor = estadoAux === "at" ? "61" : "60";
+      database.ref(on1Path).set(valor);
+    });
+
+    function escucharEstadoAux() {
+      const commandsPath = localStorage.getItem("ruta") || "";
+      const refEstado5 = database.ref(commandsPath + "/estado5");
+      refEstado5.on('value', snapshot => {
+        estadoAux = snapshot.val();
+        if (estadoAux === "bt") {
+          btnAux.style.backgroundColor = "green";
+          btnAux.textContent = "Auxiliar ON";
+        } else {
+          btnAux.style.backgroundColor = "#001f3f";
+          btnAux.textContent = "Auxiliar OFF";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      escucharEstadoBomba();
+      escucharEstadoLuz();
+      escucharEstadoAux();
+    });
+
+    function getVisitas() {
+      const visitas = localStorage.getItem('contador-visitas');
+      return visitas ? parseInt(visitas) : 0;
+    }
+
+    function aumentarVisitas() {
+      const contador = getVisitas();
+      localStorage.setItem('contador-visitas', contador + 1);
+      document.getElementById('contador').textContent = contador + 1;
+    }
+
+    window.onload = aumentarVisitas;
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registrado', reg))
+        .catch(err => console.error('Error registrando el Service Worker:', err));
+    }
+
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'block';
+
+      installBtn.addEventListener('click', () => {
+        installBtn.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Usuario aceptó la instalación');
+          } else {
+            console.log('Usuario rechazó la instalación');
+          }
+          deferredPrompt = null;
+        });
+      });
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('App instalada');
+      installBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
