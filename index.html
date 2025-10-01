@@ -1,275 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>ROMA-PRO</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ROMA Coworking</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+  <!-- Bootstrap & Fonts -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
-    <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+    }
 
-https://templatemo.com/tm-559-zay-shop
+    /* Navbar */
+    .navbar {
+      background: #fff !important;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .navbar .nav-link {
+      font-weight: 500;
+      margin: 0 8px;
+      transition: color 0.3s ease;
+    }
+    .navbar .nav-link:hover {
+      color: #28a745 !important;
+    }
 
--->
-<link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#007BFF">
+    /* Hero */
+    .carousel-item h1 {
+      font-weight: 700;
+      color: #28a745;
+    }
+    .carousel-item h3 {
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+    .carousel-item p {
+      line-height: 1.6;
+    }
+    .carousel img {
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+    }
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #bbb;
+      padding-top: 40px;
+    }
+    footer h2 {
+      color: #28a745;
+      font-weight: 700;
+    }
+    footer a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #28a745;
+    }
+    .footer-icons .list-inline-item {
+      margin: 0 6px;
+    }
+    .footer-icons i {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 50%;
+      background: #333;
+      transition: all 0.3s ease;
+    }
+    .footer-icons i:hover {
+      background: #28a745;
+      color: #fff;
+    }
+
+    /* Copyright */
+    .bg-black {
+      background: #111 !important;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:roma.coworking.sl@gmail.com">roma.coworking.sl@gmail.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:+54-9-2665-010199">+54-9-2665-010199</a>
-                </div>
-                <div>
-                    <a class="text-light" href="https://web.facebook.com/people/RomaCowork/" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/coworking.roma/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                   
-                   
-                </div>
-            </div>
+  <!-- Top Contact Bar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block">
+    <div class="container text-light">
+      <div class="w-100 d-flex justify-content-between">
+        <div>
+          <i class="fa fa-envelope mx-2"></i>
+          <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:roma.coworking.sl@gmail.com">roma.coworking.sl@gmail.com</a>
+          <i class="fa fa-phone mx-2"></i>
+          <a class="navbar-sm-brand text-light text-decoration-none" href="tel:+54-9-2665-010199">+54-9-2665-010199</a>
         </div>
-    </nav>
-    <!-- Close Top Nav -->
-
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-    
-            <a href="index.html">
-           <img class="card-img rounded-0 img-fluid" src="assets/img/roma/icono.jpg" style="width: 200px; height: auto;">
-            </a>
-    
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="cargahorariosusers.html">clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Horarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Oficinas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="pedirPassword()">Admin</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-    
+        <div>
+          <a class="text-light" href="https://web.facebook.com/people/RomaCowork/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a class="text-light" href="https://www.instagram.com/coworking.roma/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-    </nav>
-    
-    <script>
-        function pedirPassword() {
-            const passwordCorrecta = "amor"; // Cambia esto por la contraseña que prefieras
-            const passwordIngresada = prompt("Ingrese la contraseña para acceder al panel de administración:");
-    
-            if (passwordIngresada === passwordCorrecta) {
-                window.location.href = "admin.html";
-            } else {
-                alert("Contraseña incorrecta. Acceso denegado.");
-            }
-        }
-    </script>
-    <!-- Close Header -->
-
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
+      </div>
     </div>
+  </nav>
 
-
-
-    <!-- Start Banner Hero -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/roma/1.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Espacios</b> XHORA</h1>
-                                <h3 class="h2">🛋️ Un espacio diseñado para brindar comodidad y privacidad.</h3>
-                                <p>
-                                    Si necesitas un ambiente profesional para consultas, sesiones o reuniones individuales, nuestras oficinas están listas para ofrecerte el confort y la tranquilidad que buscás. Recibe a tus clientes en un lugar elegante y equipado para tu trabajo. 
-
-                                   
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/roma/7.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Coworking</h1>
-                                <h3 class="h2">👥 El espacio ideal para capacitaciones, reuniones y trabajo en equipo.</h3>
-                                <p>
-                                    Nuestras salas están preparadas para adaptarse a diferentes dinámicas de trabajo: formaciones, brainstorming, presentaciones y más. Con un ambiente cómodo y profesional, podés enfocarte en lo que realmente importa: compartir ideas y hacer crecer tu proyecto.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/roma/6.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1"> Bienvenido a ROMA</h1>
-                                <h3 class="h2">donde tu productividad encuentra su lugar. </h3>
-                                <p>
-                                    Un espacio flexible, moderno y pensado para adaptarse a tus necesidades. Ya sea para trabajar por horas, medio día o jornada completa, aquí encontrás el ambiente ideal para concentrarte y lograr tus objetivos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
+  <!-- Main Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html">
+        <img src="assets/img/roma/icono.jpg" class="img-fluid" style="width: 160px; height: auto;">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-fill justify-content-end" id="main_nav">
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="cargahorariosusers.html">Clientes</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Horarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Oficinas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="pedirPassword()">Admin</a></li>
+        </ul>
+      </div>
     </div>
-    <!-- End Banner Hero -->
+  </nav>
 
-
-    
-
-    <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">ROMA Coworking</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            Rivadavia 1138
-                        </li>
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:266-5010199">266-501-0199</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:coworking.roma.sl@gmail.com">coworking.roma@gmail.com</a>
-                        </li>
-                    </ul>
-                </div>
-
-                
-
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://web.facebook.com/people/RomaCowork"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/coworking.roma/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    
-                </div>
-            </div>
+  <!-- Carousel Hero -->
+  <div id="hero" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container py-5 d-flex flex-wrap align-items-center">
+          <div class="col-lg-6">
+            <h1>Espacios XHORA</h1>
+            <h3>🛋️ Comodidad y privacidad para tus reuniones.</h3>
+            <p>Si necesitas un ambiente profesional para consultas, sesiones o reuniones individuales, nuestras oficinas están listas para ofrecerte el confort y la tranquilidad que buscás.</p>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="./assets/img/roma/1.png" class="img-fluid" alt="">
+          </div>
         </div>
+      </div>
 
-        <div class="w-100 bg-black py-3">
-            <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                            Copyright &copy; 2025
-                            | Designed by <a rel="sponsored" href="https://electrion.com.ar" target="_blank">electrion</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div class="carousel-item">
+        <div class="container py-5 d-flex flex-wrap align-items-center">
+          <div class="col-lg-6">
+            <h1>Coworking</h1>
+            <h3>👥 El espacio ideal para capacitaciones y trabajo en equipo.</h3>
+            <p>Nuestras salas están preparadas para adaptarse a diferentes dinámicas: formaciones, brainstorming, presentaciones y más.</p>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="./assets/img/roma/7.png" class="img-fluid" alt="">
+          </div>
         </div>
+      </div>
 
-    </footer>
-    <!-- End Footer -->
+      <div class="carousel-item">
+        <div class="container py-5 d-flex flex-wrap align-items-center">
+          <div class="col-lg-6">
+            <h1>Bienvenido a ROMA</h1>
+            <h3>Donde tu productividad encuentra su lugar.</h3>
+            <p>Espacio flexible, moderno y pensado para adaptarse a tus necesidades. Trabajá por horas, medio día o jornada completa.</p>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="./assets/img/roma/6.png" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#hero" role="button" data-bs-slide="prev"><i class="fas fa-chevron-left"></i></a>
+    <a class="carousel-control-next" href="#hero" role="button" data-bs-slide="next"><i class="fas fa-chevron-right"></i></a>
+  </div>
 
-    <!-- Start Script -->
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <!-- End Script -->
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-md-4">
+          <h2>ROMA Coworking</h2>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i> Rivadavia 1138</li>
+            <li><i class="fa fa-phone"></i> <a href="tel:266-5010199">266-501-0199</a></li>
+            <li><i class="fa fa-envelope"></i> <a href="mailto:coworking.roma@gmail.com">coworking.roma@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-icons text-center">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://web.facebook.com/people/RomaCowork" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/coworking.roma/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-100 bg-black text-center py-3">
+      <p class="m-0">© 2025 ROMA | Diseñado por <a href="https://electrion.com.ar" target="_blank">electrion</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function pedirPassword() {
+      const passwordCorrecta = "amor";
+      const passwordIngresada = prompt("Ingrese la contraseña para acceder al panel de administración:");
+      if (passwordIngresada === passwordCorrecta) {
+        window.location.href = "admin.html";
+      } else {
+        alert("Contraseña incorrecta. Acceso denegado.");
+      }
+    }
+  </script>
 </body>
-
-
 </html>
 
