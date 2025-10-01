@@ -18,6 +18,29 @@ body {
 .navbar .nav-link:hover {
   color: #28a745 !important;
 }
+/* ==== Profesionales ==== */
+.card-profesional {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-profesional h5 {
+  font-weight: 700;
+  color: #28a745;
+  margin-bottom: 8px;
+}
+.card-profesional p {
+  margin: 0;
+  font-weight: 400;
+  color: #555;
+}
+.card-profesional:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
 
 /* ==== Hero / Carousel ==== */
 .carousel-item h1 {
