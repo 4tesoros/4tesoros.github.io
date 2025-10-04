@@ -1,0 +1,348 @@
+/* Variables de Color (Psicología: Calma y Confianza) */
+:root {
+    --color-primary: #588B8B; /* Azul-Verdoso Calmante */
+    --color-secondary: #C8E3D7; /* Verde Claro Suave */
+    --color-accent: #E07A5F; /* Tono Salmón para llamar a la acción */
+    --color-dark: #3D405B; /* Azul Oscuro para texto */
+    --color-light: #F4F1DE; /* Blanco Roto/Crema para fondos */
+    --font-primary: 'Poppins', sans-serif;
+}
+
+/* Base y Reset Mínimo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+/* --- CABECERA Y NAVEGACIÓN --- */
+.main-header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: var(--color-dark);
+    font-weight: 400;
+    transition: color 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.main-nav a:hover {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+/* --- SECCIONES GENERALES --- */
+.content-section {
+    padding: 80px 0;
+    min-height: 100vh; /* Para asegurar que el ancla funcione bien */
+    display: flex;
+    align-items: center;
+    padding-top: 100px; /* Espacio para el header fijo */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--color-primary);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Estilo para el botón de llamada a la acción */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #d16b4e; /* Tono más oscuro */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #497575;
+}
+
+/* --- SECCIÓN HERO --- */
+.hero-section {
+    background: var(--color-secondary); /* Fondo suave */
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+}
+
+.hero-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--color-dark);
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+}
+
+/* --- SECCIÓN SOBRE MÍ --- */
+.about-section {
+    background-color: white;
+    padding-top: 120px;
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 2;
+    font-size: 1.1rem;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.image-placeholder {
+    width: 250px;
+    height: 250px;
+    background-color: var(--color-secondary);
+    border-radius: 50%; /* Foto de perfil circular */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-weight: 600;
+    border: 5px solid var(--color-primary);
+}
+
+.signature {
+    font-style: italic;
+    color: var(--color-dark);
+    margin-top: 20px;
+}
+
+/* --- SECCIÓN SERVICIOS --- */
+.services-section {
+    background-color: var(--color-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    border-top: 5px solid var(--color-primary);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h4 {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* --- SECCIÓN OBRAS SOCIALES --- */
+.insurance-section {
+    background-color: var(--color-secondary);
+    text-align: center;
+    padding-top: 120px;
+}
+
+.insurance-list {
+    margin-top: 40px;
+}
+
+.insurance-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 30px;
+}
+
+/* --- SECCIÓN CONTACTO --- */
+.contact-section {
+    background-color: white;
+    padding-top: 120px;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-info a {
+    font-weight: 600;
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries (Adaptabilidad Móvil) --- */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    .main-nav ul {
+        gap: 10px;
+        padding: 10px 0;
+        justify-content: center;
+    }
+    
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .image-placeholder {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav ul {
+        flex-wrap: wrap;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
