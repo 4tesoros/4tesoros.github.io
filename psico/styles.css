@@ -191,17 +191,14 @@ h1, h2, h3 {
 }
 
 .image-placeholder {
-    width: 250px;
-    height: 250px;
-    background-color: var(--color-secondary);
-    border-radius: 50%; /* Foto de perfil circular */
+    width: 250px; /* Aquí controlas el ancho */
+    height: 250px; /* Aquí controlas el alto */
+    object-fit: cover; /* Asegura que la imagen no se distorsione */
+    border-radius: 50%; /* Hace que la foto sea circular */
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary);
-    font-weight: 600;
-    border: 5px solid var(--color-primary);
+    display: block;
+    border: 5px solid var(--color-primary); /* Borde profesional */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .signature {
