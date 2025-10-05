@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Psicóloga Noelia — Psicoterapia presencial y online</title>
+  <meta name="description" content="Psicóloga Noelia | Psicoterapia para adolescentes y adultos. Manejo de estrés, ansiedad, hábitos saludables y crecimiento personal. Atención presencial y online en San Luis." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #FBFBFA;
+      --card: #FFFFFF;
+      --muted: #6B6B6B;
+      --accent: #7FB5A8; /* calm green */
+      --accent-dark: #5F9E8C;
+      --radius: 14px;
+      --max-width: 980px;
+      --gap: 24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{max-width:var(--max-width);margin:32px auto;padding:0 18px}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:76px;height:76px;border-radius:50%;overflow:hidden;flex:0 0 76px;border:2px solid rgba(0,0,0,0.06)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{font-family:'Playfair Display', serif;margin:0;font-size:20px}
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+
+    nav{display:flex;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.04);text-decoration:none;color:#111;font-weight:600;font-size:14px}
+    .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+    .btn.whatsapp{background:linear-gradient(90deg,var(--accent),var(--accent-dark));color:white}
+
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;margin-bottom:28px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));padding:22px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(23,32,34,0.04)}
+    .hero h2{margin:0 0 10px;font-family:'Playfair Display',serif;font-size:28px}
+    .hero p{margin:0 0 12px;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:860px){
+      .hero{grid-template-columns:1fr 360px}
+      .grid{grid-template-columns:1fr 320px}
+    }
+
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(14,20,22,0.04)}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .section-title h3{margin:0;font-size:18px}
+    ul.services{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    ul.services li{display:flex;gap:10px;align-items:flex-start}
+    .dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-dark));display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:700}
+
+    .about p{margin:0 0 12px;color:var(--muted)}
+    .highlight{color:var(--accent-dark);font-weight:600}
+
+    .contact-list{display:flex;flex-direction:column;gap:8px}
+    .contact-item{display:flex;gap:10px;align-items:center}
+    .icon{width:36px;height:36px;border-radius:8px;background:#F3F7F5;display:inline-flex;align-items:center;justify-content:center}
+
+    footer{margin:28px 0 60px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* small helpers */
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#F6F9F8;font-weight:600;font-size:13px}
+    .tag{font-size:13px;color:var(--muted)}
+
+    /* contact form simple */
+    form .row{display:grid;grid-template-columns:1fr;gap:8px}
+    form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #E9E9E9;font-size:14px}
+    form button{margin-top:8px}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar">
+          <!-- Reemplazar src con la foto profesional de Noelia -->
+          <img src="https://via.placeholder.com/300x300.png?text=Noelia" alt="Foto de Noelia - Psicóloga" />
+        </div>
+        <div>
+          <h1>Psicóloga Noelia</h1>
+          <p class="lead">Psicoterapia presencial y online • Adolescentes y Adultos</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn whatsapp" href="https://wa.me/26643808809" target="_blank" rel="noopener">Abrir WhatsApp</a>
+        <a class="btn ghost" href="https://www.instagram.com/psicologa.noelia/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="hero-card">
+        <h2>Acompañamiento profesional para tu bienestar emocional</h2>
+        <p>Trabajo con adolescentes y adultos en procesos de <span class="highlight">manejo de estrés</span>, <span class="highlight">ansiedad</span>, formación de <span class="highlight">hábitos saludables</span> y crecimiento personal. Atención presencial en San Luis y por plataformas online.</p>
+
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a class="btn whatsapp" href="https://wa.me/26643808809" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+          <a class="btn" href="#servicios">Ver servicios</a>
+        </div>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid #F0F0F0" />
+
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <div class="pill">Presencial • Online</div>
+          <div class="tag">Rivadavia 1138, San Luis</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="section-title"><h3>Contacto</h3></div>
+        <div class="contact-list">
+          <div class="contact-item"><div class="icon">📍</div><div>Rivadavia 1138, San Luis, Argentina</div></div>
+          <div class="contact-item"><div class="icon">📱</div><div><a href="https://wa.me/26643808809" target="_blank" rel="noopener">+54 266 438 08809 (WhatsApp)</a></div></div>
+          <div class="contact-item"><div class="icon">📷</div><div><a href="https://www.instagram.com/psicologa.noelia/" target="_blank" rel="noopener">@psicologa.noelia</a></div></div>
+        </div>
+      </aside>
+    </main>
+
+    <div class="grid">
+      <section class="card about">
+        <div class="section-title"><h3>Sobre mí</h3></div>
+        <p>Hola, soy <strong>Noelia</strong>, psicóloga clínica. Acompaño a adolescentes y adultos en procesos de cambio y bienestar emocional. Mi enfoque combina escucha activa, herramientas prácticas y acompañamiento personalizado para que puedas enfrentar desafíos, reducir el malestar y construir hábitos saludables.</p>
+        <p>Si querés que trabajemos juntos, podés agendar una consulta online o presencial. Mi prioridad es brindar un espacio seguro, respetuoso y profesional.</p>
+      </section>
+
+      <aside class="card">
+        <div class="section-title"><h3>Áreas de trabajo</h3></div>
+        <ul class="services">
+          <li><div class="dot">1</div><div><strong>Manejo de estrés</strong><div class="tag">Técnicas prácticas y psicoeducación</div></div></li>
+          <li><div class="dot">2</div><div><strong>Problemas de ansiedad</strong><div class="tag">Intervenciones breves y seguimiento</div></div></li>
+          <li><div class="dot">3</div><div><strong>Hábitos saludables</strong><div class="tag">Rutinas, sueño y autocuidado</div></div></li>
+          <li><div class="dot">4</div><div><strong>Crecimiento personal</strong><div class="tag">Metas, autoestima y planificación</div></div></li>
+        </ul>
+      </aside>
+
+      <section class="card" id="servicios">
+        <div class="section-title"><h3>Servicios</h3></div>
+        <p class="tag">Ofrezco sesiones individuales tanto <strong>presenciales</strong> como <strong>online</strong>. Las sesiones se adaptan según la edad y necesidades del paciente.</p>
+
+        <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px">
+          <div style="padding:12px;border-radius:10px;background:#FAFAFA">Sesiones individuales (50 min) — adolescentes y adultos</div>
+          <div style="padding:12px;border-radius:10px;background:#FAFAFA">Consultas de orientación puntual (30 min)</div>
+          <div style="padding:12px;border-radius:10px;background:#FAFAFA">Programas para manejo de estrés (paquetes personalizados)</div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="section-title"><h3>Historias destacadas</h3></div>
+        <p class="tag">En Instagram podés ver contenidos sobre:</p>
+        <ul style="margin:8px 0 0 16px;color:var(--muted)">
+          <li>Hábitos</li>
+          <li>Ansiedad</li>
+          <li>Pensamiento</li>
+          <li>Frases y reflexiones</li>
+          <li>Estrés y esquemas</li>
+        </ul>
+      </aside>
+
+      <section class="card">
+        <div class="section-title"><h3>Recursos &amp; Frases</h3></div>
+        <p class="tag">Pequeños consejos y reflexiones para el día a día — perfectos para compartir en redes o incluir como blog.</p>
+        <ul style="margin:10px 0 0 0;padding:0;list-style:none;display:grid;gap:8px">
+          <li style="padding:10px;border-radius:8px;background:#FBFBFB">"Respirar es el primer paso para calmar al cuerpo."</li>
+          <li style="padding:10px;border-radius:8px;background:#FBFBFB">"Los hábitos pequeños crean grandes cambios."</li>
+          <li style="padding:10px;border-radius:8px;background:#FBFBFB">"No hay progreso sin paciencia."</li>
+        </ul>
+      </section>
+
+      <aside class="card">
+        <div class="section-title"><h3>Contacto rápido</h3></div>
+        <p class="tag">Completá el formulario o escribime por WhatsApp para coordinar una primera consulta.</p>
+
+        <form action="#" onsubmit="alert('Formulario demo — conectar a un servicio real o usar mailto: en action');return false;">
+          <div class="row">
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+            <input type="tel" name="telefono" placeholder="Teléfono / WhatsApp" />
+            <input type="email" name="email" placeholder="Correo electrónico" />
+            <textarea name="mensaje" rows="4" placeholder="Breve mensaje / motivo de consulta"></textarea>
+            <button class="btn" type="submit">Enviar consulta</button>
+          </div>
+        </form>
+
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn whatsapp" href="https://wa.me/26643808809" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" href="https://www.instagram.com/psicologa.noelia/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Psicóloga Noelia — Atención presencial y online • Rivadavia 1138, San Luis
+    </footer>
+  </div>
+
+  <script>
+    // pequeño script para año y accesibilidad
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
