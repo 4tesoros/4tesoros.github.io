@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Psicóloga Noelia — Psicoterapia presencial y online</title>
+    <meta name="description" content="Psicóloga Noelia | Psicoterapia para adolescentes y adultos. Manejo de estrés, ansiedad, hábitos saludables y crecimiento personal. Atención presencial y online en San Luis." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-wrapper">
+        
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="brand">
+                    <h1 class="logo">Lic. Noelia</h1>
+                    <p class="lead-header">Psicología Clínica</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#sobre-mi">Sobre mí</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            
+            <section id="inicio" class="hero-section">
+                <div class="container hero-grid">
+                    <div class="hero-card">
+                        <h2>Acompañamiento profesional para tu bienestar emocional</h2>
+                        <p>Trabajo con adolescentes y adultos en procesos de <span class="highlight">manejo de estrés</span>, <span class="highlight">ansiedad</span>, formación de <span class="highlight">hábitos saludables</span> y crecimiento personal.</p>
+                        <p class="tag-mobile">Presencial en San Luis y por plataformas online.</p>
+
+                        <div class="hero-actions">
+                            <a class="btn whatsapp" href="https://wa.me/26643808809" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+                            <a class="btn ghost" href="#servicios">Ver servicios</a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image-contact">
+                        <div class="avatar-large">
+                            <img src="foto_perfil.jpg" alt="Foto de Noelia - Psicóloga" />
+                        </div>
+                        <div class="contact-info-card card">
+                            <div class="contact-item"><div class="icon">📱</div><div><a href="https://wa.me/26643808809" target="_blank" rel="noopener">+54 266 438 08809</a></div></div>
+                            <div class="contact-item"><div class="icon">📍</div><div>Rivadavia 1138, San Luis</div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobre-mi" class="content-section about-section">
+                <div class="container">
+                    <h3 class="section-title">Sobre mí</h3>
+                    <div class="card about-content">
+                        <p>Hola, soy **Noelia**, psicóloga clínica. Acompaño a adolescentes y adultos en procesos de cambio y bienestar emocional. Mi enfoque combina escucha activa, herramientas prácticas y acompañamiento personalizado para que puedas enfrentar desafíos, reducir el malestar y construir hábitos saludables.</p>
+                        <p>Si querés que trabajemos juntos, podés agendar una consulta online o presencial. Mi prioridad es brindar un **espacio seguro, respetuoso y profesional**.</p>
+                        <hr>
+                        <div class="areas-grid">
+                            <h4>Áreas de Enfoque:</h4>
+                            <ul class="services-list">
+                                <li><strong>Manejo de estrés</strong>: Técnicas prácticas y psicoeducación.</li>
+                                <li><strong>Problemas de ansiedad</strong>: Intervenciones breves y seguimiento.</li>
+                                <li><strong>Hábitos saludables</strong>: Rutinas, sueño y autocuidado.</li>
+                                <li><strong>Crecimiento personal</strong>: Metas, autoestima y planificación.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="servicios" class="content-section services-section">
+                <div class="container">
+                    <h3 class="section-title">Servicios de Terapia</h3>
+                    <p class="tag-intro">Ofrezco sesiones individuales tanto **presenciales** como **online**. Las sesiones se adaptan según la edad y necesidades del paciente.</p>
+
+                    <div class="services-grid">
+                        <div class="service-item card">
+                            <h4>Terapia Individual (Adolescentes y Adultos)</h4>
+                            <p>Sesiones de 50 minutos. Abordaje de ansiedad, estrés y problemáticas personales.</p>
+                            <a class="btn whatsapp" href="https://wa.me/26643808809">Consultar</a>
+                        </div>
+                        <div class="service-item card">
+                            <h4>Consultas de Orientación Puntual</h4>
+                            <p>Sesiones breves (30 minutos) enfocadas en una problemática específica para una guía rápida.</p>
+                            <a class="btn whatsapp" href="https://wa.me/26643808809">Consultar</a>
+                        </div>
+                        <div class="service-item card">
+                            <h4>Programas de Manejo de Estrés</h4>
+                            <p>Paquetes personalizados que incluyen seguimiento y material exclusivo para gestión emocional.</p>
+                            <a class="btn whatsapp" href="https://wa.me/26643808809">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contacto" class="content-section contact-section">
+                <div class="container contact-content">
+                    <h3 class="section-title">Contacto</h3>
+                    
+                    <div class="card contact-form-card">
+                        <p class="tag-intro">Completá el formulario o escribime por WhatsApp para coordinar una primera consulta.</p>
+
+                        <form action="#" onsubmit="alert('Formulario de prueba. Conecta esta acción a un servicio de email real.');return false;">
+                            <div class="row">
+                                <input type="text" name="nombre" placeholder="Tu nombre" required />
+                                <input type="tel" name="telefono" placeholder="Teléfono / WhatsApp" required />
+                                <input type="email" name="email" placeholder="Correo electrónico" required />
+                                <textarea name="mensaje" rows="4" placeholder="Breve mensaje / motivo de consulta"></textarea>
+                                <button class="btn whatsapp" type="submit">Enviar consulta</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="contact-details">
+                        <h4>Información Adicional</h4>
+                        <div class="contact-list">
+                            <div class="contact-item"><div class="icon">📍</div><div>Rivadavia 1138, San Luis, Argentina</div></div>
+                            <div class="contact-item"><div class="icon">📱</div><div><a href="https://wa.me/26643808809" target="_blank" rel="noopener">+54 266 438 08809 (WhatsApp)</a></div></div>
+                            <div class="contact-item"><div class="icon">📷</div><div><a href="https://www.instagram.com/psicologa.noelia/" target="_blank" rel="noopener">@psicologa.noelia</a></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="container">
+                © <span id="year"></span> Psicóloga Noelia — Diseño basado en tu código. Todos los derechos reservados.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // pequeño script para año
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
