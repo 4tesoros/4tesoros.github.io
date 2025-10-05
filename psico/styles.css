@@ -92,7 +92,7 @@ h1, h2, h3{
 .btn-primary{ /* Botón principal: Llamado a la acción (WhatsApp) */
     background-color: var(--color-primary);
     color: white;
-    box-shadow: 0 4px 15px rgba(79, 144, 165, 0.4);
+    box-shadow: 0 4px 15px rgba(130, 12, 134, 0.61);
 }
 .btn-primary:hover{
     background-color: #3b768a;
