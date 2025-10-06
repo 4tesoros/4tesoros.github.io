@@ -1,4 +1,4 @@
-/* VARIABLES DE COLOR - (SIN CAMBIOS) */
+/* VARIABLES DE COLOR */
 :root {
     --color-primary: #8B4513; /* Marrón Cuero Fuerte */
     --color-secondary: #D2B48C; /* Beige Suave */
@@ -7,14 +7,48 @@
     --color-dark: #2C2C2C;
 }
 
-/* RESET Y FUENTES BASE - (SIN CAMBIOS) */
+/* RESET Y FUENTES BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ... (El resto de los estilos base) ... */
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+h2::after { /* Línea decorativa sutil */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 10px auto 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
 /* HEADER Y NAVEGACIÓN */
 .header {
@@ -29,20 +63,18 @@
     z-index: 1000;
 }
 
-/* ESTILO DEL LOGO REVERTIDO A TEXTO + ICONO */
+/* ESTILO DEL LOGO: IMAGEN + TEXTO */
 .logo {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.logo-icon {
-    /* Estilo del Icono - Usa un color primario para que se destaque */
-    font-size: 1.5rem; 
-    color: var(--color-primary);
-    margin-right: 8px; /* Espacio entre el icono y el texto */
-    line-height: 1; /* Para que esté bien alineado */
-    transform: translateY(-2px); /* Ajuste visual sutil */
+.logo-image {
+    height: 30px; 
+    width: auto;
+    margin-right: 8px; /* Espacio entre la imagen y el texto */
+    /* Asegúrate de que 'image_3ca997.png' esté en la misma carpeta o ajusta la ruta en el HTML. */
 }
 
 .logo-text-main {
@@ -64,10 +96,46 @@
     color: var(--color-primary);
 }
 
-/* SECCIÓN HERO (SIN CAMBIOS) */
+/* BOTONES (CTA) */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.primary:hover {
+    background-color: #A0522D; /* Tono más oscuro de marrón */
+    transform: translateY(-2px);
+}
+
+.secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* SECCIÓN HERO (CON IMAGEN DE FONDO PANORÁMICA) */
 .hero {
-    /* Imagen de fondo panorámica se mantiene */
-    background: url('placeholder_hero_panoramica.jpg') no-repeat center center/cover; 
+    /* **IMPORTANTE**: Reemplaza 'placeholder_hero_panoramica.jpg' por tu imagen real */
+    background: url('placeholder_hero_panoramica2.jpg') no-repeat center center/cover; 
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -83,10 +151,189 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5); /* Sombra oscura para resaltar el texto */
 }
 
-/* ... (El resto del CSS de HERO y otras secciones se mantiene igual) ... */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra fuerte para contraste */
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.cta-group a {
+    margin: 0 10px;
+}
+
+/* SECCIONES GENERALES */
+.section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--color-secondary);
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+/* SECCIÓN DE PRODUCTOS */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.product-card h3 {
+    margin: 15px 0 20px;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+}
+
+.btn-ver-mas {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: opacity 0.3s;
+}
+
+.btn-ver-mas:hover {
+    opacity: 0.8;
+}
+
+/* SECCIÓN DE TALLERES */
+.workshop-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.workshop-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: left;
+    transition: box-shadow 0.3s;
+}
+
+.workshop-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.workshop-card h3 {
+    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 10px;
+}
+
+/* SECCIÓN GALERÍA (LLAMATIVA Y DINÁMICA) */
+.gallery-section {
+    padding: 60px 2%; 
+}
+
+.gallery-grid {
+    display: grid;
+    /* Configuración para un layout dinámico tipo "masonry" (columnas flexibles) */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+/* Efecto Hover */
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Ajustes de tamaño para hacerlo más dinámico */
+.gallery-item.large {
+    grid-row: span 2;
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+    padding: 20px 5%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.social-links {
+    margin-top: 10px;
+}
 
 /* MEDIA QUERIES para Responsividad */
 @media (max-width: 768px) {
@@ -97,9 +344,55 @@
     .logo-text-main {
         font-size: 1.5rem;
     }
-    .logo-icon {
-        font-size: 1.2rem;
+    .logo-image {
+        height: 20px;
+    }
+    
+    .nav {
+        margin-top: 10px;
     }
 
-    /* ... (El resto de media queries se mantiene igual) ... */
+    .nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .workshop-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* En móvil, los elementos grandes y anchos se colapsan a tamaño normal */
+    .gallery-item.large, .gallery-item.wide {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cta-group a {
+        margin: 0;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .section {
+        padding: 50px 5%;
+    }
 }
