@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>:.:.Cdra. Marcela V. Moffa — Contadora Pública y Asesoría Impositiva</title>
+    <title>:=:Cdra. Marcela V. Moffa — Contadora Pública y Asesoría Impositiva</title>
     <meta name="description" content="Contadora Pública (UBA) y Docente. Asesoramiento impositivo y contable integral para Monotributistas y Responsables Inscriptos. Turnos y consultas en San Luis.">
     <meta name="author" content="Cdra. Marcela V. Moffa">
     <link rel="canonical" href="https://www.marcelamoffa-contadora.com.ar/">
@@ -26,7 +26,7 @@
         :root {
             --bg: #F5F5DC; /* Beige claro */
             --accent: #B89C6F; /* Ocre/Tierra - Énfasis */
-            --secondary-accent: #856E4E; /* Marrón más oscuro para  */
+            --secondary-accent: #856E4E; /* Marrón más oscuro para detalle */
             --text: #4B4B4B; /* Gris topo oscuro */
             --muted: #8A8A8A; /* Gris medio */
             --card-bg: #EBEBE0; /* Crema sutil para contenedores */
@@ -112,7 +112,6 @@
         .hamburger, .hamburger::before, .hamburger::after { background: var(--text); }
         .nav-links-mobile {
             background-color: var(--bg);
-            /* Otros estilos de menú móvil sin cambio de color */
             display: flex; list-style: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
         }
         .nav-open .nav-links-mobile {
@@ -177,13 +176,43 @@
         }
         .service-card p { color: var(--text); font-size: 0.95rem; }
         
-        /* ======================= CONTACTO/FOOTER (ADAPTADO) ======================= */
+        /* ======================= CONTACTO Y MAPA ======================= */
+        .contact-content {
+            padding-bottom: 0; /* Ajustamos para que el mapa quede pegado al final de la sección */
+        }
+        
+        .map-container {
+            margin: var(--spacing-xl) auto 0;
+            max-width: 100%; /* Ajustamos para que el mapa ocupe todo el ancho del contenedor */
+            border-radius: var(--border-radius);
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px; 
+            display: block; /* Asegura que no haya espacios extra debajo */
+        }
+
+        /* ======================= FOOTER (ADAPTADO) ======================= */
         .social-icons a { font-size: 2rem; color: var(--accent); }
         footer {
             padding: var(--spacing-lg) 0; text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--card-bg);
         }
-        .floating-btn { background-color: var(--accent); }
-        .floating-btn svg { fill: var(--bg); }
+        .floating-btn {
+            /* Estilos del botón flotante */
+            position: fixed; bottom: 20px; right: 20px; z-index: 999;
+            background-color: #25D366; /* Verde de WhatsApp */
+            border-radius: 50%; width: 56px; height: 56px; display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        .floating-btn svg { fill: white; width: 32px; height: 32px; }
 
         /* Media Queries (Sin cambios estructurales) */
         @media (min-width: 769px) {
@@ -319,14 +348,24 @@
         <section id="contact" class="section" style="background-color: var(--card-bg);">
             <div class="container contact-content">
                  <div class="text-center scroll-animate">
-                    <h2>Consulta y Contacto</h2>
-                    <p style="margin-top: var(--spacing-sm); color: var(--text);">Te espero en mi oficina en * ROMA - Coworking * - Rivadavia 1138 - o agendá tu consulta virtual.</p>
+                    <h2>Consulta y Ubicación</h2>
+                    <p style="margin-top: var(--spacing-sm); color: var(--text);">Te espero en mi oficina en **ROMA - Coworking** - Rivadavia 1138, San Luis Capital - o agendá tu consulta virtual.</p>
                     
                     <div class="hero-cta" style="margin-top: var(--spacing-lg);">
                         <a href="https://wa.me/5491169183250?text=Hola%20Marcela%2C%20quisiera%20reservar%20mi%20turno%20contable." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar Ahora por WhatsApp</a>
                     </div>
                     
                     <p style="margin-top: var(--spacing-md); color: var(--muted);">Teléfono de contacto: **11 6918-3250**</p>
+                </div>
+                
+                <div class="map-container scroll-animate" style="transition-delay: 200ms;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3361.649313437533!2d-66.33924702330756!3d-33.30396016147413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d31298e1694b87%3A0x867332e67f08b355!2sRivadavia%201138%2C%20San%20Luis!5e0!3m2!1ses-419!2sar!4v1696614488390!5m2!1ses-419!2sar" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de ROMA Coworking, Rivadavia 1138, San Luis"
+                    ></iframe>
                 </div>
                 </div>
         </section>
@@ -341,20 +380,22 @@
         </div>
     </footer>
 
-    <div class="floating-buttons">
-        <a href="https://wa.me/5491169183250" class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.11 11.91C2.11 13.68 2.58 15.36 3.42 16.82L2.24 21.73L7.3 20.47C8.75 21.28 10.36 21.7 12.04 21.7C17.49 21.7 21.94 17.25 21.96 11.79C21.96 6.34 17.51 2 12.04 2ZM17.15 15.93C16.89 16.5 15.35 17.39 14.83 17.44C14.32 17.49 13.81 17.44 13.29 17.44C10.63 17.44 8.71 15.37 8.71 12.83C8.71 10.33 10.68 8.24 13.29 8.24C14.54 8.24 15.54 8.72 16.34 9.48C17.14 10.24 17.53 11.45 17.39 12.63L16.27 12.67C16.1 12.59 15.01 12.08 14.81 11.97C14.61 11.86 14.41 11.75 14.24 11.55C14.07 11.35 13.88 11.08 13.68 10.84C13.48 10.6 13.29 10.46 13.1 10.46C12.9 10.46 12.65 10.46 12.45 10.46C12.25 10.46 11.99 10.46 11.66 10.8C11.33 11.13 10.45 12.16 10.45 13.56C10.45 14.96 11.4 16.31 11.66 16.57C11.93 16.83 13.84 17.72 14.64 17.42C15.44 17.12 16.52 16.54 17.15 15.93Z" /></svg>
-        </a>
-    </div>
+    <a href="https://wa.me/5491169183250" class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.11 11.91C2.11 13.68 2.58 15.36 3.42 16.82L2.24 21.73L7.3 20.47C8.75 21.28 10.36 21.7 12.04 21.7C17.49 21.7 21.94 17.25 21.96 11.79C21.96 6.34 17.51 2 12.04 2ZM17.15 15.93C16.89 16.5 15.35 17.39 14.83 17.44C14.32 17.49 13.81 17.44 13.29 17.44C10.63 17.44 8.71 15.37 8.71 12.83C8.71 10.33 10.68 8.24 13.29 8.24C14.54 8.24 15.54 8.72 16.34 9.48C17.14 10.24 17.53 11.45 17.39 12.63L16.27 12.67C16.1 12.59 15.01 12.08 14.81 11.97C14.61 11.86 14.41 11.75 14.24 11.55C14.07 11.35 13.88 11.08 13.68 10.84C13.48 10.6 13.29 10.46 13.1 10.46C12.9 10.46 12.65 10.46 12.45 10.46C12.25 10.46 11.99 10.46 11.66 10.8C11.33 11.13 10.45 12.16 10.45 13.56C10.45 14.96 11.4 16.31 11.66 16.57C11.93 16.83 13.84 17.72 14.64 17.42C15.44 17.12 16.52 16.54 17.15 15.93Z" /></svg>
+    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Se asume que tienes el CSS para preloader y scroll-animate para que estos scripts funcionen.
+
             // --- Script de Preloader (simulado) ---
             const preloader = document.getElementById('preloader');
             window.addEventListener('load', () => {
                 setTimeout(() => {
-                    preloader.classList.add('fade-out');
-                    setTimeout(() => preloader.style.display = 'none', 500);
+                    if (preloader) {
+                        preloader.classList.add('fade-out');
+                        setTimeout(() => preloader.style.display = 'none', 500);
+                    }
                 }, 500);
             });
 
