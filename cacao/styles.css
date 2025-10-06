@@ -1,0 +1,453 @@
+/* ================================================= */
+/* 1. VARIABLES Y RESET */
+/* ================================================= */
+
+/* VARIABLES DE COLOR */
+:root {
+    --color-primary: #8B4513; /* Marrón Cuero Fuerte */
+    --color-primary-hover: #A0522D; /* Marrón más claro para hover */
+    --color-secondary: #D2B48C; /* Beige Suave */
+    --color-text: #333333;
+    --color-light: #F8F4F0; /* Fondo Cremoso */
+    --color-dark: #2C2C2C;
+}
+
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light);
+    scroll-behavior: smooth;
+}
+
+/* TIPOGRAFÍA */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+h2::after { /* Línea decorativa sutil */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 10px auto 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* SECCIONES GENERALES */
+.section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--color-secondary);
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+/* ================================================= */
+/* 2. HEADER Y NAVEGACIÓN */
+/* ================================================= */
+
+/* ================================================= */
+/* 2. HEADER Y NAVEGACIÓN */
+/* ================================================= */
+
+.header {
+    background: var(--color-light);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-image {
+height: 1.3em; 
+width: auto;
+margin-right: 8px; 
+align-self: center; 
+}
+
+.logo-text-main {
+   font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; 
+  font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* 🚩 AJUSTE CLAVE PARA EL ORDEN DE LA NAVEGACIÓN */
+.nav {
+    /* Asegura que los enlaces se traten como un contenedor flexible */
+    display: flex; 
+    /* Distribuye el espacio entre los enlaces */
+    gap: 20px; 
+    /* Asegura que el texto esté centrado verticalmente */
+    align-items: center; 
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--color-text);
+    /* Eliminamos el margin-left porque ahora usamos gap */
+    margin-left: 0; 
+    font-weight: 500;
+    transition: color 0.3s;
+    /* Evita que los enlaces rompan la línea si hay espacio */
+    white-space: nowrap; 
+}
+
+.nav a:hover {
+    color: var(--color-primary);
+}
+
+/* ================================================= */
+
+/* ================================================= */
+/* 3. HERO Y BOTONES (CTA) */
+/* ================================================= */
+
+/* SECCIÓN HERO */
+.hero {
+    background: url('placeholder_hero_panoramica.jpg') no-repeat center center/cover; 
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* BOTONES CTA */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.primary:hover {
+    background-color: var(--color-primary-hover); /* CORREGIDO: Usar variable */
+    transform: translateY(-2px);
+}
+
+.secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cta-group {
+    display: flex;       /* MEJORA: Usar flex y gap para espaciar */
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-group a {
+    margin: 0; /* MEJORA: Ya no se necesita margin */
+}
+
+/* ================================================= */
+/* 4. ESTILOS DE GALERÍA (CHALECO Y GENE RAL) */
+/* ================================================= */
+
+.gallery-section {
+    padding: 60px 2%; 
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    /* Altura base uniforme para los elementos pequeños */
+    height: 250px; 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Modificadores de tamaño */
+.gallery-item.large {
+    grid-row: span 2;
+    /* CORREGIDO: Se eliminó la altura fija para que la grilla la calcule automáticamente */
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+}
+
+/* ================================================= */
+/* 5. SECCIÓN PRODUCTOS (CREACIONES RECIENTES) */
+/* ================================================= */
+
+.products-section {
+    /* El padding ya está definido en .section */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s; /* MEJORA: Transición más suave */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.product-card h3 {
+    margin: 15px 0 20px;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+}
+
+.btn-ver-mas {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: opacity 0.3s;
+}
+
+.btn-ver-mas:hover {
+    opacity: 0.8;
+}
+
+/* ================================================= */
+/* 6. SECCIÓN TALLERES */
+/* ================================================= */
+
+.workshop-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.workshop-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: left;
+    transition: box-shadow 0.3s;
+}
+
+.workshop-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.workshop-card h3 {
+    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 10px;
+}
+
+/* ================================================= */
+/* 7. FOOTER */
+/* ================================================= */
+
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+    padding: 20px 5%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+/* ================================================= */
+/* 8. MEDIA QUERIES (RESPONSIVIDAD)     */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .logo-text-main {
+        font-size: 1.5rem;
+    }
+    
+    .logo-image {
+        height: 1.3em; 
+    }
+    
+    .nav {
+        margin-top: 10px;
+    }
+
+    .nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .workshop-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* La galería (chaleco y general) se vuelve lineal */
+    .gallery-item.large, .gallery-item.wide {
+        grid-row: span 1;
+        grid-column: span 1;
+        height: 250px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cta-group a {
+        margin: 0;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .section {
+        padding: 50px 5%;
+    }
+}
