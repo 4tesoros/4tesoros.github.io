@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>BIENVENIDA A ROMA: Marcela Moffa — Contadora Pública</title>
+    <meta name="description" content="Marcela Moffa, Contadora Pública, se une a los espacios de ROMA a partir de septiembre. Ofrece asesoría contable y turnos en el 11 6918-3250.">
+    <meta name="author" content="Espacio ROMA / Marcela Moffa">
+    <link rel="canonical" href="https://www.espacioroma.com.ar/marcela-moffa">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23B89C6F%22>MM</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ======================= RESET Y VARIABLES (PALETA CÁLIDA) ======================= */
+        :root {
+            --bg: #F5F5DC; /* Beige claro */
+            --accent: #B89C6F; /* Ocre/Tierra - Énfasis */
+            --secondary-accent: #E5D6A0; /* Dorado sutil */
+            --text: #4B4B4B; /* Gris topo oscuro */
+            --muted: #8A8A8A; /* Gris medio */
+            --card-bg: #EBEBE0; /* Crema sutil para contenedores */
+
+            --font-main: 'Montserrat', sans-serif;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+            --transition-fast: 0.2s ease-out;
+            --max-width: 800px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
+        }
+
+        a:hover { opacity: 0.8; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg); /* Texto beige claro sobre botón ocre */
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: #A38A64; /* Ocre un poco más oscuro al pasar el mouse */
+            box-shadow: 0 4px 15px rgba(184, 156, 111, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .text-center { text-align: center; }
+        
+        /* ======================= HEADER (SIMPLE) ======================= */
+        .header {
+            padding: var(--spacing-md) 0;
+            text-align: center;
+        }
+        
+        .logo a {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ======================= HERO/ANUNCIO ======================= */
+        #hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--spacing-xl);
+        }
+
+        .announcement-card {
+            background-color: var(--card-bg);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid var(--accent); /* Detalle de bienvenida */
+        }
+
+        .sub-heading {
+            font-size: 1.2rem;
+            color: var(--muted);
+            font-weight: 400;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+        }
+        
+        .profession-tag {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: var(--spacing-lg);
+            display: block;
+        }
+
+        .cta-details {
+            font-size: 1.1rem;
+            margin: var(--spacing-lg) 0;
+            line-height: 1.6;
+        }
+        
+        .contact-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-top: var(--spacing-md);
+            display: block;
+        }
+
+        /* ======================= FOOTER (SIMPLE) ======================= */
+        footer {
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero">Espacio ROMA</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="announcement-card">
+                    
+                    <div class="sub-heading">Nuestra Nueva Compañera</div>
+                    
+                    <h1 class="main-title">Marcela Moffa</h1>
+                    
+                    <span class="profession-tag">Contadora Pública</span>
+                    
+                    <p class="cta-details">
+                        A partir de **Septiembre**, Marcela forma parte de nuestros espacios, brindando asesoría contable integral para profesionales y emprendedores.
+                    </p>
+                    
+                    <p class="cta-details">
+                        **¡BIENVENIDA A ROMA!** Deseamos gran éxito con nosotros.
+                    </p>
+                    
+                    <div style="margin: var(--spacing-xl) 0 var(--spacing-lg);">
+                        <a href="https://wa.me/5491169183250?text=Hola%20Marcela%2C%20quisiera%20pedir%20un%20turno%20de%20asesoría%20contable." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                            Reservar Turno o Consulta
+                        </a>
+                        
+                        <div style="margin-top: var(--spacing-md); color: var(--muted); font-size: 0.95rem;">
+                            También puedes comunicarte directamente al:
+                            <span class="contact-number">11 6918-3250</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Espacio ROMA | Asesoría Contable con Marcela Moffa.</p>
+            <p style="margin-top: 5px;">Hecho con ❤️ en Argentina.</p>
+        </div>
+    </footer>
+</body>
+</html>
