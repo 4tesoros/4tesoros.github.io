@@ -6,7 +6,30 @@
     --color-light: #F8F4F0; /* Fondo Cremoso */
     --color-dark: #2C2C2C;
 }
+/* Si ya existe .product-grid, debe tener algo similar a esto: */
+.product-grid {
+    display: grid;
+    /* Esto crea 3 columnas de igual ancho, si quieres 3x3 */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Espacio entre las imágenes */
+    margin-top: 30px;
+    padding: 0 20px; /* Un poco de padding si es necesario */
+}
 
+.product-card {
+    /* Asegúrate de que las tarjetas se vean bien */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    /* Asegura que las imágenes llenen el espacio de la tarjeta */
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
 /* RESET Y FUENTES BASE */
 * {
     margin: 0;
