@@ -1,485 +1,608 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aquasansa</title>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Sansa Piscinas — Instalamos Piletas | San Salvador, Entre Ríos</title>
+    <meta name="description" content="Instalamos piletas en una semana en San Salvador, Entre Ríos. Representantes oficiales de Moldear Piscinas. Acondicionamiento integral y atención personalizada.">
+    <meta name="author" content="Aqua Sansa Piscinas">
+    <link rel="canonical" href="https://www.aquasansa.com.ar/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Aqua Sansa Piscinas — Tu verano empieza en casa">
+    <meta property="og:description" content="Instalamos tu pileta en una semana. Representantes oficiales de Moldear Piscinas en San Salvador, Entre Ríos.">
+    <meta property="og:image" content="https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976893/FOTO_FINAL_2_ylf1hy.png"> <!-- Reemplazar con imagen real -->
+    <meta property="og:url" content="https://www.aquasansa.com.ar/">
+    <meta property="og:type" content="website">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aqua Sansa Piscinas — Instalamos Piletas | San Salvador, Entre Ríos">
+    <meta name="twitter:description" content="Tu verano empieza en casa. Instalamos tu pileta en una semana.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976893/FOTO_FINAL_2_ylf1hy.png">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>AS</text></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
+        :root {
+            --bg: #121212;
+            --accent: #2A9D8F; /* Azul acuático suave */
+            --text: #E0E0E0;
+            --muted: #A0A0A0;
+            --card-bg: #1E1E1E;
+            --font-main: 'Montserrat', sans-serif;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --border-radius: 12px;
+            --transition-fast: 0.2s ease-out;
+            --transition-med: 0.4s ease-out;
+            --max-width: 1200px;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: "Open Sans", Helvetica, Arial, sans-serif;
-            font-size: 18px;
-            font-weight: 400;
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            -moz-osx-font-smoothing: grayscale;
         }
-
-        a:hover,
-        a:focus,
-        .tm-text-gray {
-            color: #666666;
+        body.nav-open { overflow: hidden; }
+        h1, h2, h3, h4, h5, h6, strong { font-weight: 600; }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
         }
-
-        .tm-text-black {
-            color: #212529;
+        .section { padding: var(--spacing-xl) 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
         }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-        p {
-            line-height: 1.8;
-        }
-
-        .navbar-toggler {
-            border-color: #6c757d;
-            cursor: pointer;
-        }
-
-        #mainNav {
-            background: white;
-            padding: 5px 15px;
-            width: 180px;
-            position: absolute;
-            top: 50px;
-            right: 15px;
-            -webkit-box-shadow: 0px 0px 7px 0px rgba(214, 214, 214, 1);
-            -moz-box-shadow: 0px 0px 7px 0px rgba(214, 214, 214, 1);
-            box-shadow: 0px 0px 7px 0px rgba(214, 214, 214, 1);
-            z-index: 1000;
-        }
-
-        .navbar {
-            justify-content: flex-end;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        button:focus {
-            outline: none;
-        }
-
-        .tm-section-mb {
-            margin-bottom: 90px;
-        }
-
-        #top {
-            padding-top: 65px;
-        }
-
-        #servicios,
-        #contacto {
-            padding-top: 60px;
-        }
-
-        /* Secciones */
-        .tm-box-3 {
-            padding: 40px 50px;
-            background: #f2f2f2;
-        }
-
-        .tm-box-5 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 25px;
-            padding-right: 25px;
-            min-height: 200px;
-            background: #f2f2f2;
-        }
-
-        .tm-media {
-            margin-bottom: 25px;
-        }
-
-        /* Hero Image - Sustituyendo el Slider */
-        .tm-hero-col {
-            padding: 0;
-        }
-
-        .tm-hero-img-container {
-            position: relative;
-            min-height: 450px;
-            overflow: hidden;
-        }
-
-        .tm-hero-img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            min-height: 450px;
-        }
-        
-        .tm-hero-caption {
-            color: white;
-            font-size: 1.8rem;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            z-index: 1000;
-            margin-bottom: 0;
-            padding: 20px 30px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #fff;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 15px;
-            text-align: center;
-            width: 100%;
-            background: #f8f9fa; /* Color de fondo claro para el footer */
-        }
-
-        /* Botones */
+        a:hover { opacity: 0.8; }
         .btn {
-            background-color: white;
-            border-color: gray;
-            border-radius: 0;
-            color: #666666;
-            font-size: 1.3rem;
-            margin-top: 5px;
-            padding: 12px 30px;
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg);
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(42, 157, 143, 0.3);
+            opacity: 1;
+        }
+        .text-center { text-align: center; }
+
+        /* PRELOADER */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 1; transition: opacity 0.5s ease; pointer-events: none;
+        }
+        #preloader.fade-out { opacity: 0; }
+        .preloader-content {
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .preloader-name {
+            font-size: 2rem; font-weight: 600; color: var(--text); margin-bottom: var(--spacing-md);
+        }
+        .preloader-bar-container {
+            width: 200px; height: 4px; background-color: var(--card-bg); border-radius: 2px; overflow: hidden;
+        }
+        .preloader-bar {
+            width: 0; height: 100%; background-color: var(--accent);
+            animation: loading-progress 2s ease-out forwards;
+        }
+        @keyframes loading-progress { 0% { width: 0; } 100% { width: 100%; } }
+
+        /* HEADER */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: var(--spacing-md) 0; z-index: 1000;
+            transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .header.scrolled {
+            background-color: var(--bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .header-nav {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo a {
+            font-weight: 700; font-size: 1.5rem; color: var(--text);
+        }
+        .nav-open .logo { opacity: 0; visibility: hidden; }
+        .nav-links { display: none; list-style: none; }
+        .nav-links a { color: var(--text); padding: var(--spacing-sm) var(--spacing-md); font-weight: 400; }
+        .menu-toggle { display: block; cursor: pointer; position: relative; z-index: 1001; }
+        .hamburger {
+            width: 25px; height: 2px; background: var(--text); display: block; position: relative; transition: background .3s;
+        }
+        .hamburger::before, .hamburger::after {
+            content: ''; width: 25px; height: 2px; background: var(--text); display: block; position: absolute; transition: all .3s;
+        }
+        .hamburger::before { top: -8px; }
+        .hamburger::after { top: 8px; }
+        .nav-open .hamburger { background: transparent; }
+        .nav-open .hamburger::before { transform: rotate(45deg); top: 0; }
+        .nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
+        .nav-links-mobile {
+            display: flex; list-style: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background-color: var(--bg);
+            flex-direction: column; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
+        }
+        .nav-open .nav-links-mobile {
+            opacity: 1; visibility: visible; transform: translateY(0);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0s;
+        }
+        .nav-links-mobile a {
+            color: var(--text); font-size: 2rem; font-weight: 600; padding: var(--spacing-md) 0;
         }
 
-        .btn-big {
-            padding: 10px 45px;
+        /* HERO */
+        #hero { min-height: 100vh; display: flex; align-items: center; }
+        .hero-content { display: grid; gap: var(--spacing-xl); align-items: center; }
+        .hero-text { text-align: center; }
+        .hero-image img {
+            border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            width: 100%; max-width: 450px; margin: 0 auto;
+        }
+        .hero-title-main {
+            font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; color: var(--text); line-height: 1.1; letter-spacing: 1px;
+        }
+        .hero-title-sub {
+            font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 600; color: var(--accent);
+            letter-spacing: 2px; text-transform: uppercase; margin-top: var(--spacing-sm);
+        }
+        .hero-description {
+            font-size: 1.1rem; color: var(--muted); max-width: 60ch; margin: var(--spacing-lg) auto 0;
+        }
+        .hero-cta { margin-top: var(--spacing-lg); }
+
+        /* SOBRE NOSOTROS */
+        .about-content { display: grid; gap: var(--spacing-xl); align-items: center; }
+        .about-photo img {
+            border-radius: 50%; width: 250px; height: 250px; object-fit: cover;
+            margin: 0 auto var(--spacing-lg); border: 4px solid var(--card-bg);
+        }
+        .about-text p {
+            font-size: 1.1rem; margin-bottom: var(--spacing-md); max-width: 65ch;
+        }
+        .about-text strong { color: var(--text); }
+        .about-cta { margin-top: var(--spacing-lg); }
+
+        /* SERVICIOS */
+        .services-carousel-container { position: relative; }
+        .services-carousel {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        }
+        .services-carousel::-webkit-scrollbar { display: none; }
+        .service-card {
+            flex: 0 0 90%; scroll-snap-align: center; margin-right: var(--spacing-md);
+            background-color: var(--card-bg); padding: var(--spacing-lg);
+            border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            transition: transform var(--transition-med), box-shadow var(--transition-med);
+        }
+        .service-card:last-child { margin-right: 0; }
+        .service-card:hover {
+            transform: translateY(-10px); box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+        }
+        .service-card h3 { color: var(--accent); margin-bottom: var(--spacing-md); }
+        .carousel-navigation {
+            display: none; justify-content: center; margin-top: var(--spacing-lg); gap: var(--spacing-md);
+        }
+        .carousel-button {
+            background: var(--card-bg); border: 1px solid var(--accent); color: var(--accent);
+            width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+            transition: background-color var(--transition-fast), color var(--transition-fast);
+            font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+        }
+        .carousel-button:hover {
+            background-color: var(--accent); color: var(--bg);
+        }
+        .carousel-button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* CONSULTORIO / TIENDA */
+        .office-image-container img {
+            border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0,0,0,0.4); width: 100%;
         }
 
-        .btn:hover,
-        .btn:focus {
-            background-color: gray;
-            color: white;
-            border-color: gray;
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid var(--card-bg); padding: var(--spacing-md) 0; }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; font-weight: 600; font-size: 1.1rem;
+        }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .faq-answer p { padding-top: var(--spacing-md); color: var(--muted); }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-icon { transition: transform var(--transition-med); font-size: 1.5rem; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* CONTACTO */
+        .contact-content { text-align: center; }
+        .map-container {
+            margin-top: var(--spacing-lg); border-radius: var(--border-radius);
+            overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        .map-container iframe {
+            border: 0; width: 100%; height: 450px;
+        }
+        .social-icons {
+            margin-top: var(--spacing-lg); display: flex; justify-content: center; gap: var(--spacing-lg);
+        }
+        .social-icons a { font-size: 2rem; color: var(--muted); }
+
+        /* FOOTER */
+        footer {
+            padding: var(--spacing-lg) 0; text-align: center; color: var(--muted); font-size: 0.9rem;
         }
 
-        .tm-media-img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
+        /* BOTONES FLOTANTES */
+        .floating-buttons {
+            position: fixed; bottom: var(--spacing-lg); right: var(--spacing-lg);
+            display: flex; flex-direction: column; gap: var(--spacing-md); z-index: 998;
+        }
+        .floating-btn {
+            width: 60px; height: 60px; border-radius: 50%;
+            background-color: var(--accent); display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform var(--transition-fast);
+        }
+        .floating-btn:hover { transform: scale(1.1); }
+        .floating-btn svg { width: 32px; height: 32px; fill: var(--bg); }
+
+        /* ANIMACIONES */
+        .scroll-animate {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s var(--transition-med), transform 0.8s var(--transition-med);
+        }
+        .scroll-animate.visible {
+            opacity: 1; transform: translateY(0);
         }
 
-        .tm-fa-toggler-icon {
-            font-size: 30px;
-            padding: 0;
-            color: gray;
+        /* RESPONSIVE */
+        @media (min-width: 769px) {
+            .menu-toggle { display: none; }
+            .nav-links-mobile { display: none; }
+            .nav-links { display: flex; gap: var(--spacing-md); }
+            .hero-content { grid-template-columns: repeat(2, 1fr); }
+            .hero-text { text-align: left; }
+            .hero-description { margin: var(--spacing-lg) 0 0; }
+            .about-content { grid-template-columns: 250px 1fr; text-align: left; }
+            .about-photo img { margin: 0; }
+            .services-carousel { overflow-x: hidden; }
+            .carousel-navigation { display: flex; }
         }
-
-        .tm-2col-l {
-            padding-right: 40px;
-        }
-
-        .tm-2col-r {
-            padding-left: 40px;
-        }
-
-        /* Formularios */
-        .form-control {
-            border-radius: 0;
-            font-size: 1.2rem;
-            padding: 13px 19px;
-        }
-
-        .form-control:focus {
-            border-color: #b5b5b5;
-            box-shadow: 0 0 0 0.2rem #a3a3a329;
-        }
-
-        /* Media Queries simplificadas */
-        @media screen and (max-width: 991px) {
-            .tm-hero-caption {
-                font-size: 1.2rem;
-                padding: 15px 10px;
-            }
-            .tm-2col-l {
-                padding-right: 20px;
-            }
-            .tm-2col-r {
-                padding-left: 20px;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .navbar {
-                justify-content: flex-end;
-                position: fixed;
-                right: 0;
-                top: 0;
-                z-index: 1000;
-                flex-direction: column;
-                align-items: end;
-            }
-
-            #mainNav {
-                top: 90px;
-                right: 30px;
-            }
-
-            .tm-2col-l {
-                padding-right: 15px;
-                margin-bottom: 30px; /* Separación en móvil */
-            }
-
-            .tm-2col-r {
-                padding-left: 15px;
-            }
-
-            .tm-address-box {
-                padding-top: 40px;
-            }
-
-            .tm-box-5 {
-                padding-top: 25px;
-                padding-bottom: 25px;
-            }
-
-            .tm-section-mb {
-                margin-bottom: 60px;
-            }
+        @media (min-width: 992px) {
+            .service-card { flex-basis: 30%; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <section class="tm-section-head" id="top">
-            <header id="header" class="text-center tm-text-gray">
-                <h1>DIGITAL PRO</h1>
-                <p>SOLUCIONES ESTRATÉGICAS PARA TU NEGOCIO</p>
-            </header>
-
-            <nav class="navbar narbar-light">
-                <a class="navbar-brand tm-text-gray" href="#">
-                    Menú
-                </a>
-                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">
-                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
-                    </span>
-                </button>
-                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link tm-text-gray" href="#top">Inicio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link tm-text-gray" href="#servicios">Servicios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link tm-text-gray" href="#nosotros">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link tm-text-gray" href="#contacto">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
-
-        <section class="row" id="tm-section-1">
-            <div class="col-lg-12 tm-hero-col">
-                <div class="tm-hero-img-container">
-                    <img src="hero-img.jpg" alt="Equipo trabajando en soluciones digitales" class="tm-hero-img">
-                    <p class="tm-hero-caption">Transformamos ideas en productos digitales exitosos.</p>
-                </div>
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-name">Aqua Sansa</div>
+            <div class="preloader-bar-container">
+                <div class="preloader-bar"></div>
             </div>
-        </section>
-
-        <section class="tm-section-2 tm-section-mb" id="servicios">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-md-5 mb-5 pr-md-5">
-                    <header class="text-center">
-                        <i class="fa fa-4x fa-code pl-5 pb-5 pr-5 pt-2"></i>
-                    </header>
-                    <h2>Desarrollo a Medida</h2>
-                    <p>Diseñamos e implementamos plataformas web y móviles robustas, optimizadas para el rendimiento y la experiencia del usuario.</p>
-                    <a href="#contacto" class="btn tm-btn-pad-2 float-right">Cotizar</a>
-                </div>
-
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-md-5 mb-5 pr-md-5">
-                    <header class="text-center">
-                        <i class="fa fa-4x fa-lightbulb-o pl-5 pb-5 pr-5 pt-2"></i>
-                    </header>
-                    <h2>Consultoría Estratégica</h2>
-                    <p>Ayudamos a definir su estrategia digital, identificando oportunidades de crecimiento e implementando la tecnología que realmente impulsa su negocio.</p>
-                    <a href="#contacto" class="btn tm-btn-pad-2 float-right">Cotizar</a>
-                </div>
-
-                <div class="col-xl-4 col-lg-4 col-md-12">
-                    <h2>Nuestros Pilares</h2>
-                    <p>Nuestro enfoque se basa en la transparencia, la innovación y la entrega de valor constante:</p>
-                    <p>+ Enfoque ágil y escalable.</p>
-                    <p>+ Equipo multidisciplinario.</p>
-                    <p>+ Soporte post-lanzamiento.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="tm-section-3 tm-section-mb" id="nosotros">
-            <div class="row">
-                <div class="col-md-6 tm-mb-sm-4 tm-2col-l">
-                    <div class="image">
-                        <img src="tm-img-1.jpg" alt="Equipo colaborando" class="img-fluid" />
-                    </div>
-                    <div class="tm-box-3">
-                        <h2>Nuestra Misión</h2>
-                        <p>Creemos que la tecnología debe ser una herramienta para simplificar, no para complicar. Trabajamos para ofrecer soluciones que generen un impacto real y medible.</p>
-                        <div class="text-center">
-                            <a href="#servicios" class="btn btn-big">Ver Servicios</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 tm-2col-r">
-                    <div class="image">
-                        <img src="tm-img-2.jpg" alt="Consultor con cliente" class="img-fluid" />
-                    </div>
-                    <div class="tm-box-3">
-                        <header>
-                            <h2>Nuestro Equipo</h2>
-                        </header>
-                        <p>Contamos con profesionales experimentados en desarrollo, diseño UX/UI y gestión de proyectos, listos para enfrentar los desafíos más complejos.</p>
-                        <div class="text-center">
-                            <a href="#contacto" class="btn btn-big">Contáctanos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tm-section-5 tm-section-mb" id="proceso">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-center mb-5">Nuestro Proceso de Trabajo</h2>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="media tm-media">
-                        <img src="sc4-img-2.jpg" alt="Análisis de datos" class="img-responsive tm-media-img">
-                        <div class="media-body tm-box-5">
-                            <h2>1. Análisis y Planificación</h2>
-                            <p class="mb-0">Definimos los requisitos, objetivos y métricas de éxito del proyecto. La base de todo trabajo sólido.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="media tm-media">
-                        <img src="sc4-img-3.jpg" alt="Escritorio de desarrollador" class="img-responsive tm-media-img">
-                        <div class="media-body tm-box-5">
-                            <h2>2. Desarrollo e Iteración</h2>
-                            <p class="mb-0">Implementación ágil, con revisiones y *feedback* constantes para asegurar que el producto cumple con la visión.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="media tm-media">
-                        <img src="sc4-img-4.jpg" alt="Manos escribiendo código" class="img-responsive tm-media-img">
-                        <div class="media-body tm-box-5">
-                            <h2>3. Entrega y Soporte</h2>
-                            <p class="mb-0">Lanzamiento, capacitación y un plan de soporte continuo para la escalabilidad y mantenimiento futuro de la solución.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="tm-section-6" id="contacto">
-            <div class="row">
-                <div class="col-lg-7 col-md-7 col-xs-12">
-                    <div class="contact_message">
-                        <h2 class="mb-4">Envíanos tu Consulta</h2>
-                        <form action="" method="post" class="contact-form">
-                            <div class="row mb-2">
-                                <div class="form-group col-xl-6">
-                                    <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Nombre" required/>
-                                </div>
-                                <div class="form-group col-xl-6 pl-xl-1">
-                                    <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="contact_message" name="contact_message" class="form-control" rows="6" placeholder="Mensaje / Descripción del Proyecto" required></textarea>
-                            </div>
-                            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Enviar Mensaje</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-5 col-xs-12 tm-contact-right">
-                    <div class="tm-address-box">
-                        <h2 class="mb-4">Información de Contacto</h2>
-                        <p class="mb-5">Estamos listos para discutir su próximo proyecto digital. Contáctenos hoy mismo para empezar a planificar su éxito.</p>
-                        <address>
-                            123 Calle de la Tecnología,
-                            <br> Oficina 404,
-                            <br> Ciudad Digital, CP 10200
-                        </address>
-                        <p class="mt-4">
-                            Teléfono: (01) 2345-6789
-                            <br> Email: info@digitalpro.com
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="mt-5">
-            <p class="text-center">Copyright © 2025 Digital Pro Solutions - Adaptación: Tooplate</p>
-        </footer>
+        </div>
     </div>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="header-nav">
+                <div class="logo">
+                    <a href="#hero">Aqua Sansa</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <script>
-        $(document).ready(function () {
-            // Cierre del menú después de hacer clic en un enlace (para móviles)
-            $('.nav-link').click(function () {
-                $('#mainNav').removeClass('show');
-            });
+    <div id="nav-links-mobile" class="nav-links-mobile">
+        <ul>
+            <li><a href="#about">Sobre Nosotros</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
 
-            // Implementación del Scroll Suave
-            $('a[href*="#"]')
-                .not('[href="#"]')
-                .not('[href="#0"]')
-                .click(function (event) {
-                    if (
-                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-                        &&
-                        location.hostname == this.hostname
-                    ) {
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                        if (target.length) {
-                            event.preventDefault();
-                            $('html, body').animate({
-                                scrollTop: target.offset().top + 1
-                            }, 1000, function () {
-                                var $target = $(target);
-                                $target.focus();
-                                if (!$target.is(":focus")) {
-                                    $target.attr('tabindex', '-1');
-                                    $target.focus();
-                                };
-                            });
-                        }
-                    }
-                });
-        });
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text scroll-animate">
+                        <div class="hero-title-main">Aqua Sansa</div>
+                        <div class="hero-title-sub">Instalamos Piletas | Creamos Recuerdos 💙</div>
+                        <p class="hero-description">Tu verano empieza en casa. Instalamos tu pileta en una semana. Somos representantes oficiales de Moldear Piscinas.</p>
+                        <div class="hero-cta">
+                            <a href="https://wa.me/543454018990?text=¡Hola! Quisiera información sobre la instalación de una pileta." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="hero-image scroll-animate" style="transition-delay: 150ms;">
+                        <img src="https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976893/FOTO_FINAL_2_ylf1hy.png" alt="Aqua Sansa Piscinas - Instalación de piletas">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE NOSOTROS -->
+        <section id="about" class="section">
+            <div class="container about-content">
+                <div class="about-photo scroll-animate">
+                    <img src="https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976892/FOTO_FINAL_1_yirmfq.jpg" alt="Equipo de Aqua Sansa Piscinas" loading="lazy">
+                </div>
+                <div class="about-text scroll-animate">
+                    <p>Aqua Sansa es una nueva marca en San Salvador, Entre Ríos, que brinda acondicionamiento integral de piscinas.</p>
+                    <p>Somos representantes oficiales de <strong>Moldear Piscinas</strong>, ofreciendo soluciones de instalación y mantenimiento para tu comodidad.</p>
+                    <p>Nuestro compromiso es brindarte una atención personalizada, cercana y profesional, para que disfrutes del verano sin preocupaciones.</p>
+                    <p><strong>Instalamos tu pileta en una semana. ¡Contactanos y dejá de soñar!</strong></p>
+                    <div class="about-cta">
+                        <a href="mailto:aquasansa.piscinas@gmail.com" class="btn btn-primary">Enviar Email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Servicios</h2>
+                </div>
+                <div class="services-carousel-container scroll-animate">
+                    <div class="services-carousel" id="services-carousel">
+                        <div class="service-card">
+                            <h3>Instalación en 7 días</h3>
+                            <p>¡Tu pileta lista en una semana! Trabajamos rápido y con calidad para que disfrutes tu verano sin esperas.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Representantes Moldear</h3>
+                            <p>Ofrecemos las piletas de <strong>Moldear Piscinas</strong>, líder en el mercado argentino por su durabilidad y diseño.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Acondicionamiento Integral</h3>
+                            <p>Desde la instalación hasta el mantenimiento, te acompañamos en cada etapa para que tu pileta esté siempre impecable.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Atención Personalizada</h3>
+                            <p>Te asesoramos según el espacio, presupuesto y necesidades. Cada cliente es único, y así lo tratamos.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-navigation" id="carousel-nav">
+                        <button class="carousel-button" id="prev-btn" aria-label="Anterior"><</button>
+                        <button class="carousel-button" id="next-btn" aria-label="Siguiente">></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIENDA / UBICACIÓN -->
+        <section id="office" class="section" style="padding-top: 0;">
+            <div class="container text-center">
+                <div class="scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Nuestra Ubicación</h2>
+                    <p style="color: var(--muted); max-width: 60ch; margin: var(--spacing-sm) auto 0;">Vení a conocernos o coordiná tu instalación desde acá.</p>
+                </div>
+                <div class="office-image-container scroll-animate" style="transition-delay: 150ms;">
+                    <img src="https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976893/FOTO_FINAL_5_kdrxkj.png" alt="Local de Aqua Sansa Piscinas" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <section id="faq" class="section">
+            <div class="container" style="max-width: 800px;">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Preguntas Frecuentes</h2>
+                </div>
+                <div class="scroll-animate">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Cuánto tiempo tardan en instalar una pileta?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>¡En solo 7 días! Desde la confirmación del pedido hasta la entrega final, trabajamos con rapidez y eficiencia.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Ofrecen mantenimiento posterior?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, brindamos planes de mantenimiento estacional y asesoramiento continuo para cuidar tu inversión.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Trabajan en toda la zona?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Atendemos en San Salvador y alrededores. Consultá por tu localidad específica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contact" class="section">
+            <div class="container contact-content">
+                <div class="text-center scroll-animate">
+                    <h2>Contacto</h2>
+                    <p style="margin-top: var(--spacing-sm);">
+                        📍 Avenida Malarín 221 — San Salvador, Entre Ríos<br>
+                        📞 +54 345 401-8990<br>
+                        ✉️ aquasansa.piscinas@gmail.com
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/aquasansa.piscinas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.facebook.com/AquaSansaPiscinas" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="map-container scroll-animate" style="transition-delay: 150ms;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3388.476772462184!2d-58.01538782445857!3d-31.42572925731094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca45f0613271%3A0x6e938f88a95610b2!2sCastro%20Barros%20641%2C%20C1217ABM%20CABA!5e0!3m2!1ses-419!2sar!4v1678886543210!5m2!1ses-419!2sar" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <!-- ⚠️ Reemplazar con el iframe real de Malarín 221, San Salvador, ER -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BOTONES FLOTANTES -->
+    <div class="floating-buttons">
+        <a href="https://www.instagram.com/aquasansa.piscinas/" class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
+        </a>
+        <a href="https://wa.me/543454018990?text=¡Hola! Quisiera información sobre piletas." class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M16.75,13.96C17,14.26 17.25,14.81 17.25,15.41C17.25,16.5 16.25,17.45 15.2,17.5C14.15,17.55 12.25,17.15 10.45,15.75C8.3,14.05 7,11.9 7,9.75C7,8.55 7.9,7.6 8,6.55C8.05,5.5 8.5,3.75 8.95,3.3C9.4,2.85 10.1,2.85 10.55,3.3C11,3.75 11.5,4.65 11.5,4.95C11.5,5.25 11.45,5.35 11.2,5.6L10.95,5.85C10.75,6.05 10.55,6.2 10.7,6.45C10.85,6.7 11.5,7.6 12.35,8.5C13.35,9.55 14.15,10.1 14.45,10.25C14.7,10.4 14.9,10.2 15.1,10C15.3,9.8 15.75,9.25 16.2,9.25C16.65,9.25 17.3,9.7 17.45,9.85C17.6,10 17.6,10.85 17.3,11.25L16.75,13.96M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C10.03,22 8.2,21.43 6.65,20.45L2,22L3.55,17.35C2.57,15.8 2,13.97 2,12A10,10 0 0,1 12,2Z"/></svg>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aqua Sansa Piscinas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Aqua Sansa Piscinas",
+      "image": "https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976892/FOTO_FINAL_1_yirmfq.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Malarín 221",
+        "addressLocality": "San Salvador",
+        "addressRegion": "Entre Ríos",
+        "addressCountry": "AR"
+      },
+      "telephone": "+543454018990",
+      "email": "aquasansa.piscinas@gmail.com",
+      "url": "https://www.aquasansa.com.ar/",
+      "priceRange": "$$",
+      "openingHours": "Mo,Tu,We,Th,Fr,Sa 09:00-19:00",
+      "sameAs": [
+        "https://www.instagram.com/aquasansa.piscinas/",
+        "https://www.facebook.com/AquaSansaPiscinas"
+      ]
+    }
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+
+            // Mobile menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinksMobile = document.getElementById('nav-links-mobile');
+            const body = document.body;
+            if (menuToggle && navLinksMobile) {
+                menuToggle.addEventListener('click', () => body.classList.toggle('nav-open'));
+                navLinksMobile.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') body.classList.remove('nav-open');
+                });
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) body.classList.remove('nav-open');
+                });
+            }
+
+            // FAQ
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    const active = document.querySelector('.faq-item.active');
+                    if (active && active !== item) active.classList.remove('active');
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Carousel
+            const carousel = document.getElementById('services-carousel');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            if (carousel && prevBtn && nextBtn) {
+                const scrollStep = () => {
+                    const first = carousel.querySelector('.service-card');
+                    if (!first) return 0;
+                    const style = window.getComputedStyle(first);
+                    return first.offsetWidth + parseFloat(style.marginRight);
+                };
+                const updateButtons = () => {
+                    const step = scrollStep();
+                    prevBtn.disabled = carousel.scrollLeft < step / 2;
+                    nextBtn.disabled = carousel.scrollLeft + carousel.clientWidth + 1 >= carousel.scrollWidth;
+                };
+                nextBtn.addEventListener('click', () => carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' }));
+                prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' }));
+                carousel.addEventListener('scroll', updateButtons);
+                window.addEventListener('load', updateButtons);
+                window.addEventListener('resize', updateButtons);
+            }
+
+            // Scroll animations
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+            // Preloader
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => preloader.classList.add('fade-out'), 2000);
+                    setTimeout(() => preloader.style.display = 'none', 2500);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
