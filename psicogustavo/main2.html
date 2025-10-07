@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lic. Gustavo Amestoy — Psicólogo en Buenos Aires | TCC y EMDR</title>
+    <meta name="description" content="Psicólogo con 22+ años de experiencia en Terapia Cognitivo-Conductual (TCC) y EMDR. Especializado en ansiedad, depresión y desarrollo personal. Consultas presenciales en Microcentro y online.">
+    <meta name="author" content="Lic. Gustavo Amestoy">
+    <link rel="canonical" href="https://www.gustavoamestoy.com/">
+    <meta property="og:title" content="Lic. Gustavo Amestoy — Psicólogo en Buenos Aires | TCC y EMDR">
+    <meta property="og:description" content="Más de 22 años ayudando a manejar la ansiedad, superar la depresión y desarrollar el bienestar emocional.">
+    <meta property="og:image" content="img/perfil.jpg">
+    <meta property="og:url" content="https://www.gustavoamestoy.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lic. Gustavo Amestoy — Psicólogo en Buenos Aires">
+    <meta name="twitter:description" content="Especializado en ansiedad, depresión, TCC y EMDR. Consultas en Microcentro y online.">
+    <meta name="twitter:image" content="img/foto.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>GA</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #121212;
+            --accent: #82A222;
+            --text: #E0E0E0;
+            --muted: #A0A0A0;
+            --card-bg: #1E1E1E;
+            --font-main: 'Montserrat', sans-serif;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --border-radius: 12px;
+            --transition-fast: 0.2s ease-out;
+            --transition-med: 0.4s ease-out;
+            --max-width: 1200px;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+        body.nav-open { overflow: hidden; }
+        h1, h2, h3, h4, h5, h6, strong { font-weight: 600; }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .section { padding: var(--spacing-xl) 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
+        }
+        a:hover { opacity: 0.8; }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg);
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(130, 162, 34, 0.2);
+            opacity: 1;
+        }
+        .text-center { text-align: center; }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: var(--spacing-md) 0;
+            z-index: 1000;
+            transition: box-shadow var(--transition-fast);
+        }
+        .header.scrolled { box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        .nav-links { display: none; list-style: none; }
+        .nav-links a {
+            color: var(--text);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 400;
+        }
+        .menu-toggle {
+            display: block;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger {
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            position: relative;
+        }
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            position: absolute;
+            transition: all .3s;
+        }
+        .hamburger::before { top: -8px; }
+        .hamburger::after { top: 8px; }
+        .nav-open .hamburger { background: transparent; }
+        .nav-open .hamburger::before { transform: rotate(45deg); top: 0; }
+        .nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
+        .nav-links-mobile {
+            display: flex;
+            list-style: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: var(--bg);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0; visibility: hidden;
+            transform: translateY(-20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .nav-open .nav-links-mobile {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .nav-links-mobile a {
+            color: var(--text);
+            font-size: 2rem;
+            font-weight: 600;
+            padding: var(--spacing-md) 0;
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        .hero-text { text-align: center; }
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .hero-title-main {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1.1;
+        }
+        .hero-title-sub {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: var(--spacing-sm);
+        }
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 60ch;
+            margin: var(--spacing-lg) auto 0;
+        }
+
+        /* FRASES CON FOTOS VERTICALES */
+        .quotes-section {
+            background-color: var(--card-bg);
+        }
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+        @media (min-width: 769px) {
+            .quotes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .quote-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        .quote-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .quote-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: var(--spacing-lg);
+            color: white;
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* SOBRE MÍ */
+        .about-content {
+            display: grid;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        .about-photo img {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin: 0 auto var(--spacing-lg);
+            border: 4px solid var(--card-bg);
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            max-width: 65ch;
+        }
+        .about-text strong { color: var(--text); }
+
+        /* SERVICIOS */
+        .services-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        @media (min-width: 768px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 992px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .service-card {
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform var(--transition-med);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: var(--accent);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--card-bg);
+            padding: var(--spacing-md) 0;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-answer p {
+            padding-top: var(--spacing-md);
+            color: var(--muted);
+        }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-icon { transition: transform 0.4s; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        footer {
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ANIMACIONES */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 769px) {
+            .menu-toggle { display: none; }
+            .nav-links-mobile { display: none; }
+            .nav-links { display: flex; gap: var(--spacing-md); }
+            .hero-content { grid-template-columns: repeat(2, 1fr); }
+            .hero-text { text-align: left; }
+            .hero-description { margin: var(--spacing-lg) 0 0; }
+            .about-content { grid-template-columns: 250px 1fr; text-align: left; }
+            .about-photo img { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="header-nav">
+                <div class="logo">
+                    <a href="#hero">Gustavo Amestoy</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="nav-links-mobile" class="nav-links-mobile">
+        <ul>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- HERO CON FOTO DE PERFIL -->
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text scroll-animate">
+                        <div class="hero-title-main">Gustavo Amestoy</div>
+                        <div class="hero-title-sub">Licenciado en Psicología</div>
+                        <p class="hero-description">Más de 22 años de experiencia en Terapia Cognitivo-Conductual (TCC) y EMDR. Especializado en ansiedad, depresión y desarrollo personal.</p>
+                        <div class="hero-cta" style="margin-top: var(--spacing-lg);">
+                            <a href="https://wa.link/c9f6rv" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reservar Consulta</a>
+                        </div>
+                    </div>
+                    <div class="hero-image scroll-animate" style="transition-delay: 150ms;">
+                        <img src="img/foto.jpg" alt="Lic. Gustavo Amestoy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE FRASES CON FOTOS VERTICALES -->
+        <section class="section quotes-section">
+            <div class="container">
+                <div class="quotes-grid">
+                    <div class="quote-card scroll-animate">
+                        <img src="foto1.jpg" alt="Frase 1">
+                        <div class="quote-overlay">
+                            “Desarrollar la autocompasión también es avanzar.”
+                        </div>
+                    </div>
+                    <div class="quote-card scroll-animate" style="transition-delay: 150ms;">
+                        <img src="foto2.jpg" alt="Frase 2">
+                        <div class="quote-overlay">
+                            “Aprendé a frenar tus pensamientos y mejorar tu bienestar.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ -->
+        <section id="about" class="section">
+            <div class="container about-content">
+                <div class="about-photo scroll-animate">
+                    <img src="img/foto.jpg" alt="Retrato de Gustavo Amestoy">
+                </div>
+                <div class="about-text scroll-animate">
+                    <p>El <strong>Licenciado Gustavo Amestoy</strong> es psicólogo especializado en <strong>Terapia Cognitivo-Conductual, Psicoanálisis y Psicología Clínica</strong>, con más de 22 años de experiencia.</p>
+                    <p>Atiende pacientes con: <strong>ansiedad, ataques de pánico, agorafobia, fobia social, insomnio, duelo, baja autoestima, trastornos de personalidad, déficit de atención, gastritis por estrés</strong>, entre otros.</p>
+                    <p>Ofrece también: <strong>tests psicológicos, tests proyectivos, terapia de pareja, familiar y grupal</strong>.</p>
+                    <p><strong>“Más de 22 años de experiencia.”</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Servicios y Enfoques</h2>
+                </div>
+                <div class="services-grid scroll-animate">
+                    <div class="service-card">
+                        <h3>Terapia Cognitivo-Conductual (TCC)</h3>
+                        <p>Tratamiento basado en evidencia para ansiedad, pánico, fobias y depresión.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Terapia EMDR</h3>
+                        <p>Procesamiento de traumas y recuerdos perturbadores mediante movimientos oculares.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Psicoanálisis</h3>
+                        <p>Exploración profunda del inconsciente para comprender patrones emocionales.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Tests Psicológicos</h3>
+                        <p>Aplicación e interpretación de tests proyectivos y estandarizados.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Terapia de Pareja y Familiar</h3>
+                        <p>Abordaje de conflictos relacionales y dinámicas disfuncionales.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Desarrollo Personal</h3>
+                        <p>Orientación en autocompasión, aceptación y regulación emocional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONSULTORIO -->
+        <section id="office" class="section">
+            <div class="container text-center">
+                <div class="scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Consultorio en Microcentro</h2>
+                    <p style="color: var(--muted); max-width: 60ch; margin: var(--spacing-sm) auto 0;">
+                        Atiendo en un consultorio privado ubicado en el Microcentro de la Ciudad de Buenos Aires.
+                    </p>
+                </div>
+                <div class="office-image-container scroll-animate" style="transition-delay: 150ms;">
+                    <img src="consultorio.jpg" alt="Consultorio del Lic. Gustavo Amestoy" style="border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0,0,0,0.4); width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <div class="container" style="max-width: 800px;">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Preguntas Frecuentes</h2>
+                </div>
+                <div class="scroll-animate">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Ofreces consultas online?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, ofrezco sesiones tanto presenciales en Microcentro como online por videollamada.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Cuánto dura una sesión?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Las sesiones tienen una duración estándar de 50 minutos.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>¿Hacés tests psicológicos?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, realizo evaluaciones psicológicas completas con tests proyectivos y estandarizados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contact" class="section">
+            <div class="container text-center">
+                <div class="scroll-animate">
+                    <h2>Contacto</h2>
+                    <p style="margin-top: var(--spacing-sm); color: var(--muted);">
+                        Escribime para coordinar tu primera consulta.
+                    </p>
+                    <div style="margin-top: var(--spacing-lg); display: flex; justify-content: center; gap: var(--spacing-lg);">
+                        <a href="https://www.instagram.com/psicologo.gustavoamestoy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="font-size: 2rem; color: var(--muted);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://wa.link/c9f6rv" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="font-size: 2rem; color: var(--muted);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.512 1.924 6.344l-1.651 6.045 6.257-1.644z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lic. Gustavo Amestoy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinksMobile = document.getElementById('nav-links-mobile');
+            const body = document.body;
+            menuToggle?.addEventListener('click', () => body.classList.toggle('nav-open'));
+            navLinksMobile?.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') body.classList.remove('nav-open');
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) body.classList.remove('nav-open');
+            });
+
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.addEventListener('click', () => {
+                    const item = q.parentElement;
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        if (i !== item) i.classList.remove('active');
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
