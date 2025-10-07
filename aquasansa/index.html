@@ -160,13 +160,79 @@
         }
 
         /* HERO */
-        #hero { min-height: 100vh; display: flex; align-items: center; }
-        .hero-content { display: grid; gap: var(--spacing-xl); align-items: center; }
-        .hero-text { text-align: center; }
-        .hero-image img {
-            border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-            width: 100%; max-width: 450px; margin: 0 auto;
-        }
+        /* ======================= HERO PANORÁMICO ======================= */
+#hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformar */
+    filter: brightness(0.6); /* Oscurece ligeramente para que el texto destaque */
+}
+
+.hero-content {
+    display: grid;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.hero-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white; /* Texto blanco para contraste sobre la imagen */
+}
+
+.hero-title-main {
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-title-sub {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: var(--spacing-sm);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.95);
+    margin: var(--spacing-lg) auto 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .hero-title-main {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+    }
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
         .hero-title-main {
             font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; color: var(--text); line-height: 1.1; letter-spacing: 1px;
         }
@@ -342,23 +408,24 @@
 
     <main>
         <!-- HERO -->
-        <section id="hero" class="section">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text scroll-animate">
-                        <div class="hero-title-main">Aqua Sansa</div>
-                        <div class="hero-title-sub">Instalamos Piletas | Creamos Recuerdos 💙</div>
-                        <p class="hero-description">Tu verano empieza en casa. Instalamos tu pileta en una semana. Somos representantes oficiales de Moldear Piscinas.</p>
-                        <div class="hero-cta">
-                            <a href="https://wa.me/543454018990?text=¡Hola! Quisiera información sobre la instalación de una pileta." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
-                        </div>
-                    </div>
-                    <div class="hero-image scroll-animate" style="transition-delay: 150ms;">
-                        <img src="logo.jpg" alt="Aqua Sansa Piscinas - Instalación de piletas">
-                    </div>
+        <!-- HERO -->
+<section id="hero" class="section">
+    <div class="hero-background">
+        <img src="https://res.cloudinary.com/dgyjeotoa/image/upload/v1758976893/FOTO_FINAL_2_ylf1hy.png" alt="Aqua Sansa Piscinas - Instalación de piletas">
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text scroll-animate">
+                <div class="hero-title-main">Aqua Sansa</div>
+                <div class="hero-title-sub">Instalamos Piletas | Creamos Recuerdos 💙</div>
+                <p class="hero-description">Tu verano empieza en casa. Instalamos tu pileta en una semana. Somos representantes oficiales de Moldear Piscinas.</p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/543454018990?text=¡Hola! Quisiera información sobre la instalación de una pileta." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- SOBRE NOSOTROS -->
         <section id="about" class="section">
