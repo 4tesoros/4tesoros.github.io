@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROMA Coworking | Donde tu productividad encuentra su lugar</title>
+    <style>
+        /* Estilos CSS básicos para simular el layout "One Page" limpio */
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: bold; color: #333; text-decoration: none; }
+        .menu ul { list-style: none; padding: 0; margin: 0; display: flex; }
+        .menu ul li a { text-decoration: none; color: #555; padding: 10px 15px; display: block; transition: color 0.3s; }
+        .menu ul li a:hover { color: #007bff; }
+        
+        /* Estilos de secciones */
+        section { padding: 80px 20px; max-width: 900px; margin: 0 auto; background: #fff; border-bottom: 1px solid #eee; }
+        #inicio, #oficinas { text-align: center; }
+        .accordion-item { border: 1px solid #ddd; margin-bottom: 10px; }
+        .accordion-title { padding: 15px; background: #f9f9f9; cursor: pointer; font-weight: bold; }
+        .accordion-content { padding: 15px; border-top: 1px solid #eee; display: none; text-align: left; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 20px; }
+        .gallery img { width: 100%; height: auto; display: block; border-radius: 5px; }
+
+        /* Estilo similar a FAQ para Tarifas (Acordeón) */
+        #tarifas .accordion-content { background-color: #fff; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <a href="#inicio" class="logo">ROMA Coworking</a>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#tarifas">Tarifas</a></li>
+                    <li><a href="#oficinas">Oficinas</a></li>
+                    <li><a href="/about.html">Horarios</a></li>
+                    <li><a href="/cargahorariosusers.html">Clientes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <h1>Bienvenido a ROMA Coworking</h1>
+        <p>
+            Donde tu productividad encuentra su lugar. Espacio flexible, moderno y pensado para adaptarse a tus necesidades. Trabajá por horas, medio día o jornada completa.
+        </p>
+        <img src="URL_DE_TU_FOTO_PRINCIPAL" alt="Imagen principal de ROMA Coworking" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+    </section>
+    
+    <section id="tarifas">
+        <h2>Nuestras Tarifas</h2>
+        <div id="accordion-tarifas">
+            
+            <div class="accordion-item">
+                <div class="accordion-title" onclick="toggleAccordion(1)">1. ¿Qué es un Módulo Horario?</div>
+                <div class="accordion-content" id="content-1">
+                    <p>Un **módulo horario** se trata de un bloque de tiempo de 50 a 60 minutos (a definir) que puedes reservar para consultas individuales, sesiones o reuniones. Es la unidad mínima de reserva.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-title" onclick="toggleAccordion(2)">2. ¿Cuál es el precio de los Packs Mensuales?</div>
+                <div class="accordion-content" id="content-2">
+                    <p>Ofrecemos diferentes planes mensuales según la cantidad de horas o días fijos que necesites. **Consulta nuestros planes Bronce, Plata y Oro** contactándonos, o revisa la sección de Horarios para el detalle completo.</p>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-title" onclick="toggleAccordion(3)">3. ¿Qué costo tiene una hora única?</div>
+                <div class="accordion-content" id="content-3">
+                    <p>La tarifa por una hora única (módulo) sin compromiso mensual es de **[PONER PRECIO O CONTACTO]**. Ideal para una necesidad puntual o reuniones esporádicas.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-title" onclick="toggleAccordion(4)">4. ¿Cuál es el precio para eventos, cursos o seminarios?</div>
+                <div class="accordion-content" id="content-4">
+                    <p>El costo para eventos varía según la sala elegida (capacidad), el tiempo de reserva (media jornada o jornada completa) y los servicios adicionales. **Solicita un presupuesto personalizado** indicando la fecha y el número de asistentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oficinas">
+        <h2>Nuestros Espacios</h2>
+        <p>
+            Contamos con oficinas privadas ideales para sesiones individuales y salas comunes para trabajo en equipo y capacitaciones. Todos nuestros espacios están diseñados para ofrecer privacidad y confort.
+        </p>
+        <div class="gallery">
+            <img src="URL_FOTO_1.jpg" alt="Oficina 1">
+            <img src="URL_FOTO_2.jpg" alt="Oficina 2">
+            <img src="URL_FOTO_3.jpg" alt="Oficina 3">
+            <img src="URL_FOTO_4.jpg" alt="Oficina 4">
+            <img src="URL_FOTO_5.jpg" alt="Oficina 5">
+            <img src="URL_FOTO_6.jpg" alt="Oficina 6">
+            <img src="URL_FOTO_7.jpg" alt="Oficina 7">
+            <img src="URL_FOTO_8.jpg" alt="Oficina 8">
+            <img src="URL_FOTO_9.jpg" alt="Oficina 9">
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto y Ubicación</h2>
+        <p>Estamos ubicados en Rivadavia 1138. Escríbenos para coordinar tu reserva o resolver cualquier duda.</p>
+        <p>Teléfono: 266-501-0199 | Email: coworking.roma@gmail.com</p>
+        </section>
+
+
+    <script>
+        function toggleAccordion(id) {
+            const content = document.getElementById('content-' + id);
+            
+            // Cierra todos los contenidos que no son el actual
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if(item.id !== content.id) {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Abre o cierra el contenido actual
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
