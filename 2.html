@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROMA Coworking | Espacios Profesionales y Flexibles</title>
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.js"></script>
+
     <style>
         /* ==================================== */
         /* 1. PALETA DE COLORES Y TIPOGRAFÍA    */
@@ -278,22 +281,22 @@
     </section>
 
     <section id="oficinas">
-        <h2>Galería de Oficinas y Salas</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
-            Contamos con oficinas privadas y salas comunes diseñadas para ofrecer privacidad y confort. Explora nuestros espacios.
-        </p>
-        <div class="gallery">
-            <img src="assets/img/roma/3.png" alt="Oficina 3">
-            <img src="assets/img/roma/consultorioMario/5.png" alt="Oficina 4">
-            <img src="assets/img/roma/noe/3.png" alt="Oficina 5">
-            <img src="assets/img/roma/6.png" alt="Oficina 6">
-            <img src="assets/img/roma/7.png" alt="Oficina 7">
-            <img src="assets/img/roma/abajocowork/6.png" alt="Oficina 8">
-            <img src="assets/img/roma/arriba.png" alt="Oficina 9">
-            <img src="assets/img/roma/arriba1/4.png" alt="Oficina Extra 1">
-            <img src="assets/img/roma/7.png" alt="Oficina Extra 2"> 
-        </div>
-    </section>
+    <h2>Galería de Oficinas y Salas</h2>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+        Contamos con oficinas privadas y salas comunes diseñadas para ofrecer privacidad y confort. Explora nuestros espacios.
+    </p>
+    <div class="gallery">
+        <a href="assets/img/roma/3.png"><img src="assets/img/roma/3.png" alt="Oficina 3"></a>
+        <a href="assets/img/roma/4.png"><img src="assets/img/roma/4.png" alt="Oficina 4"></a>
+        <a href="assets/img/roma/5.png"><img src="assets/img/roma/5.png" alt="Oficina 5"></a>
+        <a href="assets/img/roma/6.png"><img src="assets/img/roma/6.png" alt="Oficina 6"></a>
+        <a href="assets/img/roma/7.png"><img src="assets/img/roma/7.png" alt="Oficina 7"></a>
+        <a href="assets/img/roma/8.png"><img src="assets/img/roma/8.png" alt="Oficina 8"></a>
+        <a href="assets/img/roma/9.png"><img src="assets/img/roma/9.png" alt="Oficina 9"></a>
+        <a href="assets/img/roma/9.png"><img src="assets/img/roma/9.png" alt="Oficina Extra 1"></a>
+        <a href="assets/img/roma/7.png"><img src="assets/img/roma/7.png" alt="Oficina Extra 2"></a> 
+    </div>
+   </section>
 
     <section id="contacto">
         <h2>¿Listo para reservar?</h2>
@@ -301,7 +304,12 @@
         <p style="text-align: center; font-weight: bold;">Teléfono: 266-501-0199 | Email: coworking.roma@gmail.com</p>
         <div style="text-align: center;"><a href="mailto:coworking.roma@gmail.com" class="btn-acento">CONTACTAR AHORA</a></div>
     </section>
+    <script>
+        // Selecciona todos los enlaces dentro del contenedor de la galería
+        var lightbox = new SimpleLightbox('.gallery a'); 
+    </script>
 
+    
     <script>
         function toggleAccordion(id) {
             const content = document.getElementById('content-' + id);
@@ -319,4 +327,5 @@
         }
     </script>
 </body>
+
 </html>
