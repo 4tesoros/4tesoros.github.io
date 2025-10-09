@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Gustavo Amestoy — Lic. en Psicología | TCC, Mindfulness, EMDR y Clínica</title>
+    <title>Gustavo Amestoy — Lic. en Psicología | TCC, Mindfulness, EMDR y Clínica</title>
     <meta name="description" content="Licenciado en Psicología. Más de 20 años de experiencia en TCC, Mindfulness, Psicología Positiva y EMDR. Atención presencial en Maipú 388, CABA y online.">
     <meta name="author" content="Lic. Gustavo Amestoy">
     <link rel="canonical" href="https://www.gustavoamestoy.com/">
@@ -379,10 +379,19 @@
             color: var(--accent);
         }
         /* ======================= CONSULTORIO ======================= */
-        .office-image-container img {
+        /* Nuevo estilo para el contenedor del mapa */
+        .office-map-container {
             border-radius: var(--border-radius);
+            overflow: hidden;
             box-shadow: var(--shadow);
             width: 100%;
+            height: 400px; /* Altura fija para el mapa */
+            margin-top: var(--spacing-lg);
+        }
+        .office-map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         /* ======================= FAQ ======================= */
         .faq-item {
@@ -555,7 +564,7 @@
                         </div>
                     </div>
                     <div class="hero-image scroll-animate" style="transition-delay: 150ms;">
-                        <img src="nueva1.jpg" alt="Lic. Gustavo Amestoy">
+                        <img src="https://placehold.co/600x600/1E3A8A/FFFFFF?text=Gustavo+Amestoy" alt="Lic. Gustavo Amestoy">
                     </div>
                 </div>
             </div>
@@ -564,7 +573,7 @@
         <section id="about" class="section">
             <div class="container about-content">
                 <div class="about-photo scroll-animate">
-                    <img src="nuevaperfil.jpg" alt="Retrato del Lic. Gustavo Amestoy" loading="lazy">
+                    <img src="img/perfil.jpg" alt="Retrato del Lic. Gustavo Amestoy" loading="lazy">
                 </div>
                 <div class="about-text scroll-animate">
                     <p>Soy **Licenciado en Psicología**, comencé a trabajar en el área clínica en el año 2002, desde la **TCC (Terapia Cognitiva Conductual), Mindfulness, Psicología positiva y EMDR**.</p>
@@ -629,11 +638,11 @@
                 </div>
                 <div class="benefits-list scroll-animate">
                     <ul>
-                        <li>Modalidad Presencial </li>
-                        <li>Modalidad On line </li>
-                        <li>Técnicas adaptadas a cada caso </li>
-                        <li>Escucha activa, humana y empática  </li>
-                        <li>Amplia experiencia </li>
+                        <li>Modalidad Presencial</li>
+                        <li>Modalidad On line</li>
+                        <li>Técnicas adaptadas a cada caso</li>
+                        <li>Escucha activa, humana y empática</li>
+                        <li>Amplia experiencia</li>
                     </ul>
                 </div>
             </div>
@@ -647,8 +656,8 @@
                         Atención presencial en **Ciudad Autónoma de Buenos Aires**.
                     </p>
                 </div>
-                <div class="office-image-container scroll-animate" style="transition-delay: 150ms;">
-                    <img src="img/ubicacion.jpg" alt="Consultorio del Lic. Gustavo Amestoy">
+                <div class="office-map-container scroll-animate" style="transition-delay: 150ms;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.1453957581373!2d-58.37527668472535!3d-34.59976338048281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac417a80b7b%3A0xc3f6089d8e78864d!2sMaip%C3%BA%20388%2C%20C1006ACG%20CABA%2C%20Argentina!5e0!3m2!1ses-419!2sus!4v1687449520428!5m2!1ses-419!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación del consultorio en Maipú 388, CABA"></iframe>
                 </div>
             </div>
         </section>
@@ -729,7 +738,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                         <a href="https://wa.link/c9f6rv" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.512 1.924 6.344l-1.651 6.045 6.257-1.644z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zM6.597 20.193c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.512 1.924 6.344l-1.651 6.045 6.257-1.644z"/></svg>
                         </a>
                     </div>
                 </div>
