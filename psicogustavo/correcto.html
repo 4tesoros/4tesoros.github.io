@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lic. Gustavo Amestoy: Psicólogo TCC, EMDR, Mindfulness | Consultorio CABA y Online</title>
+    <meta name="description" content="Psicólogo en CABA con 20+ años de experiencia. Tratamiento eficaz para ansiedad, pánico, depresión y estrés postraumático. Enfoques: TCC, EMDR y Mindfulness. Sesiones online y presenciales.">
+    <meta name="author" content="Lic. Gustavo Amestoy">
+    <link rel="canonical" href="https://www.gustavoamestoy.com/">
+    <meta property="og:title" content="Lic. Gustavo Amestoy — Psicólogo en Microcentro, CABA">
+    <meta property="og:description" content="Más de 20 años de experiencia en ansiedad, depresión, pánico, fobias y duelo. Enfoques: TCC, Mindfulness, EMDR y Clínica.">
+    <meta property="og:image" content="img/perfil.jpg">
+    <meta property="og:url" content="https://www.gustavoamestoy.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lic. Gustavo Amestoy — Psicólogo en Microcentro, CABA">
+    <meta name="twitter:description" content="Más de 20 años de experiencia en ansiedad, depresión, pánico, fobias y duelo. Enfoques: TCC, Mindfulness, EMDR y Clínica.">
+    <meta name="twitter:image" content="img/perfil.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>GA</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ======================= RESET Y VARIABLES ======================= */
+        :root {
+            --bg: #FFFFFF;
+            --accent: #1E3A8A;
+            --accent-secondary: #D4AF37;
+            --text: #1F2937;
+            --muted: #6B7280;
+            --card-bg: #F9FAFB;
+            --font-main: 'Montserrat', sans-serif;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --border-radius: 12px;
+            --transition-fast: 0.2s ease-out;
+            --transition-med: 0.4s ease-out;
+            --max-width: 1200px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body.nav-open { overflow: hidden; }
+        h1, h2, h3, h4, h5, h6, strong { font-weight: 600; color: var(--accent); }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg); }
+        .section { padding: var(--spacing-xl) 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--accent); text-decoration: none; transition: opacity var(--transition-fast); }
+        a:hover { opacity: 0.8; }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .btn-primary { background-color: var(--accent); color: white; }
+        .btn-secondary { background-color: var(--accent-secondary); color: var(--bg); }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2);
+            opacity: 1;
+        }
+        .text-center { text-align: center; }
+        /* ======================= PRELOADER ======================= */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg); z-index: 9999; display: flex;
+            justify-content: center; align-items: center; opacity: 1;
+            transition: opacity 0.5s ease; pointer-events: none;
+        }
+        #preloader.fade-out { opacity: 0; }
+        .preloader-content { display: flex; flex-direction: column; align-items: center; }
+        .preloader-name { font-size: 2rem; font-weight: 600; color: var(--accent); margin-bottom: var(--spacing-md); }
+        .preloader-bar-container { width: 200px; height: 4px; background-color: #E5E7EB; border-radius: 2px; overflow: hidden; }
+        .preloader-bar { width: 0; height: 100%; background-color: var(--accent); animation: loading-progress 2s ease-out forwards; }
+        @keyframes loading-progress { 0% { width: 0; } 100% { width: 100%; } }
+        /* ======================= HEADER ======================= */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: var(--spacing-md) 0;
+            z-index: 1000; background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px); transition: box-shadow var(--transition-fast);
+        }
+        .header.scrolled { box-shadow: var(--shadow); }
+        .header-nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-weight: 700; font-size: 1.5rem; color: var(--accent); }
+        .nav-links { display: none; list-style: none; }
+        .nav-links a { color: var(--text); padding: var(--spacing-sm) var(--spacing-md); font-weight: 500; }
+        .menu-toggle { display: block; cursor: pointer; position: relative; z-index: 1001; }
+        .hamburger { width: 25px; height: 2px; background: var(--text); display: block; position: relative; transition: background .3s; }
+        .hamburger::before, .hamburger::after {
+            content: ''; width: 25px; height: 2px; background: var(--text);
+            display: block; position: absolute; transition: all .3s;
+        }
+        .hamburger::before { top: -8px; }
+        .hamburger::after { top: 8px; }
+        .nav-open .hamburger { background: transparent; }
+        .nav-open .hamburger::before { transform: rotate(45deg); top: 0; }
+        .nav-open .hamburger::after { transform: rotate(-45deg); top: 0; }
+        .nav-links-mobile {
+            display: flex; list-style: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background-color: white; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 1000; opacity: 0;
+            visibility: hidden; transform: translateY(-20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
+        }
+        .nav-open .nav-links-mobile {
+            opacity: 1; visibility: visible; transform: translateY(0);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0s;
+        }
+        .nav-links-mobile a { color: var(--accent); font-size: 2rem; font-weight: 600; padding: var(--spacing-md) 0; }
+        /* ======================= HERO ======================= */
+        #hero { min-height: 100vh; display: flex; align-items: center; background-color: #F9FAFB; }
+        .hero-content { display: grid; grid-template-columns: 1fr; gap: var(--spacing-xl); align-items: center; }
+        .hero-text { text-align: center; }
+        .hero-image img {
+            border-radius: var(--border-radius); box-shadow: var(--shadow);
+            width: 100%; max-width: 450px; margin: 0 auto; border: 4px solid white;
+        }
+        .hero-title-main {
+            font-size: clamp(3rem, 7vw, 5rem); /* Título más grande */
+            font-weight: 300; color: var(--accent); line-height: 1.1; letter-spacing: 1px;
+        }
+        .hero-title-sub { display: none; } /* Se oculta el subtítulo */
+        .hero-description { font-size: 1.1rem; color: var(--muted); max-width: 60ch; margin: var(--spacing-lg) auto 0; }
+        .hero-cta { margin-top: var(--spacing-lg); }
+        /* ======================= SOBRE MÍ ======================= */
+        .about-content { display: grid; gap: var(--spacing-xl); align-items: center; }
+        .about-photo img {
+            border-radius: 50%; width: 250px; height: 250px; object-fit: cover;
+            margin: 0 auto var(--spacing-lg); border: 4px solid var(--card-bg); box-shadow: var(--shadow);
+        }
+        .about-text p { font-size: 1.1rem; margin-bottom: var(--spacing-md); max-width: 65ch; }
+        .about-text strong { color: var(--accent); }
+        .about-cta { margin-top: var(--spacing-lg); }
+        /* ======================= SERVICIOS ======================= */
+        .services-grid { display: grid; gap: var(--spacing-lg); margin-top: var(--spacing-lg); }
+        .service-card {
+            background-color: var(--card-bg); padding: var(--spacing-lg);
+            border-radius: var(--border-radius); box-shadow: var(--shadow);
+            transition: transform var(--transition-med);
+        }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { color: var(--accent); margin-bottom: var(--spacing-md); }
+        /* ======================= BENEFICIOS LISTA ======================= */
+        .benefits-list { margin-top: var(--spacing-xl); }
+        .benefits-list ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg); }
+        .benefits-list li {
+            background-color: var(--bg); padding: 10px 20px; border-radius: 50px;
+            border: 1px solid var(--accent); font-weight: 500; color: var(--accent);
+        }
+        /* ======================= CONSULTORIO ======================= */
+        .office-map-container {
+            border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow);
+            width: 100%; height: 400px; margin-top: var(--spacing-lg);
+        }
+        .office-map-container iframe { width: 100%; height: 100%; border: 0; }
+        /* ======================= FAQ ======================= */
+        .faq-item { border-bottom: 1px solid #E5E7EB; padding: var(--spacing-md) 0; }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; font-weight: 600; font-size: 1.1rem; color: var(--accent);
+        }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; }
+        .faq-answer p { padding-top: var(--spacing-md); color: var(--muted); }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-icon { transition: transform var(--transition-med); font-size: 1.5rem; color: var(--accent); }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        /* ======================= CONTACTO ======================= */
+        .contact-content { text-align: center; }
+        .social-icons { margin-top: var(--spacing-lg); display: flex; justify-content: center; gap: var(--spacing-lg); }
+        .social-icons a { font-size: 2rem; color: var(--accent); }
+        /* ======================= FOOTER ======================= */
+        footer {
+            padding: var(--spacing-lg) 0; text-align: center; color: var(--muted);
+            font-size: 0.9rem; background-color: #F9FAFB; border-top: 1px solid #E5E7EB;
+        }
+        /* ======================= BOTONES FLOTANTES ======================= */
+        .floating-buttons {
+            position: fixed; bottom: var(--spacing-lg); right: var(--spacing-lg);
+            display: flex; flex-direction: column; gap: var(--spacing-md); z-index: 998;
+        }
+        .floating-btn {
+            width: 60px; height: 60px; border-radius: 50%; background-color: var(--accent);
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3); transition: transform var(--transition-fast);
+        }
+        .floating-btn:hover { transform: scale(1.1); }
+        .floating-btn svg { width: 32px; height: 32px; fill: white; }
+        /* ======================= ANIMACIONES SCROLL ======================= */
+        .scroll-animate { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--transition-med), transform 0.8s var(--transition-med); }
+        .scroll-animate.visible { opacity: 1; transform: translateY(0); }
+        /* ======================= RESPONSIVE ======================= */
+        @media (min-width: 768px) {
+            .menu-toggle { display: none; }
+            .nav-links-mobile { display: none; }
+            .nav-links { display: flex; gap: var(--spacing-md); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-content { grid-template-columns: repeat(2, 1fr); }
+            .hero-text { text-align: left; }
+            .hero-description { margin: var(--spacing-lg) 0 0; }
+            .about-content { grid-template-columns: 250px 1fr; text-align: left; }
+            .about-photo img { margin: 0; }
+        }
+        @media (min-width: 992px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-name">Gustavo Amestoy</div>
+            <div class="preloader-bar-container"><div class="preloader-bar"></div></div>
+        </div>
+    </div>
+
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="header-nav">
+                <div class="logo"><a href="#hero">Gustavo Amestoy</a></div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle"><span class="hamburger"></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="nav-links-mobile" class="nav-links-mobile">
+        <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text scroll-animate">
+                        <div class="hero-title-main">Gustavo Amestoy</div>
+                        <div class="hero-title-sub">Licenciado en psicología.</div>
+                        <p class="hero-description">Acompaño procesos individuales, grupales y vinculares desde un enfoque integrador, basado en la ciencia y el encuentro humano. Bienvenido a un espacio para pensar, sentir y transformarte...</p>
+                        <div class="hero-cta">
+                            <a href="https://wa.link/c9f6rv" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Reservar Consulta</a>
+                        </div>
+                    </div>
+                    <div class="hero-image scroll-animate" style="transition-delay: 150ms;">
+                        <img src="nueva1.jpg" alt="Lic. Gustavo Amestoy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container about-content">
+                <div class="about-photo scroll-animate">
+                    <img src="nuevaperfil.jpg" alt="Retrato del Lic. Gustavo Amestoy" loading="lazy">
+                </div>
+                <div class="about-text scroll-animate">
+                    <p>Soy <strong>Licenciado en Psicología</strong>, comencé a trabajar en el área clínica en el año 2002, desde la <strong>TCC (Terapia Cognitiva Conductual), Mindfulness, Psicología positiva y EMDR</strong>.</p>
+                    <p>Atiendo pacientes con: <strong>ansiedad, pánico, estrés, depresión, desregulación emocional, duelos, baja autoestima, trastornos de personalidad, trastornos adaptativos, estrés postraumático, crisis vitales y quienes quieran trabajar en su desarrollo y crecimiento personal</strong>.</p>
+                    <div class="about-cta">
+                        <a href="https://wa.link/c9f6rv" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section" style="background-color: #F9FAFB;">
+            <div class="container">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Servicios y Enfoques</h2>
+                </div>
+                <div class="services-grid scroll-animate">
+                    <div class="service-card">
+                        <h3>Terapia Individual</h3>
+                        <p>Para <strong>adolescentes y adultos</strong>. Procesos individuales para abordar desafíos y metas personales.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Terapia de Pareja</h3>
+                        <p>Abordaje de conflictos y mejora de la comunicación y dinámica relacional.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Terapia Familiar</h3>
+                        <p>Trabajo con el sistema familiar para resolver problemas y mejorar la convivencia.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Terapia Grupal</h3>
+                        <p>Espacio colectivo para el crecimiento, apoyo mutuo y desarrollo de habilidades interpersonales.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Orientación Vocacional</h3>
+                        <p>Te acompaño a descubrir tus intereses, talentos y motivaciones a través de herramientas de exploración psicológica y espacios de reflexión para construir tu vida laboral y profesional.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Taller de Habilidades DBT</h3>
+                        <p>Entrenamiento en habilidades de regulación emocional, mindfulness, tolerancia al malestar y efectividad interpersonal.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Asesoría a Padres</h3>
+                        <p>Guía y acompañamiento para padres en la crianza y el manejo de desafíos con sus hijos.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Talleres de Mindfulness</h3>
+                        <p>Prácticas de atención plena para reducir el estrés, la ansiedad y aumentar la conciencia del presente.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Talleres para Empresas</h3>
+                        <p>Programas personalizados para equipos, enfocados en bienestar, manejo del estrés y habilidades blandas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="section">
+            <div class="container" style="max-width: 800px;">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Beneficios de la Terapia</h2>
+                </div>
+                <div class="benefits-list scroll-animate">
+                    <ul>
+                        <li>Modalidad Presencial</li>
+                        <li>Modalidad On line</li>
+                        <li>Técnicas adaptadas a cada caso</li>
+                        <li>Escucha activa, humana y empática</li>
+                        <li>Amplia experiencia</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="office" class="section">
+            <div class="container text-center">
+                <div class="scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Consultorio: Maipú 388, 5to "D" - CABA</h2>
+                    <p style="color: var(--muted); max-width: 60ch; margin: var(--spacing-sm) auto 0;">Atención presencial en <strong>Ciudad Autónoma de Buenos Aires</strong>.</p>
+                </div>
+                <div class="office-map-container scroll-animate" style="transition-delay: 150ms;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016888131336!2d-58.37976138477039!3d-34.60372278045952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac666c62481%3A0x284b8f0a359d99c!2sMaip%C3%BA%20388%2C%20C1006ACG%20CABA!5e0!3m2!1ses-419!2sar!4v1668208398184!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación del consultorio en Maipú 388, CABA"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section" style="background-color: #F9FAFB;">
+            <div class="container" style="max-width: 800px;">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);"><h2>Preguntas Frecuentes</h2></div>
+                <div class="scroll-animate">
+                    <div class="faq-item">
+                        <div class="faq-question"><span>¿Cómo agendo una primera consulta?</span><span class="faq-icon">+</span></div>
+                        <div class="faq-answer"><p>Podés escribirme al WhatsApp <strong>+ 54 11 39002247</strong> las 24 hs y agendamos un primer encuentro.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span>¿Ofrecés terapia on line o presencial?</span><span class="faq-icon">+</span></div>
+                        <div class="faq-answer"><p>Trabajo en forma presencial en mi consultorio de CABA microcentro y en forma on line a través de Zoom o Meet.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span>¿Cuál es la frecuencia y duración de las sesiones?</span><span class="faq-icon">+</span></div>
+                        <div class="faq-answer"><p>La sesión de terapia individual dura <strong>50/55 minutos</strong>. La frecuencia normally es semanal, pero se adapta al proceso que lleva adelante cada persona.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span>¿Atendés obras sociales o prepagas?</span><span class="faq-icon">+</span></div>
+                        <div class="faq-answer"><p>Solo atiendo en forma particular. Al final del mes emito la factura correspondiente para que puedas gestionar el reintegro en tu obra social o prepaga.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span>¿Atendés paciente fuera de Argentina?</span><span class="faq-icon">+</span></div>
+                        <div class="faq-answer"><p>Si, atiendo en modalidad on line pacientes de cualquier parte del mundo en idioma español.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span>¿Cuáles son los días y horarios de atención?</span><span class="faq-icon">+</span></div>
+                        <div class="faq-answer"><p>Trabajo de <strong>lunes a viernes</strong>, primer turno <strong>9 am</strong> y último turno <strong>20 hs</strong>.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container contact-content">
+                <div class="text-center scroll-animate">
+                    <h2>Contacto</h2>
+                    <p style="margin-top: var(--spacing-sm);">Teléfono / WhatsApp: <strong>+ 54 11 39002247</strong></p>
+                    <p style="margin-top: var(--spacing-sm);">Horario de atención: <strong>9 a 21 hs</strong> (Lunes a Viernes)</p>
+                    <p style="margin-top: var(--spacing-md);">Escribime para coordinar tu primera consulta.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/psicologo.gustavoamestoy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://wa.link/c9f6rv" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zM6.597 20.193c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.512 1.924 6.344l-1.651 6.045 6.257-1.644z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-buttons">
+        <a href="https://www.instagram.com/psicologo.gustavoamestoy/" class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg></a>
+        <a href="https://wa.link/c9f6rv" class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M16.75,13.96C17,14.26 17.25,14.81 17.25,15.41C17.25,16.5 16.25,17.45 15.2,17.5C14.15,17.55 12.25,17.15 10.45,15.75C8.3,14.05 7,11.9 7,9.75C7,8.55 7.9,7.6 8,6.55C8.05,5.5 8.5,3.75 8.95,3.3C9.4,2.85 10.1,2.85 10.55,3.3C11,3.75 11.5,4.65 11.5,4.95C11.5,5.25 11.45,5.35 11.2,5.6L10.95,5.85C10.75,6.05 10.55,6.2 10.7,6.45C10.85,6.7 11.5,7.6 12.35,8.5C13.35,9.55 14.15,10.1 14.45,10.25C14.7,10.4 14.9,10.2 15.1,10C15.3,9.8 15.75,9.25 16.2,9.25C16.65,9.25 17.3,9.7 17.45,9.85C17.6,10 17.6,10.85 17.3,11.25L16.75,13.96M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C10.03,22 8.2,21.43 6.65,20.45L2,22L3.55,17.35C2.57,15.8 2,13.97 2,12A10,10 0 0,1 12,2Z"/></svg></a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Lic. Gustavo Amestoy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica del Preloader
+            window.addEventListener('load', function() {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => { preloader.style.display = 'none'; }, 500);
+                }
+            });
+            // Lógica del Menú Móvil
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinksMobile = document.getElementById('nav-links-mobile');
+            const body = document.body;
+            function toggleMenu() { body.classList.toggle('nav-open'); }
+            menuToggle.addEventListener('click', toggleMenu);
+            navLinksMobile.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+            // Lógica del Header Scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            });
+            // Lógica de FAQ (Acordeón)
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.closest('.faq-item');
+                    document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                        if (activeItem !== item) { activeItem.classList.remove('active'); }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+            // Lógica de Animaciones al hacer Scroll
+            const animateElements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Psychologist",
+      "name": "Lic. Gustavo Amestoy",
+      "image": "img/perfil.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Maipú 388, 5to D",
+        "addressLocality": "Microcentro",
+        "addressRegion": "CABA",
+        "postalCode": "C1006",
+        "addressCountry": "AR"
+      },
+      "url": "https://www.gustavoamestoy.com/",
+      "telephone": "+541139002247",
+      "priceRange": "$$",
+      "servesCuisine": [],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "21:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/psicologo.gustavoamestoy/"
+      ]
+    }
+    </script>
+</body>
+</html>
