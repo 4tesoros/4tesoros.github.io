@@ -86,6 +86,16 @@
         .preloader-bar { width: 0; height: 100%; background-color: var(--accent); animation: loading-progress 2s ease-out forwards; }
         @keyframes loading-progress { 0% { width: 0; } 100% { width: 100%; } }
         /* ======================= HEADER ======================= */
+        .logo-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    text-align: center;
+    margin-top: -4px;
+    letter-spacing: 0.5px;
+}
+
         .header {
             position: fixed; top: 0; left: 0; width: 100%; padding: var(--spacing-md) 0;
             z-index: 1000; background-color: rgba(255, 255, 255, 0.95);
@@ -120,6 +130,7 @@
         }
         .nav-links-mobile a { color: var(--accent); font-size: 2rem; font-weight: 600; padding: var(--spacing-md) 0; }
         /* ======================= HERO ======================= */
+        
         #hero { min-height: 100vh; display: flex; align-items: center; background-color: #F9FAFB; }
         .hero-content { display: grid; grid-template-columns: 1fr; gap: var(--spacing-xl); align-items: center; }
         .hero-text { text-align: center; }
