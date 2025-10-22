@@ -8,13 +8,22 @@ const urlsToCache = [
   '/icon-512.png'
 ];
 
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
+  console.log('Service Worker instalado');
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
+    caches.open('v1').then((cache) => {
+      return cache.addAll([
+        '/ios/index.html',
+        '/ios/manifest.json',
+        '/ios/icon-192.png',
+        '/ios/icon-512.png',
+      ]).catch(err => {
+        console.warn('⚠️ Error al cachear archivos:', err);
+      });
     })
   );
 });
+
 
 self.addEventListener('fetch', event => {
   event.respondWith(
