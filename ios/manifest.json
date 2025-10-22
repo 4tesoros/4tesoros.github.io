@@ -3,7 +3,7 @@
   "id": "4tesoros.online/roma/roma/ios/index.html",
   "name": "ionizador inteligente",
   "short_name": "electrion",
-  "start_url": "ios/index.html",
+  "start_url": "/ios/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007BFF",
