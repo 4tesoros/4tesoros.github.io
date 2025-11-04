@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Configuración de Timers</title>
+    <title>-Configuración de Timers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="icon-192.png">
     <link rel="manifest" href="manifest.json">
@@ -168,17 +168,23 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
     <script>
     // ===== INICIALIZACIÓN DE FIREBASE =====
-     const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyBdSiQ3xyesATisbgMRbls-UYHzlJWULsA",
   authDomain: "electrion-e54b2.firebaseapp.com",
   databaseURL: "https://electrion-e54b2.firebaseio.com",
   projectId: "electrion-e54b2",
-  storageBucket: "electrion-e54b2.firebasestorage.app",
+  storageBucket: "electrion-e54b2.appspot.com",
   messagingSenderId: "112035346936",
   appId: "1:112035346936:web:46840e40eb5436f3e8be0d",
   measurementId: "G-KQGCZ616JK"
 };
-    const database = firebase.database();
+
+
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+
+
     
     // ===== ELEMENTOS DEL DOM =====
     const pathInput = document.getElementById("commandsPath");
