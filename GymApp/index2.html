@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥊 Dashboard de Boxeo - Control Avanzado</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+    <style>
+        /* Estilos CSS (Base) */
+        :root {
+            --color-primario: #E53935; /* Rojo de boxeo */
+            --color-primario-oscuro: #B71C1C;
+            --color-secundario: #FFEB3B; /* Amarillo/Dorado */
+            --color-fondo: #212121;
+            --color-texto: #ECEFF1;
+            --color-card: #303030;
+            --color-card-dark: #1E1E1E;
+            --color-exito: #4CAF50;
+            --color-alerta: #FF9800;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        /* --- DASHBOARD GRID --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--color-card);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--color-primario);
+            font-size: 1.1em;
+            border-bottom: 2px solid var(--color-primario);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .main-value {
+            font-size: 2.8em;
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* --- SECCIONES DE CONTROL --- */
+        .control-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .control-section h2 {
+            color: var(--color-secundario);
+            border-left: 5px solid var(--color-secundario);
+            padding-left: 10px;
+            margin-bottom: 25px;
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .control-card {
+            background-color: var(--color-card-dark);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* --- ELEMENTOS DE FORMULARIO --- */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--color-texto);
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            color: var(--color-texto);
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            margin-right: 10px;
+        }
+
+        .btn-primario {
+            background-color: var(--color-primario);
+            color: var(--color-texto);
+        }
+        .btn-primario:hover {
+            background-color: var(--color-primario-oscuro);
+        }
+
+        .btn-reiniciar {
+            background-color: #616161;
+            color: var(--color-texto);
+        }
+        .btn-reiniciar:hover {
+            background-color: #424242;
+        }
+
+        .btn-start {
+            background-color: var(--color-exito);
+            color: var(--color-texto);
+        }
+        .btn-start:hover {
+            background-color: #388E3C;
+        }
+
+        /* --- ESTADO DE RUTINA --- */
+        #status-rutina {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--color-alerta);
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #424242;
+            border-radius: 6px;
+        }
+        .status-activo {
+            color: var(--color-exito) !important;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>🥊 Dashboard de Boxeo de <span id="persona-id">CARGANDO...</span></h1>
+        <p>Control y visualización de impactos en tiempo real</p>
+        <span id="status-rutina">Cargando estado...</span>
+    </header>
+
+    <section class="dashboard-grid">
+
+        <div class="card">
+            <h3>Golpes Totales</h3>
+            <span class="main-value" id="total-golpes">0</span>
+            <small>Impactos registrados</small>
+        </div>
+
+        <div class="card">
+            <h3>Tiempo de Rutina</h3>
+            <span class="main-value" id="tiempo-transcurrido">0s</span>
+            <small>Transcurrido / Objetivo: <span id="rutina-objetivo">N/A</span></small>
+        </div>
+        
+        <div class="card">
+            <h3>Máxima Fuerza</h3>
+            <span class="main-value" id="max-fuerza">0.0</span>
+            <small>m/s²</small>
+        </div>
+
+        <div class="card">
+            <h3>Fuerza Promedio</h3>
+            <span class="main-value" id="promedio-fuerza">0.0</span>
+            <small>m/s² por golpe</small>
+        </div>
+
+        <div class="card direction-stats">
+            <h3>Conteo por Dirección</h3>
+            <p>Izquierda: <span id="golpes-izquierda">0</span></p>
+            <p>Derecha: <span id="golpes-derecha">0</span></p>
+            <p>Ascendente: <span id="golpes-ascendente">0</span></p>
+            <p>Descendente: <span id="golpes-descendente">0</span></p>
+        </div>
+        
+        <div class="card">
+            <h3>Último Impacto</h3>
+            <span class="main-value" id="ultimo-timestamp">N/A</span>
+            <small>Hora de la detección</small>
+        </div>
+
+    </section>
+
+    <section class="control-section">
+        <h2>🔧 Control y Configuración</h2>
+        <div class="control-grid">
+            
+            <div class="control-card">
+                <h3>Control de Rutina y Reinicio</h3>
+                <label for="tipo-rutina">Tipo de Rutina</label>
+                <select id="tipo-rutina">
+                    <option value="LIBRE">Libre (Solo conteo)</option>
+                    <option value="TIEMPO">Por Tiempo (Segundos)</option>
+                    <option value="GOLPES">Por Cantidad de Golpes</option>
+                </select>
+
+                <label for="valor-objetivo">Objetivo (Segundos / Golpes)</label>
+                <input type="number" id="valor-objetivo" value="120" min="1" disabled>
+                
+                <button class="btn-start" onclick="iniciarRutina()">INICIAR / APLICAR</button>
+                <button class="btn-primario" onclick="detenerRutina()">DETENER</button>
+                <button class="btn-reiniciar" onclick="reiniciarContadores()">REINICIAR CONTADORES</button>
+            </div>
+            
+            <div class="control-card">
+                <h3>Ajustes Permanentes (EEPROM)</h3>
+                
+                <label for="ruta-usuario">Usuario (Ruta de Firebase)</label>
+                <input type="text" id="ruta-usuario" value="persona1">
+                <button class="btn-primario" onclick="cambiarRutaUsuario()">CAMBIAR RUTA</button>
+                <small>Ej: persona1, persona2...</small>
+
+                <hr style="border-color: #555; margin: 15px 0;">
+                
+                <label for="delta-umbral">Umbral Delta (m/s²)</label>
+                <input type="number" id="delta-umbral" value="5.0" step="0.1" min="0.1">
+                
+                <label for="tiempo-bloqueo">Tiempo de Bloqueo (ms)</label>
+                <input type="number" id="tiempo-bloqueo" value="300" step="10" min="50">
+                
+                <button class="btn-primario" onclick="guardarUmbrales()">GUARDAR UMBRALES</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // =========================================================
+        // 1. CONFIGURACIÓN DE FIREBASE (¡ACTUALIZA ESTO!)
+        // =========================================================
+        const firebaseConfig = {
+        apiKey: "AIzaSyBTsbxqJ0mVAi4DVp_vqZmJehvQspBo-S8",
+         authDomain: "pagos-58644.firebaseapp.com",
+         databaseURL: "https://pagos-58644-default-rtdb.firebaseio.com",
+        projectId: "pagos-58644",
+         storageBucket: "pagos-58644.firebasestorage.app",
+         messagingSenderId: "118987640941",
+         appId: "1:118987640941:web:5ffc5c075d2051ef1bef64"
+        };
+        
+        let CURRENT_PERSONA_ID = "persona1"; // Se inicializa con el valor por defecto
+
+        // Inicializar Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const database = firebase.database();
+        
+        // =========================================================
+        // 2. FUNCIONES DE ACTUALIZACIÓN DE ESTADO (Listener)
+        // =========================================================
+
+        function formatTime(totalSeconds) {
+            if (isNaN(totalSeconds) || totalSeconds < 0) return '0s';
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return (minutes > 0 ? minutes + 'm ' : '') + seconds + 's';
+        }
+
+        function updateDashboard(data) {
+            // Actualizar valores de estadísticas
+            document.getElementById('total-golpes').textContent = data.cantidad_golpes || 0;
+            document.getElementById('max-fuerza').textContent = (data.max_fuerza || 0).toFixed(2);
+            document.getElementById('promedio-fuerza').textContent = (data.promedio_fuerza || 0).toFixed(2);
+            document.getElementById('golpes-izquierda').textContent = data.izquierda || 0;
+            document.getElementById('golpes-derecha').textContent = data.derecha || 0;
+            document.getElementById('golpes-ascendente').textContent = data.ascendente || 0;
+            document.getElementById('golpes-descendente').textContent = data.descendente || 0;
+
+            // Actualizar Timestamp
+            if (data.ultimo_timestamp) {
+                const unixTimestamp = data.ultimo_timestamp;
+                const date = new Date(unixTimestamp * 1000);
+                document.getElementById('ultimo-timestamp').textContent = date.toLocaleTimeString('es-ES', { 
+                    hour: '2-digit', minute: '2-digit', second: '2-digit' 
+                });
+            } else {
+                document.getElementById('ultimo-timestamp').textContent = 'N/A';
+            }
+            
+            // Actualizar estado de Rutina
+            const rutina = data.rutina || {};
+            const statusElement = document.getElementById('status-rutina');
+            const objetivoElement = document.getElementById('rutina-objetivo');
+            
+            let objetivoTexto = 'N/A';
+            let tiempoTranscurrido = formatTime(rutina.tiempo_transcurrido_seg || 0);
+
+            if (rutina.activa) {
+                statusElement.textContent = `RUTINA ACTIVA: ${rutina.tipo} (${tiempoTranscurrido})`;
+                statusElement.classList.add('status-activo');
+            } else if (rutina.tipo === "LIBRE") {
+                 statusElement.textContent = `MODO LIBRE: Contando (${tiempoTranscurrido})`;
+                 statusElement.classList.add('status-activo');
+            } else if (rutina.tipo === "TIEMPO" && rutina.tiempo_transcurrido_seg > 0) {
+                 statusElement.textContent = `COMPLETADA (Tiempo): ${tiempoTranscurrido}`;
+                 statusElement.classList.remove('status-activo');
+            } else if (rutina.tipo === "GOLPES" && rutina.tiempo_transcurrido_seg > 0) {
+                 statusElement.textContent = `COMPLETADA (Golpes): Tomó ${tiempoTranscurrido}`;
+                 statusElement.classList.remove('status-activo');
+            } else {
+                statusElement.textContent = 'LISTO PARA INICIAR RUTINA';
+                statusElement.classList.remove('status-activo');
+            }
+
+            // Mostrar el objetivo
+            if (rutina.tipo === "TIEMPO" && rutina.objetivo_seg) {
+                objetivoTexto = formatTime(rutina.objetivo_seg);
+            } else if (rutina.tipo === "GOLPES" && rutina.objetivo_golpes) {
+                objetivoTexto = `${rutina.objetivo_golpes} golpes`;
+            }
+            objetivoElement.textContent = objetivoTexto;
+            document.getElementById('tiempo-transcurrido').textContent = tiempoTranscurrido;
+        }
+
+        function setupListener(personaId) {
+            if (window.listener) {
+                database.ref(window.listenerPath).off('value', window.listener);
+            }
+
+            CURRENT_PERSONA_ID = personaId;
+            const DB_PATH = '/' + personaId;
+            const listenerPath = DB_PATH; // Escuchamos el nodo principal de la persona
+
+            // 1. Mostrar la ruta actual en la UI
+            document.getElementById('persona-id').textContent = personaId.toUpperCase();
+            document.getElementById('ruta-usuario').value = personaId;
+            
+            // 2. Establecer el listener
+            window.listener = database.ref(listenerPath).on('value', (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    updateDashboard(data);
+                } else {
+                    console.log("No hay datos disponibles en la ruta " + listenerPath);
+                }
+            });
+            window.listenerPath = listenerPath;
+
+            // 3. Obtener valores de control del ESP32 para rellenar los umbrales (opcional, requiere que el ESP32 los publique)
+            // Por ahora, solo actualizamos los valores por defecto
+        }
+
+        // =========================================================
+        // 3. FUNCIONES DE CONTROL (Envío de Comandos al ESP32)
+        // =========================================================
+
+        // Controla si el campo de objetivo está habilitado o no
+        document.getElementById('tipo-rutina').addEventListener('change', function() {
+            const objetivoInput = document.getElementById('valor-objetivo');
+            if (this.value === 'LIBRE') {
+                objetivoInput.disabled = true;
+                objetivoInput.value = 0;
+            } else {
+                objetivoInput.disabled = false;
+                objetivoInput.value = (this.value === 'TIEMPO' ? 120 : 100);
+            }
+        });
+
+        function enviarComando(comando, data = {}) {
+            const path = '/' + CURRENT_PERSONA_ID + '/control';
+            
+            // Usamos un objeto temporal para enviar todos los comandos juntos
+            const payload = {
+                comando: comando,
+                timestamp_web: Date.now()
+            };
+            
+            // Agregar datos específicos
+            for (const key in data) {
+                payload[key] = data[key];
+            }
+            
+            database.ref(path).set(payload)
+                .then(() => console.log(`Comando ${comando} enviado a ${path}`))
+                .catch(error => console.error("Error al enviar comando:", error));
+        }
+
+        function reiniciarContadores() {
+            if (confirm("¿Estás seguro de que quieres REINICIAR TODOS los contadores de la persona actual?")) {
+                enviarComando("REINICIAR_CONTADORES");
+            }
+        }
+
+        function iniciarRutina() {
+            const tipo = document.getElementById('tipo-rutina').value;
+            const valor = parseInt(document.getElementById('valor-objetivo').value);
+            
+            if ((tipo === 'TIEMPO' || tipo === 'GOLPES') && (isNaN(valor) || valor <= 0)) {
+                alert("Por favor, ingresa un valor objetivo válido.");
+                return;
+            }
+            
+            enviarComando("INICIAR", {
+                tipoRutina: tipo,
+                valorObjetivo: valor
+            });
+        }
+        
+        function detenerRutina() {
+            enviarComando("DETENER");
+        }
+
+        function cambiarRutaUsuario() {
+            const nuevaRuta = document.getElementById('ruta-usuario').value.trim().toLowerCase();
+            
+            if (nuevaRuta === CURRENT_PERSONA_ID) {
+                alert("La ruta ya está configurada a " + nuevaRuta);
+                return;
+            }
+            
+            if (!nuevaRuta.match(/^[a-z0-9]+$/)) {
+                alert("La ruta solo debe contener letras minúsculas y números (sin espacios/símbolos).");
+                return;
+            }
+
+            // 1. Envía el comando al ESP32 (el ESP32 se encargará de guardar en EEPROM y reiniciar el stream)
+            enviarComando("ACTUALIZAR_RUTA", { rutaUsuario: nuevaRuta });
+            
+            // 2. Cambia el listener en la web al nuevo path inmediatamente para recibir el ACK
+            setupListener(nuevaRuta);
+        }
+        
+        function guardarUmbrales() {
+            const delta = parseFloat(document.getElementById('delta-umbral').value);
+            const bloqueo = parseInt(document.getElementById('tiempo-bloqueo').value);
+
+            if (isNaN(delta) || isNaN(bloqueo) || delta <= 0 || bloqueo <= 0) {
+                alert("Por favor, verifica que los umbrales sean números positivos válidos.");
+                return;
+            }
+            
+            enviarComando("GUARDAR_UMBRALES", {
+                delta_thr: delta,
+                bloqueo_ms: bloqueo
+            });
+            alert("Comando de guardado enviado. El ESP32 actualizará sus valores y los guardará en su memoria.");
+        }
+
+        // =========================================================
+        // 4. INICIO
+        // =========================================================
+        window.onload = function() {
+            setupListener(CURRENT_PERSONA_ID);
+        };
+    </script>
+</body>
+</html>
