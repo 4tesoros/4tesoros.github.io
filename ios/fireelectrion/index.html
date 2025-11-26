@@ -2,19 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ELECTRION-</title>
+  <title>*ELECTRION--</title>
   <link rel="icon" href="icon-192.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#007BFF">
-  <!-- Hacer que funcione como app en iOS -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Mi App Web">
-
-<!-- Icono para pantalla de inicio -->
-<link rel="apple-touch-icon" href="/ruta/a/icono.png">
-
   <style>
     html, body {
       font-family: Arial, sans-serif;
@@ -129,7 +121,7 @@
   <div class="header">
     <div class="header-buttons">
       <a href="index.html">Inicio</a>
-      <a href="timer.html">Timer</a>
+      <a href="timer.html">Timers</a>
       <a href="tips.html">Tips</a>
       <a href="settings.html">Settings</a>
     </div>
@@ -137,9 +129,7 @@
 
   <div class="main-content">
     <label for="commandsPath">Ruta:</label><br>
-    <input type="text" id="commandsPath" placeholder="Ingresa la ruta..." value="1025" ><br>
-
-    
+    <input type="text" id="commandsPath" placeholder="Ingresa la ruta..."><br>
 
     <button id="btnBomba">Bomba</button>
     <button id="btnLuz">Luz</button>
@@ -156,21 +146,16 @@
 
   <script>
     // ===== INICIALIZACIÓN DE FIREBASE =====
-    const firebaseConfig = {
-  apiKey: "AIzaSyBdSiQ3xyesATisbgMRbls-UYHzlJWULsA",
-  authDomain: "electrion-e54b2.firebaseapp.com",
-  databaseURL: "https://electrion-e54b2.firebaseio.com",
-  projectId: "electrion-e54b2",
-  storageBucket: "electrion-e54b2.appspot.com",
-  messagingSenderId: "112035346936",
-  appId: "1:112035346936:web:46840e40eb5436f3e8be0d",
-  measurementId: "G-KQGCZ616JK"
-};
-
-
-firebase.initializeApp(firebaseConfig);
-
-
+    firebase.initializeApp({
+      apiKey: "AIzaSyAnvN90wYizXGSHC2QvyccZ-wCesELTVUI",
+      authDomain: "ionizadores-787e2.firebaseapp.com",
+      databaseURL: "https://ionizadores-787e2.firebaseio.com",
+      projectId: "ionizadores-787e2",
+      storageBucket: "ionizadores-787e2.appspot.com",
+      messagingSenderId: "403247710969",
+      appId: "1:403247710969:web:e6e943694e0ec56f195828",
+      measurementId: "G-QS0C8YLGWG"
+    });
     const database = firebase.database();
     
     // ===== FUNCIÓN GENÉRICA PARA ENVIAR VALORES =====
