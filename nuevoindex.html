@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roma - Oficinas & Consultorios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --azul-roma: #0056b3;
+            --oscuro: #212529;
+            --gris-claro: #f8f9fa;
+        }
+
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+        /* Navbar */
+        .navbar { background: white; border-bottom: 2px solid var(--gris-claro); transition: 0.3s; }
+        .nav-link { font-weight: 500; color: var(--oscuro) !important; }
+        .nav-link:hover { color: var(--azul-roma) !important; }
+
+        /* Hero Section */
+        #inicio {
+            padding: 100px 0;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('assets/img/background-office.jpg'); /* Agrega tu imagen de fondo */
+            background-size: cover;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Secciones */
+        section { padding: 80px 0; }
+        .section-title { position: relative; margin-bottom: 50px; font-weight: 700; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--azul-roma);
+        }
+
+        /* Tarjetas de Servicios */
+        .service-card {
+            border: none;
+            padding: 30px;
+            border-radius: 15px;
+            background: var(--gris-claro);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .service-card:hover { transform: translateY(-10px); background: white; shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .service-card i { font-size: 2.5rem; color: var(--azul-roma); margin-bottom: 20px; }
+
+        /* Botón de Reserva */
+        .btn-reserva {
+            background-color: var(--azul-roma);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-reserva:hover { background-color: #003d7a; color: white; transform: scale(1.05); }
+
+        /* Footer */
+        footer { background: var(--oscuro); color: white; padding: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/roma/icono.jpg" alt="Roma" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn-reserva" href="calendario.html"><i class="far fa-calendar-alt me-2"></i>RESERVAR TURNO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Tu espacio profesional en Ramos Mejía</h1>
+                    <p class="lead mb-5">Oficinas y consultorios privados diseñados para profesionales que buscan comodidad, imagen y funcionalidad.</p>
+                    <a href="#servicios" class="btn btn-outline-dark btn-lg px-4 me-md-2">Saber más</a>
+                    <a href="calendario.html" class="btn btn-primary btn-lg px-4">Reservar ahora</a>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="assets/img/roma/icono.jpg" class="img-fluid rounded shadow-lg" alt="Roma Oficinas">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Nuestros Espacios</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card shadow-sm text-center">
+                        <i class="fas fa-user-md"></i>
+                        <h3>Consultorios</h3>
+                        <p>Espacios equipados para profesionales de la salud, con excelente iluminación y privacidad.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card shadow-sm text-center">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Oficinas Privadas</h3>
+                        <p>Ideales para abogados, contadores o reuniones de negocios en un entorno profesional.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card shadow-sm text-center">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Servicios Incluidos</h3>
+                        <p>Wi-Fi de alta velocidad, recepción de pacientes y limpieza incluidos en tu módulo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/img/roma/icono.jpg" class="img-fluid rounded shadow" alt="Sobre Roma">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="section-title">Sobre Roma</h2>
+                    <p>En Roma Oficinas nos enfocamos en brindar soluciones de espacio para profesionales independientes. Entendemos la importancia de tener un lugar que refleje profesionalismo y brinde calidez a tus clientes o pacientes.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Ubicación estratégica</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Alquiler por hora o módulos</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Sin gastos de expensas ni mantenimiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <h4>Visítanos</h4>
+                        <p><i class="fas fa-map-marker-alt me-2 text-primary"></i> Av. de Mayo 543, Ramos Mejía</p>
+                        <p><i class="fab fa-whatsapp me-2 text-primary"></i> 11 1234-5678</p>
+                        <p><i class="far fa-envelope me-2 text-primary"></i> hola@romaoficinas.com.ar</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.12345678!2d-58.562!3d-34.672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQwJzE5LjIiUyA1OMKwMzMnNDMuMiJX!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <img src="assets/img/roma/icono.jpg" alt="Logo" height="40" class="mb-3 filter-grayscale">
+            <p class="mb-0">&copy; 2026 Roma Oficinas. Todos los derechos reservados.</p>
+            <div class="mt-2">
+                <a href="administra.html" class="text-white-50 text-decoration-none small">Acceso Administración</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
