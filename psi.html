@@ -15,7 +15,7 @@
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Hero Section - Adaptada para logo con fondo blanco */
+        /* Hero Section */
         .hero {
             background-color: #ffffff;
             color: #111111;
@@ -69,7 +69,7 @@
             font-size: 1.1rem;
         }
 
-        /* Lista para la problemática actual (cruces en vez de tildes) */
+        /* Lista para la problemática actual */
         .problem-list li::before {
             content: "✕";
             color: #dc3545;
@@ -103,11 +103,6 @@
             transform: scale(1.03);
             box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
         }
-
-        .highlight {
-            color: #0d6efd;
-            font-weight: 600;
-        }
         
         .alert-warning-custom {
             background-color: #fff3cd;
@@ -120,7 +115,8 @@
     </style>
 </head>
 <body>
-<!-- HERO (Fondo blanco para integrar tu logo perfectamente) -->
+
+    <!-- HERO -->
     <section class="hero d-flex flex-column align-items-center justify-content-center">
         <div class="container px-4">
             <img src="logoNR2.png" alt="NUEVA ROMA Logo">
@@ -129,8 +125,6 @@
             <p class="lead max-width-600 mx-auto text-muted mb-4">
                 Sumate a <strong>NUEVA ROMA - Centro Profesional</strong>. Un nuevo espacio interdisciplinario en San Luis.
             </p>
-            
-            <!-- BOTÓN VOLVER AL INDEX -->
             <a href="index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-medium">
                 ← Volver al Inicio
             </a>
@@ -145,22 +139,69 @@
             <div class="col-lg-10">
                 <div class="custom-card text-center p-4 p-md-5">
                     <h2 class="fw-bold mb-4">Mucho más que un alquiler tradicional</h2>
-                    <p class="fs-5 text-muted">
+                    <p class="fs-5 text-muted mb-0">
                         No somos un alquiler tradicional de consultorios. Nacemos desde la idea de reunir profesionales en un mismo espacio pensado para crecer acompañados, generar movimiento real y formar parte de una comunidad activa.
                     </p>
-                    
-                    <div class="row g-3 mt-4 text-start justify-content-center">
-                        <div class="col-md-6 col-lg-5">
+                </div>
+            </div>
+        </div>
+
+        <!-- GRILLA: MODALIDAD Y PROPUESTA INTERDISCIPLINARIA -->
+        <div class="row g-4 mb-5">
+            <!-- Modalidad de Uso -->
+            <div class="col-md-6">
+                <div class="custom-card">
+                    <h4 class="fw-bold mb-3 text-primary text-uppercase fs-5">📅 Modalidad de Uso</h4>
+                    <p class="text-muted">
+                        Los espacios se organizan mediante <strong>módulos fijos semanales</strong>. Cada profesional mantiene sus días y horarios asignados.
+                    </p>
+                    <p class="mb-0 text-dark fw-medium">
+                        La modalidad busca brindar estabilidad y continuidad en la atención de los pacientes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Propuesta Interdisciplinaria -->
+            <div class="col-md-6">
+                <div class="custom-card">
+                    <h4 class="fw-bold mb-3 text-primary text-uppercase fs-5">🤝 Propuesta Interdisciplinaria</h4>
+                    <p class="text-muted small mb-3">
+                        NUEVA ROMA no funciona únicamente como un espacio físico de atención. El objetivo es conformar una comunidad profesional activa donde puedas:
+                    </p>
+                    <ul class="feature-list">
+                        <li>Interactuar y generar derivaciones mutuas.</li>
+                        <li>Ampliar tu red de contactos (Networking).</li>
+                        <li>Aumentar tu visibilidad profesional.</li>
+                        <li>Acceder a nuevas oportunidades laborales.</li>
+                    </ul>
+                    <p class="text-muted small mt-3 mb-0">
+                        La circulación permanente de personas dentro del espacio busca potenciar el crecimiento conjunto de quienes forman parte.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: TALLERES Y CAPACITACIONES -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+                <div class="custom-card p-4 p-md-5">
+                    <h3 class="fw-bold mb-4 text-dark text-uppercase fs-4">🎓 Talleres y Capacitaciones</h3>
+                    <p class="text-muted fs-5 mb-4">
+                        Los profesionales que integren NUEVA ROMA también podrán acceder a la posibilidad de expandir sus actividades tradicionales:
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
                             <ul class="feature-list">
-                                <li>Circulación constante de personas.</li>
-                                <li>Nuevas oportunidades mutuas.</li>
-                                <li>Interacción profesional directa.</li>
+                                <li>Organizar talleres y brindar capacitaciones propias.</li>
+                                <li>Realizar convocatorias grupales en el espacio.</li>
+                                <li>Desarrollar actividades profesionales complementarias.</li>
                             </ul>
                         </div>
-                        <div class="col-md-6 col-lg-5">
+                        <div class="col-md-6">
                             <ul class="feature-list">
-                                <li>Derivaciones internas constantes.</li>
-                                <li>Crecimiento profesional compartido.</li>
+                                <li>Participar y acceder a actividades de otros colegas.</li>
+                                <li>Favorecer el intercambio interdisciplinario directo.</li>
+                                <li>Generar nuevas oportunidades de trabajo y networking.</li>
                             </ul>
                         </div>
                     </div>
@@ -168,12 +209,38 @@
             </div>
         </div>
 
-        <!-- SECCIÓN DOS COLUMNAS: PROBLEMÁTICA VS SOLUCIÓN -->
+        <!-- SECCIÓN PROFESIONALES ESTABLECIDOS -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+                <div class="custom-card p-4 p-md-5 bg-light border">
+                    <h3 class="fw-bold mb-3 fs-5 text-uppercase">También pensado para profesionales ya establecidos</h3>
+                    <p class="text-muted mb-4">
+                        La propuesta también puede funcionar como una forma simple y económica para quienes ya cuentan con una estructura armada pero buscan:
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <ul class="feature-list">
+                                <li>Ampliar los días de su agenda actual.</li>
+                                <li>Sumar un nuevo punto de atención estratégica.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="feature-list">
+                                <li>Expandirse a otra zona y generar nuevos pacientes.</li>
+                                <li>Aumentar su presencia profesional general.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRILLA NUEVA: PROBLEMÁTICA VS QUÉ INCLUYE (Abajo de Profesionales Establecidos) -->
         <div class="row g-4 mb-5">
             <!-- El problema actual -->
             <div class="col-md-6">
                 <div class="custom-card">
-                    <h4 class="fw-bold mb-4 text-danger">¿Por qué formar parte?</h4>
+                    <h4 class="fw-bold mb-4 text-danger text-uppercase fs-5">¿Por qué formar parte?</h4>
                     <p class="text-muted">Hoy en día, muchos profesionales de la salud trabajan de forma aislada:</p>
                     <ul class="feature-list problem-list">
                         <li>Atendiendo desde casa sin separar espacios.</li>
@@ -185,56 +252,28 @@
                 </div>
             </div>
 
-            <!-- Qué incluye la propuesta -->
+            <!-- Qué incluye la propuesta (Sin servicios incluidos) -->
             <div class="col-md-6">
                 <div class="custom-card">
-                    <h4 class="fw-bold mb-4 text-success">¿Qué incluye la propuesta?</h4>
+                    <h4 class="fw-bold mb-4 text-success text-uppercase fs-5">¿Qué incluye la propuesta?</h4>
                     <ul class="feature-list">
-                        <li><strong>Módulos fijos semanales</strong> adaptados a vos.</li>
-                        <li>Consultorios listos para atención profesional.</li>
+                        <li>Módulos fijos semanales adaptados a vos.</li>
+                        <li>Consultorios preparados para atención profesional.</li>
                         <li>Sala de espera cómoda para pacientes.</li>
                         <li>Internet WiFi de alta velocidad.</li>
-                        <li>Todos los servicios e impuestos incluidos.</li>
-                        <li>Excelente ubicación en la ciudad.</li>
+                        <li>Excelente ubicación céntrica en San Luis.</li>
                         <li>Entorno cálido, serio y profesional.</li>
-                        <li>Comunidad interdisciplinaria activa.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN PROFESIONALES ESTABLECIDOS -->
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-10">
-                <div class="custom-card p-4 p-md-5 text-center text-md-start">
-                    <h3 class="fw-bold mb-3">También pensado para profesionales ya establecidos</h3>
-                    <p class="text-muted fs-5 mb-4">
-                        Si ya tenés tu consultorio principal, esta propuesta funciona como una alternativa simple y económica para:
-                    </p>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <ul class="feature-list">
-                                <li>Ampliar los días de tu agenda actual.</li>
-                                <li>Sumar un nuevo punto estratégico de atención.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="feature-list">
-                                <li>Generar nuevos contactos y pacientes en otra zona.</li>
-                                <li>Aumentar tu presencia profesional en San Luis.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECCIÓN PRECIO Y CONTACTO (Call to Action) -->
+        <!-- SECCIÓN PRECIO Y CONTACTO -->
         <div class="row justify-content-center mb-5">
             <div class="col-md-8 col-lg-6 text-center">
                 <div class="price-box">
-                    <h3 class="fw-bold mb-2 text-white-50 fs-4">Módulos Mensuales Desde</h3>
-                    <div class="price mb-2">$29.000 <span class="fs-5 text-white-50"></span></div>
+                    <h3 class="fw-bold mb-2 text-white-50 fs-5 text-uppercase">Módulos Mensuales Desde</h3>
+                    <div class="price mb-2">$35.000 <span class="fs-5 text-white-50">+ expensas</span></div>
                     
                     <div class="alert-warning-custom mb-4 mt-3">
                         ⚠ Convocatoria limitada para profesionales fundadores.
@@ -245,7 +284,7 @@
                     </p>
                     
                     <a href="https://wa.me/5492664709447?text=Hola!%20Quiero%20consultar%20por%20la%20convocatoria%20para%20Nueva%20Roma" class="btn btn-success btn-lg btn-contact" target="_blank">
-                        Consultar para formar parte
+                        Consultanos para formar parte
                     </a>
                 </div>
             </div>
@@ -280,7 +319,7 @@
         const botToken = "8536737423:AAEfqmiLCO8yEq45NygxGBLpdA0kWhuTOSw";
         const chatId = "7251533831";
 
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=📢 Nueva visita en psico NUEVA ROMA, https://romaoficinas.com.ar/`)
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=📢 Nueva visita en Convocatoria NUEVA ROMA, https://romaoficinas.com.ar/`)
         .catch(err => console.log(err));
     })();
     </script>
