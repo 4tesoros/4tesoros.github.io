@@ -120,16 +120,20 @@
     </style>
 </head>
 <body>
-
-    <!-- HERO (Fondo blanco para integrar tu logo perfectamente) -->
+<!-- HERO (Fondo blanco para integrar tu logo perfectamente) -->
     <section class="hero d-flex flex-column align-items-center justify-content-center">
         <div class="container px-4">
             <img src="logoNR2.png" alt="NUEVA ROMA Logo">
             <span class="badge bg-primary text-uppercase px-3 py-2 rounded-pill mb-3">Convocatoria Abierta</span>
             <h1 class="display-5 fw-bold mb-3 text-uppercase">Psicólogos y Nutricionistas</h1>
-            <p class="lead max-width-600 mx-auto text-muted">
+            <p class="lead max-width-600 mx-auto text-muted mb-4">
                 Sumate a <strong>NUEVA ROMA - Centro Profesional</strong>. Un nuevo espacio interdisciplinario en San Luis.
             </p>
+            
+            <!-- BOTÓN VOLVER AL INDEX -->
+            <a href="index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-medium">
+                ← Volver al Inicio
+            </a>
         </div>
     </section>
 
@@ -230,7 +234,7 @@
             <div class="col-md-8 col-lg-6 text-center">
                 <div class="price-box">
                     <h3 class="fw-bold mb-2 text-white-50 fs-4">Módulos Mensuales Desde</h3>
-                    <div class="price mb-2">$35.000 <span class="fs-5 text-white-50">+ expensas</span></div>
+                    <div class="price mb-2">$29.000 <span class="fs-5 text-white-50"></span></div>
                     
                     <div class="alert-warning-custom mb-4 mt-3">
                         ⚠ Convocatoria limitada para profesionales fundadores.
@@ -276,7 +280,7 @@
         const botToken = "8536737423:AAEfqmiLCO8yEq45NygxGBLpdA0kWhuTOSw";
         const chatId = "7251533831";
 
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=📢 Nueva visita en Convocatoria NUEVA ROMA, https://romaoficinas.com.ar/`)
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=📢 Nueva visita en psico NUEVA ROMA, https://romaoficinas.com.ar/`)
         .catch(err => console.log(err));
     })();
     </script>
