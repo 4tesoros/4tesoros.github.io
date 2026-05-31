@@ -3,197 +3,188 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lic. Noelia — Psicoterapia presencial y online</title>
+    <title>Lic. Noelia — Psicoterapia de Autor</title>
     <meta name="description" content="Psicóloga Noelia | Psicoterapia para adolescentes y adultos. Manejo de estrés, ansiedad, hábitos saludables y crecimiento personal. Atención presencial y online en San Luis." />
-    <!-- Fuentes de Google: Lora para títulos (elegante) y Roboto para lectura limpia -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container header-content">
-            <a href="#" class="brand">
-                <h1 class="logo">Lic. Noelia</h1>
-                <p class="lead-header">Psicología Clínica</p>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-title">Lic. Noelia</span>
+                <span class="logo-sub">Psicología Clínica</span>
             </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#sobre-mi">Sobre mí</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#galeria">Ambiente</a></li>
-                    <li><a href="#contacto" class="nav-btn">Contacto</a></li>
-                </ul>
+            <nav class="nav-menu">
+                <a href="#sobre-mi">El Enfoque</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">El Espacio</a>
+                <a href="#contacto" class="btn-nav">Agendar Turno</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- SECCIÓN HERO -->
-        <section id="inicio" class="hero-section">
-            <div class="container hero-grid">
-                <div class="hero-card">
-                    <h2>Un espacio terapéutico enfocado en tu crecimiento y bienestar</h2>
-                    <p>Trabajo con adolescentes y adultos en procesos de <span class="highlight">manejo de estrés</span>, <span class="highlight">ansiedad</span>, formación de <span class="highlight">hábitos saludables</span> y crecimiento personal. Atención presencial en San Luis y mediante plataformas online.</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="https://wa.me/2664308809?text=consulta%20desde%20la%20web" target="_blank" rel="noopener">Agendar por WhatsApp</a>
-                        <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+        <section id="inicio" class="hero">
+            <div class="hero-container">
+                <div class="hero-text-block">
+                    <span class="hero-tag">Salud Mental & Bienestar</span>
+                    <h2>Un espacio terapéutico diseñado para detenerte, comprender y crecer.</h2>
+                    <p>Acompañamiento clínico individual para adolescentes y adultos. Especializada en la gestión del estrés, la ansiedad y la construcción de hábitos conscientes en San Luis y formato online.</p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-dark" href="https://wa.me/2664308809?text=consulta%20desde%20la%20web" target="_blank" rel="noopener">Iniciar Proceso</a>
+                        <a class="btn btn-text" href="#servicios">Explorar Servicios →</a>
                     </div>
                 </div>
 
-                <div class="hero-image-contact">
-                    <div class="avatar-large">
-                        <img src="noe.png" alt="Foto de la Lic. Noelia" />
+                <div class="hero-visual-block">
+                    <div class="image-frame">
+                        <img src="noe.png" alt="Lic. Noelia" />
                     </div>
-                    <div class="contact-fast-card">
-                        <div class="fast-item">
-                            <span class="icon">📱</span>
-                            <a href="https://wa.me/2664308809?text=consulta%20desde%20la%20web" target="_blank" rel="noopener">+54 266 4308809</a>
+                    <div class="quick-cards-stack">
+                        <div class="quick-card">
+                            <span class="q-icon">📍</span>
+                            <p>Rivadavia 1138, San Luis</p>
                         </div>
-                        <div class="fast-item">
-                            <span class="icon">📍</span>
-                            <span>Rivadavia 1138, San Luis</span>
+                        <div class="quick-card">
+                            <span class="q-icon">📱</span>
+                            <p>+54 266 4308809</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SOBRE MÍ -->
-        <section id="sobre-mi" class="content-section about-section">
-            <div class="container">
-                <h3 class="section-title">Sobre mí</h3>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>Hola, soy <strong>Noelia</strong>, psicóloga clínica. Acompaño a adolescentes y adultos en procesos de cambio y bienestar emocional. Mi enfoque combina escucha activa, herramientas prácticas y acompañamiento personalizado para que puedas enfrentar desafíos, reducir el malestar y construir hábitos saludables.</p>
-                        <p>Si querés que trabajemos juntos, podés agendar una consulta online o presencial. Mi prioridad es brindar un <strong>espacio seguro, respetuoso y profesional</strong>.</p>
+        <section id="sobre-mi" class="philosophy">
+            <div class="narrow-container">
+                <div class="philosophy-header">
+                    <span class="sub-accent">Mi Filosofía</span>
+                    <h3>Crear un espacio seguro no es solo escuchar, es construir juntos herramientas para tu día a día.</h3>
+                </div>
+                <div class="philosophy-body">
+                    <div class="phil-text">
+                        <p>Hola, soy <strong>Noelia</strong>. Concibo la psicoterapia como un espacio de pausa activa. Mi objetivo es brindarte un entorno de absoluta confianza, respeto mutuo y rigor profesional para que logres desactivar el malestar emocional y tomar las riendas de tu crecimiento personal.</p>
                     </div>
-                    <div class="about-specialties">
-                        <h4>Áreas de Especialización</h4>
-                        <ul class="specialties-list">
-                            <li><strong>Manejo de estrés:</strong> Técnicas prácticas y psicoeducación.</li>
-                            <li><strong>Problemas de ansiedad:</strong> Intervenciones breves y seguimiento.</li>
-                            <li><strong>Hábitos saludables:</strong> Rutinas, optimización del sueño y autocuidado.</li>
-                            <li><strong>Crecimiento personal:</strong> Metas, autoestima y planificación.</li>
-                        </ul>
+                    <div class="phil-bullets">
+                        <div class="bullet-item">
+                            <h5>Manejo de Estrés</h5>
+                            <p>Intervenciones basadas en evidencia y herramientas de regulación emocional.</p>
+                        </div>
+                        <div class="bullet-item">
+                            <h5>Ansiedad</h5>
+                            <p>Estrategias prácticas para reinterpretar y gestionar los síntomas.</p>
+                        </div>
+                        <div class="bullet-item">
+                            <h5>Hábitos Conscientes</h5>
+                            <p>Reestructuración de rutinas diarias, descanso y autocuidado.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICIOS -->
-        <section id="servicios" class="content-section services-section">
-            <div class="container">
-                <div class="section-header">
-                    <h3 class="section-title">Servicios de Terapia</h3>
-                    <p class="section-subtitle">Sesiones individuales tanto <strong>presenciales</strong> como <strong>online</strong>, adaptadas a las necesidades particulares de cada etapa.</p>
-                </div>
-
-                <div class="services-grid">
-                    <div class="service-item card">
-                        <div class="service-icon">🗣️</div>
-                        <h4>Terapia Individual<br><small>(Adolescentes y Adultos)</small></h4>
-                        <p>Sesiones de 45 minutos enfocadas en el abordaje de ansiedad, estrés y problemáticas personales.</p>
-                        <a class="btn btn-outline" href="https://wa.me/2664308809" target="_blank" rel="noopener">Consultar</a>
-                    </div>
-                    <div class="service-item card">
-                        <div class="service-icon">🎯</div>
-                        <h4>Orientación Puntual</h4>
-                        <p>Sesiones breves (30 minutos) enfocadas en destrabar una problemática específica con una guía clara y rápida.</p>
-                        <a class="btn btn-outline" href="https://wa.me/2664308809" target="_blank" rel="noopener">Consultar</a>
-                    </div>
-                    <div class="service-item card">
-                        <div class="service-icon">🌱</div>
-                        <h4>Manejo de Estrés</h4>
-                        <p>Programas personalizados que incluyen herramientas de gestión emocional y material exclusivo de seguimiento.</p>
-                        <a class="btn btn-outline" href="https://wa.me/2664308809" target="_blank" rel="noopener">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GALERÍA / AMBIENTE -->
-        <section id="galeria" class="content-section gallery-section">
-            <div class="container">
-                <h3 class="section-title">Un ambiente pensado para tu comodidad</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/400x300/e9ecef/495057?text=Rincón+de+Lectura" alt="Rincón cómodo del consultorio" loading="lazy">
-                    </div>
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/400x300/e9ecef/495057?text=Luz+y+Naturaleza" alt="Detalle de luz natural y plantas" loading="lazy">
-                    </div>
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/400x300/e9ecef/495057?text=Consultorio+General" alt="Vista general del consultorio" loading="lazy">
-                    </div>
-                </div>
-                <p class="gallery-caption">Espacios cálidos, luminosos y relajantes diseñados para facilitar la introspección.</p>
-            </div>
-        </section>
-
-        <!-- CONTACTO -->
-        <section id="contacto" class="content-section contact-section">
-            <div class="container contact-grid">
-                <div class="contact-info">
-                    <h3 class="section-title">Contacto</h3>
-                    <p class="contact-intro">Escribime directamente por WhatsApp o completá el formulario para coordinar un turno.</p>
-                    
-                    <div class="contact-list">
-                        <div class="contact-list-item">
-                            <span class="c-icon">📍</span>
-                            <div>
-                                <h5>Dirección</h5>
-                                <p>Rivadavia 1138, San Luis, Argentina</p>
-                            </div>
-                        </div>
-                        <div class="contact-list-item">
-                            <span class="c-icon">📱</span>
-                            <div>
-                                <h5>WhatsApp</h5>
-                                <p><a href="https://wa.me/2664308809" target="_blank" rel="noopener">+54 2664 308809</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-list-item">
-                            <span class="c-icon">📷</span>
-                            <div>
-                                <h5>Instagram</h5>
-                                <p><a href="https://www.instagram.com/psicologa.noelia/" target="_blank" rel="noopener">@psicologa.noelia</a></p>
-                            </div>
-                        </div>
-                    </div>
+        <section id="servicios" class="services">
+            <div class="wide-container">
+                <div class="center-header">
+                    <span class="sub-accent">Propuesta Clínica</span>
+                    <h3>Formatos de Atención</h3>
                 </div>
                 
-                <div class="card contact-form-card">
-                    <form action="#" onsubmit="alert('¡Gracias por tu mensaje! Nos comunicaremos a la brevedad.'); return false;">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Ej: María Pérez" required />
+                <div class="editorial-grid">
+                    <div class="editorial-card">
+                        <span class="card-number">01</span>
+                        <h4>Psicoterapia Individual</h4>
+                        <p class="card-subtitle">Adolescentes y Adultos</p>
+                        <p>Sesiones profundas de 45 minutos. Ideal para abordar procesos de ansiedad crónico, crisis vitales y autoconocimiento general.</p>
+                        <a href="https://wa.me/2664308809" class="card-link">Consultar Disponibilidad</a>
+                    </div>
+
+                    <div class="editorial-card">
+                        <span class="card-number">02</span>
+                        <h4>Orientación Focalizada</h4>
+                        <p class="card-subtitle">Sesiones de Foco Único</p>
+                        <p>Encuentros estratégicos de 30 minutos destinados a destrabar un conflicto puntual o tomar una decisión compleja con guía experta.</p>
+                        <a href="https://wa.me/2664308809" class="card-link">Consultar Disponibilidad</a>
+                    </div>
+
+                    <div class="editorial-card">
+                        <span class="card-number">03</span>
+                        <h4>Programas de Regulación</h4>
+                        <p class="card-subtitle">Gestión del Estrés Laboral y Personal</p>
+                        <p>Bloques cerrados de sesiones con entrega de material psicoterapéutico exclusivo enfocado en restaurar el equilibrio psicofísico.</p>
+                        <a href="https://wa.me/2664308809" class="card-link">Consultar Disponibilidad</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="gallery">
+            <div class="wide-container">
+                <div class="center-header">
+                    <span class="sub-accent">El Entorno</span>
+                    <h3>Un lugar que invita a la calma</h3>
+                </div>
+                <div class="gallery-minimal-grid">
+                    <div class="g-item">
+                        <img src="https://via.placeholder.com/600x450/eeebe5/443e3c?text=Ambiente+Cálido" alt="Consultorio rincón" />
+                        <p>Luz natural e introspección</p>
+                    </div>
+                    <div class="g-item">
+                        <img src="https://via.placeholder.com/600x450/eeebe5/443e3c?text=Detalles+Orgánicos" alt="Plantas y luz" />
+                        <p>Elementos que conectan</p>
+                    </div>
+                    <div class="g-item">
+                        <img src="https://via.placeholder.com/600x450/eeebe5/443e3c?text=Espacio+Principal" alt="Consultorio general" />
+                        <p>Privacidad absoluta y confort</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="narrow-container contact-split">
+                <div class="contact-text-side">
+                    <span class="sub-accent">Coordinemos un turno</span>
+                    <h3>Da el primer paso hacia una vida más liviana.</h3>
+                    <p>Podés agendar directamente mediante los canales alternativos o rellenar el formulario de admisión de pacientes.</p>
+                    
+                    <div class="minimal-info-list">
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/2664308809">+54 2664 308809</a></p>
+                        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/psicologa.noelia/" target="_blank">@psicologa.noelia</a></p>
+                        <p><strong>Ubicación:</strong> Rivadavia 1138, San Luis, Argentina</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-side">
+                    <form action="#" onsubmit="alert('Consulta recibida. Lic. Noelia se pondrá en contacto pronto.'); return false;" class="premium-form">
+                        <div class="input-row">
+                            <input type="text" placeholder="Nombre completo" required />
                         </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono / WhatsApp</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 2664000000" required />
+                        <div class="input-row">
+                            <input type="tel" placeholder="Tu Teléfono / WhatsApp" required />
                         </div>
-                        <div class="form-group">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" placeholder="Ej: tu@email.com" required />
+                        <div class="input-row">
+                            <input type="email" placeholder="Correo electrónico" required />
                         </div>
-                        <div class="form-group">
-                            <label for="mensaje">Motivo de consulta / Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contame brevemente en qué puedo ayudarte..."></textarea>
+                        <div class="input-row">
+                            <textarea rows="4" placeholder="¿Cuál es el principal motivo de tu consulta hoy? (Opcional)"></textarea>
                         </div>
-                        <button class="btn btn-primary btn-block" type="submit">Enviar Consulta</button>
+                        <button type="submit" class="btn btn-dark btn-full">Solicitar Entrevista Admisión</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <p>&copy; <span id="year"></span> Lic. Noelia — Psicología Clínica. Todos los derechos reservados.</p>
-            <p class="footer-sub">San Luis, Argentina &bull; Presencial y Online</p>
+    <footer class="footer">
+        <div class="wide-container footer-flex">
+            <p>&copy; <span id="year"></span> Lic. Noelia. Psicología Clínica de Vanguardia.</p>
+            <p>Atención Presencial en San Luis & Consultas Online Globales</p>
         </div>
     </footer>
 
