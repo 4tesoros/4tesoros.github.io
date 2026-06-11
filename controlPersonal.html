@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Finanzas Personales</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: #cbd5e1;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: var(--radius);
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background-color: #334155;
+            color: white;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        h1, h2, h3 { margin-bottom: 1rem; color: var(--text-main); }
+        
+        /* Grid & Cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .text-success { color: var(--success); }
+        .text-danger { color: var(--danger); }
+        .text-primary { color: var(--secondary); }
+
+        /* Forms */
+        .form-container {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        input, select {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: var(--surface);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-primary { background-color: var(--secondary); color: white; }
+        .btn-primary:hover { background-color: #2563eb; }
+        .btn-danger { background-color: var(--danger); color: white; }
+        .btn-danger:hover { background-color: #dc2626; }
+        .btn-warning { background-color: var(--warning); color: white; }
+        .btn-warning:hover { background-color: #d97706; }
+        
+        .btn-small { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Config blocks */
+        .config-block {
+            background-color: var(--background);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-top: 1rem;
+            border: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background-color: #f8fafc; }
+
+        /* Charts Container */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .chart-wrapper {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-height: 350px;
+        }
+
+        /* Utilities */
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            background: #e2e8f0;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <button class="nav-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+        <button class="nav-btn" onclick="switchTab('ingresos')">💰 Ingresos</button>
+        <button class="nav-btn" onclick="switchTab('gastos')">📉 Gastos</button>
+        <button class="nav-btn" onclick="switchTab('reportes')">📋 Reportes</button>
+        <button class="nav-btn" onclick="switchTab('estadisticas')">📈 Estadísticas</button>
+    </nav>
+
+    <div class="container">
+        <section id="dashboard" class="section active">
+            <h2>Resumen del Mes (<span id="dash-month-label"></span>)</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Ingresos del mes</h3>
+                    <div class="value text-success" id="dash-ingresos">$0.00</div>
+                </div>
+                <div class="card">
+                    <h3>Gastos del mes</h3>
+                    <div class="value text-danger" id="dash-gastos">$0.00</div>
+                </div>
+                <div class="card">
+                    <h3>Ganancia del mes</h3>
+                    <div class="value text-primary" id="dash-ganancia">$0.00</div>
+                </div>
+            </div>
+
+            <h2>Desglose Ingresos</h2>
+            <div class="grid-cards">
+                <div class="card"><h3>Total ELECTRION</h3><div class="value" id="dash-tot-electrion">$0.00</div></div>
+                <div class="card"><h3>Total ROMA</h3><div class="value" id="dash-tot-roma">$0.00</div></div>
+                <div class="card"><h3>Ionizadores</h3><div class="value" id="dash-tot-ionizadores">$0.00</div></div>
+                <div class="card"><h3>Proyectos a terceros</h3><div class="value" id="dash-tot-proyectos">$0.00</div></div>
+                <div class="card"><h3>Juegos</h3><div class="value" id="dash-tot-juegos">$0.00</div></div>
+                <div class="card"><h3>Otros (Electrion)</h3><div class="value" id="dash-tot-otros-elec">$0.00</div></div>
+            </div>
+
+            <h2>Desglose Gastos por Categoría</h2>
+            <div class="grid-cards" id="dash-gastos-cat-container">
+                </div>
+        </section>
+
+        <section id="ingresos" class="section">
+            <h2>Gestión de Ingresos</h2>
+            
+            <div class="form-container">
+                <h3 id="ingreso-form-title">Agregar Ingreso</h3>
+                <form id="form-ingreso">
+                    <input type="hidden" id="ing-id">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" id="ing-fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Origen</label>
+                            <select id="ing-origen" onchange="updateIngresoCategories()" required>
+                                <option value="Electrion">Electrion</option>
+                                <option value="ROMA">ROMA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría</label>
+                            <select id="ing-categoria" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <input type="text" id="ing-descripcion" placeholder="Detalle del ingreso">
+                        </div>
+                        <div class="form-group">
+                            <label>Monto</label>
+                            <input type="number" step="0.01" id="ing-monto" required>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary" id="ing-submit-btn">Guardar</button>
+                        <button type="button" class="btn btn-warning" id="ing-cancel-btn" style="display:none;" onclick="resetIngresoForm()">Cancelar</button>
+                    </div>
+                </form>
+
+                <div class="config-block">
+                    <strong>Añadir subcategoría a Electrion:</strong>
+                    <input type="text" id="new-elec-subcat" placeholder="Nueva subcategoría" style="padding: 0.4rem; width: 200px;">
+                    <button type="button" class="btn btn-primary btn-small" onclick="addElectrionSubcat()">Agregar</button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Origen</th>
+                            <th>Categoría</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-ingresos"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="gastos" class="section">
+            <h2>Gestión de Gastos</h2>
+
+            <div class="form-container">
+                <h3 id="gasto-form-title">Agregar Gasto</h3>
+                <form id="form-gasto">
+                    <input type="hidden" id="gas-id">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" id="gas-fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría</label>
+                            <select id="gas-categoria" onchange="updateGastoSubcategories()" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Subcategoría</label>
+                            <select id="gas-subcategoria" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <input type="text" id="gas-descripcion" placeholder="Detalle del gasto">
+                        </div>
+                        <div class="form-group">
+                            <label>Monto</label>
+                            <input type="number" step="0.01" id="gas-monto" required>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary" id="gas-submit-btn">Guardar</button>
+                        <button type="button" class="btn btn-warning" id="gas-cancel-btn" style="display:none;" onclick="resetGastoForm()">Cancelar</button>
+                    </div>
+                </form>
+
+                <div class="config-block">
+                    <strong>Añadir Categoría Principal:</strong>
+                    <input type="text" id="new-gas-cat" placeholder="Nueva categoría" style="padding: 0.4rem; width: 150px;">
+                    <button type="button" class="btn btn-primary btn-small" onclick="addGastoCategory()">Añadir Categoría</button>
+                    
+                    <span style="margin: 0 1rem; color: #cbd5e1;">|</span>
+
+                    <strong>Añadir Subcategoría a:</strong>
+                    <select id="target-gas-cat" style="padding: 0.4rem;"></select>
+                    <input type="text" id="new-gas-subcat" placeholder="Nueva subcategoría" style="padding: 0.4rem; width: 150px;">
+                    <button type="button" class="btn btn-primary btn-small" onclick="addGastoSubcategory()">Añadir Subcat</button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Categoría</th>
+                            <th>Subcategoría</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-gastos"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="reportes" class="section">
+            <h2>Reportes Gráficos</h2>
+            <div class="form-container" style="display: flex; gap: 1rem; align-items: flex-end; margin-bottom: 2rem;">
+                <div class="form-group" style="margin: 0;">
+                    <label>Mes</label>
+                    <select id="rep-mes">
+                        <option value="01">Enero</option><option value="02">Febrero</option>
+                        <option value="03">Marzo</option><option value="04">Abril</option>
+                        <option value="05">Mayo</option><option value="06">Junio</option>
+                        <option value="07">Julio</option><option value="08">Agosto</option>
+                        <option value="09">Septiembre</option><option value="10">Octubre</option>
+                        <option value="11">Noviembre</option><option value="12">Diciembre</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin: 0;">
+                    <label>Año</label>
+                    <input type="number" id="rep-anio" value="2026">
+                </div>
+                <button class="btn btn-primary" onclick="generateReports()">Filtrar</button>
+            </div>
+
+            <div class="grid-cards">
+                <div class="card"><h3>Total Ingresos (Filtro)</h3><div class="value text-success" id="rep-tot-ing">$0.00</div></div>
+                <div class="card"><h3>Total Gastos (Filtro)</h3><div class="value text-danger" id="rep-tot-gas">$0.00</div></div>
+                <div class="card"><h3>Ganancia (Filtro)</h3><div class="value text-primary" id="rep-tot-gan">$0.00</div></div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-wrapper">
+                    <h3>Ingresos por Origen</h3>
+                    <canvas id="chart-ing-origen"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Ingresos por Categoría</h3>
+                    <canvas id="chart-ing-cat"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Gastos por Categoría</h3>
+                    <canvas id="chart-gas-cat"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Evolución Mensual (Año seleccionado)</h3>
+                    <canvas id="chart-evolucion"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="estadisticas" class="section">
+            <h2>Estadísticas Generales</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Generación Promedio Mensual ELECTRION</h3>
+                    <div class="value text-success" id="est-prom-electrion">$0.00</div>
+                </div>
+                <div class="card">
+                    <h3>Generación Promedio Mensual ROMA</h3>
+                    <div class="value text-success" id="est-prom-roma">$0.00</div>
+                </div>
+                <div class="card">
+                    <h3>Porcentaje Ingresos Electrion</h3>
+                    <div class="value text-primary" id="est-pct-electrion">0%</div>
+                </div>
+                <div class="card">
+                    <h3>Porcentaje Ingresos ROMA</h3>
+                    <div class="value text-primary" id="est-pct-roma">0%</div>
+                </div>
+                <div class="card">
+                    <h3>Promedio Mensual de Ingresos (Global)</h3>
+                    <div class="value text-success" id="est-prom-ing">$0.00</div>
+                </div>
+                <div class="card">
+                    <h3>Promedio Mensual de Gastos (Global)</h3>
+                    <div class="value text-danger" id="est-prom-gas">$0.00</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module">
+        // ---------------------------------------------------------
+        // 1. REEMPLAZAR ESTA CONFIGURACIÓN CON LAS CREDENCIALES REALES
+        // ---------------------------------------------------------
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { 
+            getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, getDocs 
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSy_TU_CLAVE_API_AQUI",
+            authDomain: "tu-proyecto.firebaseapp.com",
+            projectId: "tu-proyecto",
+            storageBucket: "tu-proyecto.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "1:123456789:web:abcdef123456"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // ---------------------------------------------------------
+        // 2. ESTRUCTURAS DE DATOS LOCALES Y ESTADO
+        // ---------------------------------------------------------
+        const defaultElectrionSubcats = ["Ionizadores", "Proyectos a terceros", "Juegos", "Otros"];
+        const defaultGastosCats = {
+            "Kiosco": ["Varios"],
+            "Comida": ["Varios"],
+            "Shopping": ["Varios"],
+            "Vehículos": ["Combustible", "Seguro", "Reparaciones", "Patente", "Mantenimiento"],
+            "Casa": ["Alquiler", "Servicios", "Reparaciones"],
+            "Taller": ["Alquiler", "Herramientas", "Insumos"],
+            "Oficina": ["Alquiler", "Servicios", "Internet"],
+            "Cochera": ["Alquiler"],
+            "Otros": ["Varios"]
+        };
+
+        // Persistencia local para categorías personalizadas
+        let electrionSubcats = JSON.parse(localStorage.getItem('electrionSubcats')) || defaultElectrionSubcats;
+        let gastosCats = JSON.parse(localStorage.getItem('gastosCats')) || defaultGastosCats;
+
+        let ingresosData = [];
+        let gastosData = [];
+
+        // Instancias de ChartJS
+        let charts = {};
+
+        // ---------------------------------------------------------
+        // 3. INICIALIZACIÓN DE UI Y FECHAS
+        // ---------------------------------------------------------
+        const todayDateStr = new Date().toISOString().split('T')[0];
+        document.getElementById('ing-fecha').value = todayDateStr;
+        document.getElementById('gas-fecha').value = todayDateStr;
+        
+        const currentMonth = new Date().getMonth() + 1;
+        const currentYear = new Date().getFullYear();
+        document.getElementById('rep-mes').value = currentMonth.toString().padStart(2, '0');
+        document.getElementById('rep-anio').value = currentYear;
+
+        // ---------------------------------------------------------
+        // 4. FUNCIONES DE NAVEGACIÓN Y TABS
+        // ---------------------------------------------------------
+        window.switchTab = function(tabId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+
+            if(tabId === 'reportes') generateReports();
+        };
+
+        // ---------------------------------------------------------
+        // 5. MANEJO DINÁMICO DE FORMULARIOS (CATEGORÍAS)
+        // ---------------------------------------------------------
+        window.updateIngresoCategories = function() {
+            const origen = document.getElementById('ing-origen').value;
+            const selectCat = document.getElementById('ing-categoria');
+            selectCat.innerHTML = '';
+
+            if(origen === 'Electrion') {
+                electrionSubcats.forEach(c => selectCat.add(new Option(c, c)));
+            } else if(origen === 'ROMA') {
+                selectCat.add(new Option('Alquileres', 'Alquileres'));
+            }
+        };
+
+        window.addElectrionSubcat = function() {
+            const val = document.getElementById('new-elec-subcat').value.trim();
+            if(val && !electrionSubcats.includes(val)) {
+                electrionSubcats.push(val);
+                localStorage.setItem('electrionSubcats', JSON.stringify(electrionSubcats));
+                updateIngresoCategories();
+                document.getElementById('new-elec-subcat').value = '';
+            }
+        };
+
+        window.initGastosConfigUI = function() {
+            const selectCatForm = document.getElementById('gas-categoria');
+            const selectTargetCat = document.getElementById('target-gas-cat');
+            
+            selectCatForm.innerHTML = '';
+            selectTargetCat.innerHTML = '';
+
+            Object.keys(gastosCats).forEach(cat => {
+                selectCatForm.add(new Option(cat, cat));
+                selectTargetCat.add(new Option(cat, cat));
+            });
+            updateGastoSubcategories();
+        };
+
+        window.updateGastoSubcategories = function() {
+            const cat = document.getElementById('gas-categoria').value;
+            const selectSub = document.getElementById('gas-subcategoria');
+            selectSub.innerHTML = '';
+            if(gastosCats[cat]) {
+                gastosCats[cat].forEach(sub => selectSub.add(new Option(sub, sub)));
+            }
+        };
+
+        window.addGastoCategory = function() {
+            const val = document.getElementById('new-gas-cat').value.trim();
+            if(val && !gastosCats[val]) {
+                gastosCats[val] = ["Varios"];
+                localStorage.setItem('gastosCats', JSON.stringify(gastosCats));
+                initGastosConfigUI();
+                document.getElementById('new-gas-cat').value = '';
+            }
+        };
+
+        window.addGastoSubcategory = function() {
+            const targetCat = document.getElementById('target-gas-cat').value;
+            const val = document.getElementById('new-gas-subcat').value.trim();
+            if(targetCat && val && !gastosCats[targetCat].includes(val)) {
+                gastosCats[targetCat].push(val);
+                localStorage.setItem('gastosCats', JSON.stringify(gastosCats));
+                initGastosConfigUI();
+                document.getElementById('new-gas-subcat').value = '';
+            }
+        };
+
+        // Inicializar selects
+        updateIngresoCategories();
+        initGastosConfigUI();
+
+        // ---------------------------------------------------------
+        // 6. FIRESTORE CRUD LOGIC & REALTIME LISTENERS
+        // ---------------------------------------------------------
+        
+        // --- INGRESOS ---
+        document.getElementById('form-ingreso').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('ing-id').value;
+            const data = {
+                fecha: document.getElementById('ing-fecha').value,
+                origen: document.getElementById('ing-origen').value,
+                categoria: document.getElementById('ing-categoria').value,
+                descripcion: document.getElementById('ing-descripcion').value,
+                monto: parseFloat(document.getElementById('ing-monto').value)
+            };
+
+            if(id) {
+                await updateDoc(doc(db, "ingresos", id), data);
+            } else {
+                await addDoc(collection(db, "ingresos"), data);
+            }
+            resetIngresoForm();
+        });
+
+        window.editIngreso = function(id) {
+            const item = ingresosData.find(i => i.id === id);
+            if(item) {
+                document.getElementById('ing-id').value = item.id;
+                document.getElementById('ing-fecha').value = item.fecha;
+                document.getElementById('ing-origen').value = item.origen;
+                updateIngresoCategories();
+                document.getElementById('ing-categoria').value = item.categoria;
+                document.getElementById('ing-descripcion').value = item.descripcion;
+                document.getElementById('ing-monto').value = item.monto;
+                
+                document.getElementById('ingreso-form-title').innerText = 'Editar Ingreso';
+                document.getElementById('ing-submit-btn').innerText = 'Actualizar';
+                document.getElementById('ing-cancel-btn').style.display = 'block';
+            }
+        };
+
+        window.deleteIngreso = async function(id) {
+            if(confirm("¿Eliminar este ingreso?")) await deleteDoc(doc(db, "ingresos", id));
+        };
+
+        window.resetIngresoForm = function() {
+            document.getElementById('form-ingreso').reset();
+            document.getElementById('ing-id').value = '';
+            document.getElementById('ing-fecha').value = todayDateStr;
+            updateIngresoCategories();
+            document.getElementById('ingreso-form-title').innerText = 'Agregar Ingreso';
+            document.getElementById('ing-submit-btn').innerText = 'Guardar';
+            document.getElementById('ing-cancel-btn').style.display = 'none';
+        };
+
+        // --- GASTOS ---
+        document.getElementById('form-gasto').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('gas-id').value;
+            const data = {
+                fecha: document.getElementById('gas-fecha').value,
+                categoria: document.getElementById('gas-categoria').value,
+                subcategoria: document.getElementById('gas-subcategoria').value,
+                descripcion: document.getElementById('gas-descripcion').value,
+                monto: parseFloat(document.getElementById('gas-monto').value)
+            };
+
+            if(id) {
+                await updateDoc(doc(db, "gastos", id), data);
+            } else {
+                await addDoc(collection(db, "gastos"), data);
+            }
+            resetGastoForm();
+        });
+
+        window.editGasto = function(id) {
+            const item = gastosData.find(i => i.id === id);
+            if(item) {
+                document.getElementById('gas-id').value = item.id;
+                document.getElementById('gas-fecha').value = item.fecha;
+                document.getElementById('gas-categoria').value = item.categoria;
+                updateGastoSubcategories();
+                document.getElementById('gas-subcategoria').value = item.subcategoria;
+                document.getElementById('gas-descripcion').value = item.descripcion;
+                document.getElementById('gas-monto').value = item.monto;
+                
+                document.getElementById('gasto-form-title').innerText = 'Editar Gasto';
+                document.getElementById('gas-submit-btn').innerText = 'Actualizar';
+                document.getElementById('gas-cancel-btn').style.display = 'block';
+            }
+        };
+
+        window.deleteGasto = async function(id) {
+            if(confirm("¿Eliminar este gasto?")) await deleteDoc(doc(db, "gastos", id));
+        };
+
+        window.resetGastoForm = function() {
+            document.getElementById('form-gasto').reset();
+            document.getElementById('gas-id').value = '';
+            document.getElementById('gas-fecha').value = todayDateStr;
+            initGastosConfigUI();
+            document.getElementById('gasto-form-title').innerText = 'Agregar Gasto';
+            document.getElementById('gas-submit-btn').innerText = 'Guardar';
+            document.getElementById('gas-cancel-btn').style.display = 'none';
+        };
+
+        // --- LISTENERS ---
+        onSnapshot(collection(db, "ingresos"), (snapshot) => {
+            ingresosData = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
+                            .sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+            renderIngresosTable();
+            calculateDashboard();
+            calculateEstadisticas();
+        });
+
+        onSnapshot(collection(db, "gastos"), (snapshot) => {
+            gastosData = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
+                            .sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+            renderGastosTable();
+            calculateDashboard();
+            calculateEstadisticas();
+        });
+
+        // ---------------------------------------------------------
+        // 7. RENDERIZADO DE TABLAS
+        // ---------------------------------------------------------
+        function formatDate(str) {
+            if(!str) return '';
+            const [y, m, d] = str.split('-');
+            return `${d}/${m}/${y}`;
+        }
+
+        function renderIngresosTable() {
+            const tbody = document.getElementById('tbody-ingresos');
+            tbody.innerHTML = '';
+            ingresosData.forEach(item => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${formatDate(item.fecha)}</td>
+                        <td><strong>${item.origen}</strong></td>
+                        <td><span class="badge">${item.categoria}</span></td>
+                        <td>${item.descripcion || ''}</td>
+                        <td class="text-success" style="font-weight:bold;">$${item.monto.toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-warning btn-small" onclick="editIngreso('${item.id}')">Editar</button>
+                            <button class="btn btn-danger btn-small" onclick="deleteIngreso('${item.id}')">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function renderGastosTable() {
+            const tbody = document.getElementById('tbody-gastos');
+            tbody.innerHTML = '';
+            gastosData.forEach(item => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${formatDate(item.fecha)}</td>
+                        <td><strong>${item.categoria}</strong></td>
+                        <td><span class="badge">${item.subcategoria}</span></td>
+                        <td>${item.descripcion || ''}</td>
+                        <td class="text-danger" style="font-weight:bold;">$${item.monto.toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-warning btn-small" onclick="editGasto('${item.id}')">Editar</button>
+                            <button class="btn btn-danger btn-small" onclick="deleteGasto('${item.id}')">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // ---------------------------------------------------------
+        // 8. DASHBOARD LOGIC
+        // ---------------------------------------------------------
+        function calculateDashboard() {
+            const currDate = new Date();
+            const currMonthStr = `${currDate.getFullYear()}-${(currDate.getMonth()+1).toString().padStart(2,'0')}`;
+            document.getElementById('dash-month-label').innerText = currMonthStr;
+
+            let incTotal = 0, gasTotal = 0;
+            let totElectrion = 0, totRoma = 0;
+            let totIonizadores = 0, totProyectos = 0, totJuegos = 0, totOtrosElec = 0;
+            
+            let gastosPorCat = {};
+
+            ingresosData.forEach(i => {
+                if(i.fecha.startsWith(currMonthStr)) {
+                    incTotal += i.monto;
+                    if(i.origen === 'Electrion') {
+                        totElectrion += i.monto;
+                        if(i.categoria === 'Ionizadores') totIonizadores += i.monto;
+                        else if(i.categoria === 'Proyectos a terceros') totProyectos += i.monto;
+                        else if(i.categoria === 'Juegos') totJuegos += i.monto;
+                        else totOtrosElec += i.monto;
+                    } else if(i.origen === 'ROMA') {
+                        totRoma += i.monto;
+                    }
+                }
+            });
+
+            gastosData.forEach(g => {
+                if(g.fecha.startsWith(currMonthStr)) {
+                    gasTotal += g.monto;
+                    gastosPorCat[g.categoria] = (gastosPorCat[g.categoria] || 0) + g.monto;
+                }
+            });
+
+            document.getElementById('dash-ingresos').innerText = `$${incTotal.toFixed(2)}`;
+            document.getElementById('dash-gastos').innerText = `$${gasTotal.toFixed(2)}`;
+            const gan = incTotal - gasTotal;
+            const ganEl = document.getElementById('dash-ganancia');
+            ganEl.innerText = `$${gan.toFixed(2)}`;
+            ganEl.className = `value ${gan >= 0 ? 'text-success' : 'text-danger'}`;
+
+            document.getElementById('dash-tot-electrion').innerText = `$${totElectrion.toFixed(2)}`;
+            document.getElementById('dash-tot-roma').innerText = `$${totRoma.toFixed(2)}`;
+            document.getElementById('dash-tot-ionizadores').innerText = `$${totIonizadores.toFixed(2)}`;
+            document.getElementById('dash-tot-proyectos').innerText = `$${totProyectos.toFixed(2)}`;
+            document.getElementById('dash-tot-juegos').innerText = `$${totJuegos.toFixed(2)}`;
+            document.getElementById('dash-tot-otros-elec').innerText = `$${totOtrosElec.toFixed(2)}`;
+
+            // Renderizar tarjetas de gastos
+            const gasContainer = document.getElementById('dash-gastos-cat-container');
+            gasContainer.innerHTML = '';
+            Object.keys(gastosCats).forEach(cat => {
+                const monto = gastosPorCat[cat] || 0;
+                gasContainer.innerHTML += `
+                    <div class="card">
+                        <h3>Gastos en ${cat}</h3>
+                        <div class="value text-danger">$${monto.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // ---------------------------------------------------------
+        // 9. REPORTES (CHART.JS)
+        // ---------------------------------------------------------
+        window.generateReports = function() {
+            const y = document.getElementById('rep-anio').value;
+            const m = document.getElementById('rep-mes').value;
+            const filterStr = `${y}-${m}`;
+
+            let ingTotalFiltro = 0, gasTotalFiltro = 0;
+            let ingOrigen = {}, ingCat = {}, gasCat = {};
+            let evoIng = Array(12).fill(0), evoGas = Array(12).fill(0);
+
+            ingresosData.forEach(i => {
+                // Filtro mes/año
+                if(i.fecha.startsWith(filterStr)) {
+                    ingTotalFiltro += i.monto;
+                    ingOrigen[i.origen] = (ingOrigen[i.origen] || 0) + i.monto;
+                    ingCat[i.categoria] = (ingCat[i.categoria] || 0) + i.monto;
+                }
+                // Evolución Anual
+                if(i.fecha.startsWith(y)) {
+                    const monthIdx = parseInt(i.fecha.split('-')[1]) - 1;
+                    evoIng[monthIdx] += i.monto;
+                }
+            });
+
+            gastosData.forEach(g => {
+                if(g.fecha.startsWith(filterStr)) {
+                    gasTotalFiltro += g.monto;
+                    gasCat[g.categoria] = (gasCat[g.categoria] || 0) + g.monto;
+                }
+                if(g.fecha.startsWith(y)) {
+                    const monthIdx = parseInt(g.fecha.split('-')[1]) - 1;
+                    evoGas[monthIdx] += g.monto;
+                }
+            });
+
+            // Actualizar Tarjetas
+            document.getElementById('rep-tot-ing').innerText = `$${ingTotalFiltro.toFixed(2)}`;
+            document.getElementById('rep-tot-gas').innerText = `$${gasTotalFiltro.toFixed(2)}`;
+            const ganFiltro = ingTotalFiltro - gasTotalFiltro;
+            const repGan = document.getElementById('rep-tot-gan');
+            repGan.innerText = `$${ganFiltro.toFixed(2)}`;
+            repGan.className = `value ${ganFiltro >= 0 ? 'text-primary' : 'text-danger'}`;
+
+            // Actualizar Gráficos
+            const createChart = (id, type, labels, data, colors, labelName = '') => {
+                if(charts[id]) charts[id].destroy();
+                const ctx = document.getElementById(id).getContext('2d');
+                charts[id] = new Chart(ctx, {
+                    type: type,
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: labelName,
+                            data: data,
+                            backgroundColor: colors,
+                            borderColor: type==='line' ? colors[0] : '#fff',
+                            tension: 0.1
+                        }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+            };
+
+            const bgColors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6'];
+
+            createChart('chart-ing-origen', 'pie', Object.keys(ingOrigen), Object.values(ingOrigen), bgColors);
+            createChart('chart-ing-cat', 'bar', Object.keys(ingCat), Object.values(ingCat), '#10b981', 'Monto');
+            createChart('chart-gas-cat', 'doughnut', Object.keys(gasCat), Object.values(gasCat), bgColors);
+
+            if(charts['chart-evolucion']) charts['chart-evolucion'].destroy();
+            charts['chart-evolucion'] = new Chart(document.getElementById('chart-evolucion').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                    datasets: [
+                        { label: 'Ingresos', data: evoIng, borderColor: '#10b981', fill: false },
+                        { label: 'Gastos', data: evoGas, borderColor: '#ef4444', fill: false }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        };
+
+        // ---------------------------------------------------------
+        // 10. ESTADÍSTICAS HISTÓRICAS
+        // ---------------------------------------------------------
+        function calculateEstadisticas() {
+            // Obtener conjunto de meses únicos
+            const mesesIng = ingresosData.map(i => i.fecha.substring(0,7));
+            const mesesGas = gastosData.map(g => g.fecha.substring(0,7));
+            const mesesUnicos = new Set([...mesesIng, ...mesesGas]);
+            const cantMeses = mesesUnicos.size || 1;
+
+            let histTotIng = 0, histTotGas = 0;
+            let histElectrion = 0, histRoma = 0;
+
+            ingresosData.forEach(i => {
+                histTotIng += i.monto;
+                if(i.origen === 'Electrion') histElectrion += i.monto;
+                if(i.origen === 'ROMA') histRoma += i.monto;
+            });
+
+            gastosData.forEach(g => {
+                histTotGas += g.monto;
+            });
+
+            document.getElementById('est-prom-electrion').innerText = `$${(histElectrion / cantMeses).toFixed(2)}`;
+            document.getElementById('est-prom-roma').innerText = `$${(histRoma / cantMeses).toFixed(2)}`;
+            
+            const pctElec = histTotIng > 0 ? (histElectrion / histTotIng) * 100 : 0;
+            const pctRoma = histTotIng > 0 ? (histRoma / histTotIng) * 100 : 0;
+            document.getElementById('est-pct-electrion').innerText = `${pctElec.toFixed(1)}%`;
+            document.getElementById('est-pct-roma').innerText = `${pctRoma.toFixed(1)}%`;
+
+            document.getElementById('est-prom-ing').innerText = `$${(histTotIng / cantMeses).toFixed(2)}`;
+            document.getElementById('est-prom-gas').innerText = `$${(histTotGas / cantMeses).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
