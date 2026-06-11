@@ -512,24 +512,7 @@
         // ---------------------------------------------------------
         // 1. REEMPLAZAR ESTA CONFIGURACIÓN CON LAS CREDENCIALES REALES
         // ---------------------------------------------------------
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { 
-            getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, getDocs 
-        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-       const firebaseConfig = {
-  apiKey: "AIzaSyByZVcQpKfY91Cc8wANgB7MMCGkgistd8Y",
-  authDomain: "pronosticos-761a3.firebaseapp.com",
-  databaseURL: "https://pronosticos-761a3-default-rtdb.firebaseio.com",
-  projectId: "pronosticos-761a3",
-  storageBucket: "pronosticos-761a3.firebasestorage.app",
-  messagingSenderId: "435286939046",
-  appId: "1:435286939046:web:e85464278d86e1163f6b67"
-};
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
+    npm install firebase
         // ---------------------------------------------------------
         // 2. ESTRUCTURAS DE DATOS LOCALES Y ESTADO
         // ---------------------------------------------------------
